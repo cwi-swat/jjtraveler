@@ -75,8 +75,7 @@ public class NestingDepth implements Visitor {
 	    (new All( deeper )).visit(x);
 	    maxNestingDepth = deeper.getDepth();
 	} 
-	catch (VisitFailure vf) {
-	    // no nesting construct found.
+	catch (VisitFailure noNestingConstructFound) {
 	    (new All(this)).visit(x);
 	}
 	return x;
