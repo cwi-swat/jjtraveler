@@ -44,5 +44,5 @@ all-local: htmljava.stamp
 
 htmljava.stamp: $(JAVA_UNIT)
 	$(mkinstalldirs) $(DOCDIR)/$(packagedir)
-	cp @JAVA_JUNIT@ $(DOCDIR)/$(packagedir)
+	cp ${patsubst %,${srcdir}/%, ${JAVA_JUNIT}} $(DOCDIR)/$(packagedir)
 	echo timestamp > htmljava.stamp
