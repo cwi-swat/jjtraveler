@@ -6,7 +6,7 @@ java_JAVA =\
 	VisitableFail.java\
 	VisitableSequence.java\
 	WrapLog.java\
-	$(JAVA_JUNIT)
+	@JAVA_JUNIT@
 
 DOCDIR		= ../doc
 javapackage	= jjtraveler.reflective
@@ -21,20 +21,22 @@ JAVA_JUNIT = \
 
 EXTRA_DIST	= package.html
 
-noinst_JAVA = $(JAVA_JUNIT)
+noinst_JAVA = @JAVA_JUNIT@
 
 EXTRA_JAVA  = $(JAVA_JUNIT)
 
 TESTS_JUNIT = MainTest 
 
-TESTS       = $(TESTS_JUNIT)
+TESTS       = @TESTS_JUNIT@
 
 EXTRA_TESTS = $(TESTS_JUNIT)
 
 MainTest: Makefile
 	echo "#! /bin/sh" > $@
-	echo "$(JUNIT) $(javapackage).TestAll" >> $@
+	echo "@JUNIT@ $(javapackage).TestAll" >> $@
 	chmod +x $@
+
+JAVACC      = @JAVACC@
 
 CLEANFILES += MainTest
 

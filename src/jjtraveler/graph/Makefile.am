@@ -10,7 +10,7 @@ java_JAVA =\
 	MkEdgeFromParent.java\
 	ToGraph.java\
 	WhileNotVisited.java \
-	$(JAVA_JUNIT)
+	@JAVA_JUNIT@
 
 javapackage	= jjtraveler.graph
 javadir		= ${prefix}/classes/jjtraveler/graph
@@ -28,13 +28,13 @@ JAVA_JUNIT = \
 	EdgesGraphTest.java \
 	WhileNotVisitedTest.java 
 
-noinst_JAVA = $(JAVA_JUNIT)
+noinst_JAVA = @JAVA_JUNIT@
 
 EXTRA_JAVA  = $(JAVA_JUNIT)
 
 TESTS_JUNIT = MainTest 
 
-TESTS       = $(TESTS_JUNIT)
+TESTS       = @TESTS_JUNIT@
 
 EXTRA_TESTS = $(TESTS_JUNIT)
 

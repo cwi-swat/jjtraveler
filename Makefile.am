@@ -22,10 +22,7 @@ SUBDIRS	= src scripts
 EXTRA_DIST = ADDING-TOOLS VERSION configure.in.src genconf.sh \
              package.conf reconf $(PACKAGE)-$(VERSION).pkg \
              acincludejava.m4
-
-noinst_DATA = $(PACKAGE)-$(VERSION).pkg
              
-CLEANFILES = $(PACKAGE)-*.pkg
 
 # Generation of a package defintion file from the package.conf file. This
 # file in combination with autobundle enables integration of the package
