@@ -26,6 +26,18 @@ public class Node implements jjtraveler.Visitable {
 	this.nodeID = nodeID;
     }
 
+    public Node() {
+	this.kids = new Node[]{};
+	this.logger = new Logger();
+	this.nodeID = nodeCounter++;
+    }
+
+    public Node(Node[] kids) {
+	this.kids = kids;
+	this.logger = new Logger();
+	this.nodeID = nodeCounter++;
+    }
+
     public Node accept(NodeVisitor v) throws jjtraveler.VisitFailure {
 	// logger.log("Node.accept");
 	return v.visitNode(this);
