@@ -27,7 +27,6 @@ TopDownUntil.java \
 TopDownWhile.java \
 GuaranteeSuccess.java \
 IfThenElse.java \
-TopDownCutOff.java \
 NestingDepth.java \
 @JAVA_JUNIT@
 
@@ -46,8 +45,7 @@ JAVA_JUNIT = \
 	LibraryTest.java \
 	NestingDepthTest.java \
 	OnceTopDownTest.java \
-	OneTest.java \
-	TopDownCutOffTest.java
+	OneTest.java
 
 
 EXTRA_DIST	= package.html overview.html.src
