@@ -84,7 +84,7 @@ htmljava.stamp: $(java_JAVA) overview.html
 	  -overview overview.html \
 	  -use -private -d ${DOCDIR} \
 	  ${java_packages}
-	cp @JAVA_JUNIT@ $(DOCDIR)/$(javapackage)
+	cp ${patsubst %,${srcdir}/%,${JAVA_JUNIT}} $(DOCDIR)/$(javapackage)
 	echo timestamp > htmljava.stamp
 
 html-install: htmljava.stamp
