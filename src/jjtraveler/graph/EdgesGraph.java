@@ -21,11 +21,14 @@ public class EdgesGraph implements Graph {
 	return result;
     }
     public String toRSF() {
+	return toRSF("edge");
+    }
+    public String toRSF(String defaultEdgeType) {
 	String result = "";
 	Iterator edgeIterator = edges.iterator();
 	while (edgeIterator.hasNext()) {
 	    Edge edge = (Edge) edgeIterator.next();
-	    result += edge.toRSF();
+	    result += edge.toRSF(defaultEdgeType);
 	}
 	return result;
     }
@@ -57,8 +60,8 @@ public class EdgesGraph implements Graph {
 	public String toDot() {
 	    return source+" -> "+target+";\n";
 	}
-	public String toRSF() {
-	    return "edge "+source+" "+target+"\n";
+	public String toRSF(String edgeType) {
+	    return edgeType+" "+source+" "+target+"\n";
 	}
 	public boolean equals(Object o) {
 	    boolean result = false;
