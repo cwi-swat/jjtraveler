@@ -9,3 +9,4 @@ configure
 *.pkg
 *.tar.gz
 JJTraveler-0.4a
+bin
