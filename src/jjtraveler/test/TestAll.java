@@ -11,6 +11,8 @@ public class TestAll extends VisitorTestCase {
 	TestSuite suite = new TestSuite();
 	suite.addTest( new TestSuite( jjtraveler.test.IdentityTest.class) );
 	suite.addTest( new TestSuite( jjtraveler.test.FailTest.class) );
+	suite.addTest( new TestSuite( jjtraveler.test.OneTest.class) );
+	suite.addTest( new TestSuite( jjtraveler.test.AllTest.class) );
 	suite.addTest( new TestSuite( jjtraveler.test.IfThenElseTest.class) );
 	suite.addTest( new TestSuite( jjtraveler.test.TopDownCutOffTest.class) );
 	suite.addTest( new TestSuite( jjtraveler.test.LibraryTest.class) );

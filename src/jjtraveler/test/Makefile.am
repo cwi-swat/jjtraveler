@@ -12,6 +12,8 @@ JAVA_JUNIT = \
 	LibraryTest.java\
 	IdentityTest.java\
 	FailTest.java\
+	OneTest.java\
+	AllTest.java\
 	IfThenElseTest.java \
 	TopDownCutOffTest.java 
 
