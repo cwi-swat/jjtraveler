@@ -7,12 +7,12 @@ package jjtraveler;
  * A typical example of its usage is for counting the
  * maximum nesting level of if-statements in a program.
  */
-public class NestingDepth implements Visitor {
+public class NestingDepth implements Visitor, Cloneable {
 
     Visitor nestingRecognizer;
-    Visitor goOnWhileSuccess;
-    int nestingLevel;
-    int maxNestingDepth;
+    Visitor goOnWhileSuccess = new Identity();
+    int nestingLevel = 0;
+    int maxNestingDepth = 0;
     
     /** Create a nesting counter given the recognizer argument.
      *  The recognizer fails at all nodes, except for the ones
@@ -21,30 +21,34 @@ public class NestingDepth implements Visitor {
     public NestingDepth(Visitor nestingRecognizer, Visitor goOn) {
 	this.nestingRecognizer = nestingRecognizer;
 	this.goOnWhileSuccess = goOn;
-	this.nestingLevel = 0;
-	this.maxNestingDepth = 0;
     }
 
    /** Create a nesting counter given the recognizer argument.
      */
     public NestingDepth(Visitor nestingRecognizer) {
 	this.nestingRecognizer = nestingRecognizer;
-	this.goOnWhileSuccess = new Identity();
-	this.nestingLevel = 0;
-	this.maxNestingDepth = 0;
     }
 
-    /** Internal constructor used for restarting the counter
-     *  with a new current nesting level and maximum found so far.
+    /** Restart a visitor after having recognized a relevant construct.
      */
-    NestingDepth(Visitor nestingRecognizer, 
-		 int nestingLevel,
-		 int maxNestingDepth,
-		 Visitor goOn) {
-	this.nestingRecognizer = nestingRecognizer;
-	this.nestingLevel = nestingLevel;
-	this.maxNestingDepth = maxNestingDepth;
-	this.goOnWhileSuccess = goOn;
+    private NestingDepth restart() {
+	NestingDepth nextDepth = (NestingDepth) this.clone();
+	nextDepth.maxNestingDepth = max(maxNestingDepth, nestingLevel + 1);
+	nextDepth.nestingLevel++;
+	return nextDepth;
+    }
+
+    public Object clone() {
+	NestingDepth theClone = 
+	    new NestingDepth(nestingRecognizer, goOnWhileSuccess);
+	theClone.nestingLevel = nestingLevel;
+	theClone.maxNestingDepth = maxNestingDepth;
+	return theClone;
+    }
+
+    private NestingDepth apply(Visitable x) {
+	(new GuaranteeSuccess (new All(this))).visit(x);
+	return this;
     }
 
     /** Return the maximum nesting depth found.
@@ -66,17 +70,10 @@ public class NestingDepth implements Visitor {
 	// we can continue searching for nested constructs.
 	try {
 	    nestingRecognizer.visit(x);
-	    NestingDepth deeper = 
-		new NestingDepth(nestingRecognizer, 
-				 nestingLevel + 1,
-				 max(maxNestingDepth, nestingLevel + 1),
-				 goOnWhileSuccess
-				 );
-	    (new All( deeper )).visit(x);
-	    maxNestingDepth = deeper.getDepth();
+	    maxNestingDepth = restart().apply(x).getDepth();
 	} 
 	catch (VisitFailure noNestingConstructFound) {
-	    (new All(this)).visit(x);
+	    this.apply(x);
 	}
 	return x;
     }
