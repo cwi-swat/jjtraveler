@@ -34,7 +34,7 @@ javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
 JAVASRCROOT	= ${top_srcdir}/src
 
-SUBDIRS		= util test
+SUBDIRS		= util test reflective
 
 all-local: htmljava.stamp
 

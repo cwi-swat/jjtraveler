@@ -1,3 +1,7 @@
+2001-11-28 Joost.Visser@cwi.nl
+	* Started subpackage "reflective" which contains classes and
+	  interfaces for visiting visitors themselves.
+
 2001-11-20 Joost.Visser@cwi.nl
 	* Released version 0.2 and bumped to 0.3a.
 	
