@@ -1,3 +1,6 @@
+2001-06-28 Joost Visser <Joost.Visser@cwi.nl>
+         * Released version 0.1 and bumped to 0.2a.
+	
 2001-06-27 Joost Visser <Joost.Visser@cwi.nl>
          * Added explicit constructor definitions to the class
  	   VisitFailure.
