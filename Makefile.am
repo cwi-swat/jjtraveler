@@ -26,5 +26,5 @@ EXTRA_DIST = reconf package acincludejava.m4
 noinst_SCRIPTS = ${PACKAGE}-${VERSION}.pkg
 
 ${PACKAGE}-${VERSION}.pkg: package Makefile
-	cp $ < $@
+	cp $< $@
 
