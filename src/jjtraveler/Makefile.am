@@ -29,6 +29,7 @@ GuaranteeSuccess.java \
 IfThenElse.java \
 NestingDepth.java \
 DoWhileSuccess.java \
+Collect.java \
 @JAVA_JUNIT@
 
 javapackage	= jjtraveler
