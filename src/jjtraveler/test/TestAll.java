@@ -16,6 +16,7 @@ public class TestAll extends VisitorTestCase {
 	suite.addTest( new TestSuite( jjtraveler.test.OnceTopDownTest.class) );
 	suite.addTest( new TestSuite( jjtraveler.test.IfThenElseTest.class) );
 	suite.addTest( new TestSuite( jjtraveler.test.TopDownCutOffTest.class) );
+	suite.addTest( new TestSuite( jjtraveler.test.NestingDepthTest.class) );
 	suite.addTest( new TestSuite( jjtraveler.test.LibraryTest.class) );
 	return suite;
     }

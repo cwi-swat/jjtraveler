@@ -9,7 +9,7 @@ public class TopDownCutOffTest extends VisitorTestCase {
     }
 
     public void testTopDownCutOff() throws VisitFailure {
-	CutOffExample stopAt = new CutOffExample(n1, n2);
+	Visitor stopAt = new Not (new FailAtNodes(n1, n2) );
 
         Identity id = new Identity();
         Logger expected = new Logger();
@@ -25,20 +25,4 @@ public class TopDownCutOffTest extends VisitorTestCase {
         assertEquals(expected, logger);
         assertEquals(n0, nodeReturned);
     }
-
-    public class CutOffExample implements jjtraveler.Visitor {
-	Visitable stopNode1;
-	Visitable stopNode2;
-	public CutOffExample(Visitable n1, Visitable n2) {
-	    stopNode1 = n1;
-	    stopNode2 = n2;
-	}
-	public Visitable visit(Visitable x) throws VisitFailure {
-	    if (! (x == stopNode1 || x == stopNode2) ){
-		throw (new VisitFailure());
-	    }
-	    return x;
-	}
-    }
-
 }

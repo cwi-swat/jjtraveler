@@ -1,7 +1,7 @@
 java_JAVA = \
 	Node.java NodeVisitor.java\
 	Logger.java LogVisitor.java Event.java \
-	VisitorTestCase.java \
+	VisitorTestCase.java FailAtNodes.java \
 	@JAVA_JUNIT@
 
 javadir		= ${prefix}/classes/jjtraveler/test
@@ -16,6 +16,7 @@ JAVA_JUNIT = \
 	AllTest.java\
 	OnceTopDownTest.java\
 	IfThenElseTest.java \
+	NestingDepthTest.java \
 	TopDownCutOffTest.java 
 
 noinst_JAVA = @JAVA_JUNIT@
