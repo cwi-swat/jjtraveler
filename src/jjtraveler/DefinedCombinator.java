@@ -3,6 +3,9 @@ package jjtraveler;
 /** Abstract class for combinators with an explicit definition.
  *  This class helps to set the definition, and to invoke the
  *  definition upon visit.
+ * 
+ *  @author Arie van Deursen, CWI
+ *  @version $Id$
  */
 
 public abstract class DefinedCombinator implements Visitor {

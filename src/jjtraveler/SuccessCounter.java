@@ -1,5 +1,15 @@
 package jjtraveler;
 
+/** Counter which keeps track of how
+ *  often its argument visitor succeeds
+ *  and how often it fails.
+ *  Can be used for various metrics
+ *  combinators. 
+ * 
+ * @author Arie van Deursen; Jun 30, 2003 
+ * @version $Id$
+ */
+
 
 public class SuccessCounter implements Visitor {
 

@@ -3,6 +3,13 @@ package jjtraveler;
 import jjtraveler.test.FailAtNodes;
 import jjtraveler.test.VisitorTestCase;
 
+/** Test cases for the SuccessCounter
+ * combinator.
+ * 
+ * @author Arie van Deursen; Jun 30, 2003 
+ * @version $Id$
+ */
+
 public class SuccessCounterTest extends VisitorTestCase {
 
     public SuccessCounterTest(String test) {

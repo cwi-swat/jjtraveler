@@ -4,6 +4,15 @@ import jjtraveler.test.Logger;
 import jjtraveler.test.SucceedAtNodes;
 import jjtraveler.test.VisitorTestCase;
 
+/** Test cases for TopDownUntil,
+ *  illustrating its effect with a 
+ *  failing condition.
+ * 
+ * 
+ * @author Arie van Deursen; Jun 30, 2003 
+ * @version $Id$
+ */
+
 public class TopDownUntilTest extends VisitorTestCase {
 
 	public TopDownUntilTest(String test) {

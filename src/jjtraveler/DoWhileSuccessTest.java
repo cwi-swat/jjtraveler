@@ -5,6 +5,15 @@ import jjtraveler.test.Logger;
 import jjtraveler.test.SucceedAtNodes;
 import jjtraveler.test.VisitorTestCase;
 
+/** Various test cases for
+ *  the various selected forms of the
+ * DoWhileSuccess combinator.
+ * 
+ * 
+ * @author Arie van Deursen; Jun 30, 2003 
+ * @version $Id$
+ */
+
 public class DoWhileSuccessTest extends VisitorTestCase {
 
 	public DoWhileSuccessTest(String test) {
