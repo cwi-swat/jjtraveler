@@ -3,6 +3,7 @@ java_JAVA = \
 	Logger.java LogVisitor.java Event.java \
 	VisitorTestCase.java FailAtNodes.java \
 	SucceedAtNodes.java \
+	TimeLogVisitor.java \
 	@JAVA_JUNIT@
 
 javadir		= ${prefix}/classes/jjtraveler/test
@@ -11,7 +12,8 @@ JAVAROOT        = ${top_builddir}/src
 JAVA_JUNIT = \
 	FailAtNodesTest.java\
 	TestAll.java\
-	LoggerTest.java
+	LoggerTest.java\
+	TimeLogVisitorTest.java
 
 EXTRA_DIST = package.html
 

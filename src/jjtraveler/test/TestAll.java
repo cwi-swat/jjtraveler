@@ -11,6 +11,7 @@ public class TestAll extends VisitorTestCase {
 	TestSuite suite = new TestSuite();
 	suite.addTest(new TestSuite(jjtraveler.test.FailAtNodesTest.class));
 	suite.addTest(new TestSuite(jjtraveler.test.LoggerTest.class));
+	suite.addTest(new TestSuite(jjtraveler.test.TimeLogVisitorTest.class));
 	return suite;
     }
 
