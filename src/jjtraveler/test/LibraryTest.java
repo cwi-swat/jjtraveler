@@ -1,6 +1,7 @@
 package jjtraveler.test;
 import junit.framework.*;
 import jjtraveler.*;
+import java.util.*;
 
 
 public class LibraryTest extends TestCase 
@@ -31,8 +32,7 @@ public class LibraryTest extends TestCase
 
     public void testIdentity() throws VisitFailure {
 	Identity id = new Identity();
-	Logger expected = new Logger();
-	expected.log( Event.makeVisitEvent(id, n0) );
+	Logger expected = new Logger(id, new Visitable[]{n0} );
 	Visitable nodeReturned = logVisitor(id).visit(n0);
 	assertEquals(expected, logger);
 	assertEquals(n0, nodeReturned);
@@ -67,9 +67,7 @@ public class LibraryTest extends TestCase
 
     public void testLeftChoice() throws VisitFailure {
 	Identity id = new Identity();
-
-	Logger expected = new Logger();
-	expected.log( Event.makeVisitEvent(id, n0) );
+	Logger expected = new Logger(id, new Visitable[]{n0} );
 
 	Choice  ch = new Choice( logVisitor(id), new Identity() );
 
@@ -81,9 +79,7 @@ public class LibraryTest extends TestCase
 
     public void testRightChoice() throws VisitFailure {
 	Identity id = new Identity();
-
-	Logger expected = new Logger();
-	expected.log( Event.makeVisitEvent(id, n0) );
+	Logger expected = new Logger(id, new Visitable[]{n0} );
 
 	Choice  ch = new Choice( new Fail(), logVisitor(id) );
 
@@ -95,10 +91,7 @@ public class LibraryTest extends TestCase
 
     public void testAll() throws jjtraveler.VisitFailure {
 	Identity id = new Identity();
-
-	Logger expected = new Logger();
-	expected.log( Event.makeVisitEvent(id, n3) );
-	expected.log( Event.makeVisitEvent(id, n2) );
+	Logger expected = new Logger(id, new Visitable[]{n3, n2} );
 
 	All  all = new All( logVisitor(id) );
 
@@ -109,13 +102,7 @@ public class LibraryTest extends TestCase
 
     public void testBottomUp() throws jjtraveler.VisitFailure {
 	Identity id = new Identity();
-
-	Logger expected = new Logger();
-	expected.log( Event.makeVisitEvent(id, n0) );
-	expected.log( Event.makeVisitEvent(id, n1) );
-	expected.log( Event.makeVisitEvent(id, n3) );
-	expected.log( Event.makeVisitEvent(id, n2) );
-	expected.log( Event.makeVisitEvent(id, n4) );
+	Logger expected = new Logger(id, new Visitable[]{n0, n1, n3, n2, n4} );
 
 	BottomUp  visitor = new BottomUp( logVisitor(id) );
 
@@ -123,6 +110,46 @@ public class LibraryTest extends TestCase
 	assertEquals(expected, logger);
 	assertEquals(n4, nodeReturned);
     }
+
+    public void testTopDown() throws jjtraveler.VisitFailure {
+	Identity id = new Identity();
+	Logger expected = new Logger(id, new Visitable[]{n4, n3, n0, n1, n2} );
+
+	Visitor  visitor = new TopDown( logVisitor(id) );
+
+	Visitable nodeReturned = visitor.visit(n4);
+	assertEquals(expected, logger);
+	assertEquals(n4, nodeReturned);
+    }
+
+    public void testDefUse() throws jjtraveler.VisitFailure {
+	class Def extends Identity implements Collector {
+	    public Collection getCollection() {
+		HashSet result = new HashSet();
+		result.add("aap");
+		result.add("noot");
+		return result;
+	    }
+	}
+	class Use extends Identity implements Collector {
+	    public Collection getCollection() {
+		HashSet result = new HashSet();
+		result.add("aap");
+		result.add("mies");
+		return result;
+	    }
+	}
+
+	Def def = new Def();
+	Use use = new Use();
+	DefUse du = new DefUse(use, def);
+	du.visit(n0);
+	assertTrue( du.getUnused().contains("noot"));
+	assertTrue( du.getUndefined().contains("mies"));
+	assertEquals(1, du.getUnused().size());
+	assertEquals(1, du.getUndefined().size());
+    }
+
 
     public void testBacktrack() 
     throws jjtraveler.VisitFailure {
@@ -155,53 +182,15 @@ public class LibraryTest extends TestCase
     public void testBreadthFirst() 
       throws jjtraveler.VisitFailure {
 	Identity id = new Identity();
-	BreadthFirst bf = new BreadthFirst( logVisitor(id) );
+	Logger expected = new Logger(id, new Visitable[]{n4, n3, n2, n0, n1} );
 
-        Logger expected = new Logger();
-	expected.log( Event.makeVisitEvent(id, n4) );
-	expected.log( Event.makeVisitEvent(id, n3) );
-	expected.log( Event.makeVisitEvent(id, n2) );
-	expected.log( Event.makeVisitEvent(id, n0) );
-	expected.log( Event.makeVisitEvent(id, n1) );
+	BreadthFirst bf = new BreadthFirst( logVisitor(id) );
 
 	Visitable resultNode = bf.visit(n4);
 	assertEquals(expected, logger);
 	assertEquals(resultNode, n1);
     }
 
-    /*
-    public void testBreadthFirst()
-      throws jjtraveler.VisitFailure {
-	BreadthFirst v = new BreadthFirst(new Identity());
-	v.visit(n0);
-	assertEquals("Node.getChildCount",n0.getLogger().getTrace());
-
-	n0.getLogger().reset();
-	v = new BreadthFirst(new LogVisitor(new Identity(), n0.getLogger()));
-	v.visit(n4);
-
-	assertEquals("jjtraveler.Identity.visit(Node-4)"+
-		     "Node.getChildCount"+"Node.getChildAt"+"Node.getChildAt"+
-		     "jjtraveler.Identity.visit(Node-3)"+
-		     "Node.getChildCount"+"Node.getChildAt"+"Node.getChildAt"+
-		     "jjtraveler.Identity.visit(Node-2)"+
-		     "Node.getChildCount"+
-		     "jjtraveler.Identity.visit(Node-0)"+
-		     "Node.getChildCount"+
-		     "jjtraveler.Identity.visit(Node-1)"+
-		     "Node.getChildCount",
-		     n0.getLogger().getTrace());
-    }
-    */
-    /*
-    Trace expected = 
-	new Trace( 
-		  new Event[] {
-	    new VisitEvent(id, n4)
-	    }
-	    )
-    */
-	
     public static Test suite() {
 	TestSuite suite = new TestSuite(jjtraveler.test.LibraryTest.class);
 	return suite;

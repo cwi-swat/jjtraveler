@@ -1,10 +1,19 @@
 package jjtraveler.test;
 
 import java.util.*;
+import jjtraveler.*;
 
 public class Logger {
 
     Vector trace = new Vector();
+
+    public Logger() {};
+
+    public Logger (Visitor v, Visitable[] nodes) {
+	for (int i = 0; i < nodes.length; i++) {
+	    log( Event.makeVisitEvent(v, nodes[i]) );
+	}
+    }
 
     public void log(String msg) {
 	log( new Event( msg ) );
