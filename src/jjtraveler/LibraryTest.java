@@ -222,6 +222,25 @@ public class LibraryTest extends TestCase
 	assertEquals(resultNode, n1);
     }
 
+    public void testNotOnFailure() 
+      throws jjtraveler.VisitFailure {
+	Not not = new Not(new Fail());
+	Visitable resultNode = not.visit(n0);
+	assertEquals(n0,resultNode);
+    }
+    public void testNotOnSuccess() 
+      throws jjtraveler.VisitFailure {
+	Not not = new Not(new Identity());
+	Visitable resultNode = null;
+	try {
+	    resultNode = not.visit(n0);
+	    fail("VisitFailure should have occured");
+	} catch (VisitFailure f) {
+	    assertNull(resultNode);
+	}
+    }
+				 
+
 }
 
 
