@@ -113,10 +113,26 @@
   />
 </target> 
 
-<target name="clean">
+<target name="clean"
+	description="Purges temporary files" >
   <delete verbose="true" dir="${build}"/>
   <delete verbose="true" dir="${doc}"/>
   <delete verbose="true" dir="${dist}"/>
+</target>
+
+
+<!-- to run this task, make sure you install
+     jdepend version 2.6, and include jdepend.jar
+     in your classpath -->
+<target name="jdepend"
+        depends="jar"
+        description="compute package dependencies" >
+
+  <jdepend classpathref="base.path">
+    <sourcespath>
+        <pathelement location="${dist}"/>
+    </sourcespath>
+  </jdepend>
 </target>
 
 
