@@ -10,24 +10,22 @@ package jjtraveler;
 
 public class TopDownWhile extends Choice {
 
-    /* Create a visitor that applies its argument v in topdown
-     * fashion until it fails. Thus, traversal is cut off below
-     * the nodes where v fails.
-     */
-    public TopDownWhile(Visitor v) {
-	super(null,
-	      new Identity());
-	first = new Sequence(v,new All(this));
-    }
+	/* Create a visitor that applies its argument v in topdown
+	 * fashion until it fails. Thus, traversal is cut off below
+	 * the nodes where v fails.
+	 */
+	public TopDownWhile(Visitor v) {
+		super(null, new Identity());
+		first = new Sequence(v, new All(this));
+	}
 
-    /* Create a visitor that applies its argument v in topdown
-     * fashion until it fails, and subsequently applies its argument
-     * vFinally at the nodes where failure occurs.
-     */
-    public TopDownWhile(Visitor v, Visitor vFinally) {
-	super(null,
-	      vFinally);
-	first = new Sequence(v,new All(this));
-    }
+	/* Create a visitor that applies its argument v in topdown
+	 * fashion until it fails, and subsequently applies its argument
+	 * vFinally at the nodes where failure occurs.
+	 */
+	public TopDownWhile(Visitor v, Visitor vFinally) {
+		super(null, vFinally);
+		first = new Sequence(v, new All(this));
+	}
 
 }

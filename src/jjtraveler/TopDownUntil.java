@@ -16,17 +16,27 @@ package jjtraveler;
 
 public class TopDownUntil extends Choice {
 
-    /* Create a visitor that applies its argument v in topdown
-     * fashion until it succeeds. Thus, traversal is cut off below
-     * the nodes where v succeeds.
-     */
-    public TopDownUntil(Visitor v) {
-	super(v,null);
-	setThen(new All(this));
-    }
+	/* Create a visitor that applies its argument v in topdown
+	 * fashion until it succeeds. Thus, traversal is cut off below
+	 * the nodes where v succeeds.
+	 */
+	public TopDownUntil(Visitor v) {
+		super(v, null);
+		setThen(new All(this));
+	}
 
-    protected void setArgument(Visitor v) {
-	setFirst(v);
-    }
+	/* Create a visitor that applies its argument v in topdown
+	 * fashion until it succeeds, and subsequently applies its argument
+	 * vFinally at the nodes where failure occurs.
+	 */
+	public TopDownUntil(Visitor v, Visitor vFinally) {
+		super(new Sequence(v, vFinally), null);
+		setThen(new All(this));
+	}
+
+
+	protected void setArgument(Visitor v) {
+		setFirst(v);
+	}
 
 }
