@@ -8,6 +8,7 @@ java_JAVA =\
 	EdgesGraph.java\
 	MkEdgeFromParent.java\
 	ToGraph.java\
+	WhileNotVisited.java \
 	@JAVA_JUNIT@
 
 javapackage	= jjtraveler.graph
@@ -23,7 +24,8 @@ JAVA_JUNIT = \
 	IsTreeTest.java\
 	IsDagTest.java\
 	ToGraphTest.java\
-	EdgesGraphTest.java
+	EdgesGraphTest.java \
+	WhileNotVisitedTest.java 
 
 noinst_JAVA = @JAVA_JUNIT@
 
