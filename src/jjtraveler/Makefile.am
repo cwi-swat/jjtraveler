@@ -30,6 +30,7 @@ IfThenElse.java \
 NestingDepth.java \
 DoWhileSuccess.java \
 Collect.java \
+VisitableList.java \
 @JAVA_JUNIT@
 
 javapackage	= jjtraveler
