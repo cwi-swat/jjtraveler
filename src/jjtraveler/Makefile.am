@@ -27,7 +27,8 @@ TopDownUntil.java \
 TopDownWhile.java \
 GuaranteeSuccess.java \
 IfThenElse.java \
-TopDownCutOff.java
+TopDownCutOff.java \
+NestingDepth.java 
 
 javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
