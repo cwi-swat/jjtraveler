@@ -1,14 +1,21 @@
 package jjtraveler;
 
-/* The visitor combinator GuaranteeSuccess can be used to indicate
- * that its argument visitor v is guaranteed to succeed. Note that
- * the visit method of GuaranteeSuccess does not throw VisitFailures,
- * while the visit method of its argument visitor v might.
+/** 
+ * The visitor combinator GuaranteeSuccess can be used to indicate
+ * that its argument visitor is guaranteed to succeed. Note that the
+ * visit method of GuaranteeSuccess does not throw VisitFailures,
+ * while the visit method of its argument visitor might. If at
+ * run-time the guarantee is violated, i.e. a VisitFailure occurs,
+ * then then this VisitFailure will be caught and turned into a
+ * RuntimeException.
  */
 
 public class GuaranteeSuccess implements Visitor {
     Visitor v;
 
+    /**
+     * Indicate that the argument visitor is guaranteed to succeed.
+     */
     public GuaranteeSuccess(Visitor v) {
 	this.v = v;
     }

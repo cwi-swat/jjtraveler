@@ -2,9 +2,9 @@ package jjtraveler.test;
 
 import jjtraveler.*;
 
-/** A class to represent visting events, i.e.
- *  the fact that a certain Visitable node is visited by
- *  a particular Visitor.
+/** 
+ * A class to represent a visting event: the fact that a visitable
+ * node is visited by a particular visitor.
  */
 
 public class Event {
@@ -20,6 +20,4 @@ public class Event {
     public String toString() {
 	return visitor + ".visit(" + node + ")";
     }
-    //String msg = visitor.getClass().getName() + ".visit(" + node.toString() + ")";
-
 }

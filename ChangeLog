@@ -1,4 +1,10 @@
 2001-11-28 Joost.Visser@cwi.nl
+	* Improved documentation by (i) adding package overview files, and
+ 	  (ii) adding method and class comments.
+	* Created a reflective visitor combinator WrapLog that visits a 
+	  visitor and wraps it into a LogVisitor.
+	
+2001-11-28 Joost.Visser@cwi.nl
 	* Started subpackage "reflective" which contains classes and
 	  interfaces for visiting visitors themselves.
 

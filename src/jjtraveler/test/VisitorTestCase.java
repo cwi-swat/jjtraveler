@@ -3,13 +3,12 @@ import junit.framework.*;
 import jjtraveler.*;
 
 
-/** This extension of TestCase can be used to
-  * test generic traversals as occurring, for instance
-  * in the the jjtraveler visitor combinator library.
+/** 
+  * This extension of TestCase can be used to test generic visitor
+  * combinators.
   */
 
-public abstract class VisitorTestCase extends TestCase 
-{
+public abstract class VisitorTestCase extends TestCase {
 
     /** 
      * Nodes in a simple tree that can be used for

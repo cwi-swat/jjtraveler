@@ -36,6 +36,8 @@ JAVASRCROOT	= ${top_srcdir}/src
 
 SUBDIRS		= util test reflective
 
+EXTRA_DIST	= package.html
+
 all-local: htmljava.stamp
 
 install-data-local: html-install
@@ -47,7 +49,7 @@ htmljava.stamp: $(java_JAVA)
 	@JAVADOC@ -windowtitle "JJTraveler Documentation" \
 	  -sourcepath ${JAVASRCROOT} -classpath ${CLASSPATH} \
 	  -use -private -d ./doc \
-	  jjtraveler jjtraveler.util jjtraveler.test
+	  jjtraveler jjtraveler.util jjtraveler.test jjtraveler.reflective
 	echo timestamp > htmljava.stamp
 
 html-install: htmljava.stamp

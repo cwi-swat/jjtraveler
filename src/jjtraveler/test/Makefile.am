@@ -19,6 +19,8 @@ JAVA_JUNIT = \
 	NestingDepthTest.java \
 	TopDownCutOffTest.java 
 
+EXTRA_DIST = package.html
+
 noinst_JAVA = @JAVA_JUNIT@
 
 EXTRA_JAVA  = $(JAVA_JUNIT)

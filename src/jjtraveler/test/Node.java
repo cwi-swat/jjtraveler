@@ -2,6 +2,11 @@ package jjtraveler.test;
 import java.util.*;
 import java.io.*;
 
+/**
+ * An implementation of the <code>Visitable</code> interface for
+ * testing purposes.
+ */
+
 public class Node implements jjtraveler.Visitable {
 
     Node[] kids;
@@ -9,6 +14,10 @@ public class Node implements jjtraveler.Visitable {
 
     static int nodeCounter = 0;
 
+    /**
+     * Create a new node with given kids. Each created node will have
+     * a different nodeID.
+     */
     public static Node factory(Node[] kids) {
 	Node result = new Node(kids, nodeCounter);
 	nodeCounter++;

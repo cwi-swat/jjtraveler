@@ -3,22 +3,38 @@ package jjtraveler.test;
 import java.util.*;
 import jjtraveler.*;
 
+/**
+ * Logs events and allows their trace to be inspected.
+ */
+
 public class Logger {
 
     Vector trace = new Vector();
 
     public Logger() {};
 
+    /**
+     * Create a new Logger, which has as initial trace a sequence of
+     * visiting events where the visitor <code>v</code> visits each of
+     * the <code>nodes</code>
+     */
     public Logger (Visitor v, Visitable[] nodes) {
 	for (int i = 0; i < nodes.length; i++) {
 	    log( new Event(v, nodes[i]) );
 	}
     }
 
+    /**
+     * Log a single event.
+     */
     public void log( Event e ) {
 	trace.add( e );
     }
-	
+
+    /**
+     * Produces a string representation of the trace of events that
+     * have been logged so far.
+     */
     public String toString() {
 	String result = "";
 	for (Enumeration e = trace.elements() ; e.hasMoreElements() ;) {
@@ -27,6 +43,9 @@ public class Logger {
 	return result;
     }
        
+    /**
+     * Loggers are equal if and only of their traces are.
+     */
     public boolean equals(Object o) {
 	if (o instanceof Logger) {
 	    return ( (Logger) o).toString().equals(toString());

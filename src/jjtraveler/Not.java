@@ -1,8 +1,7 @@
 package jjtraveler;
 
 /**
- * Basic visitor combinator with a single argument. Not(v) succeeds
- * if and only if v fails.
+ * <code>Not(v)</code> succeeds if and only if <code>v</code> fails.
  */
 
 public class Not implements Visitor {
