@@ -62,11 +62,13 @@ java_JAVA = \
 	BottomUp.java \
 	BreadthFirst.java \
 	BreadthFirstWhile.java \
+	Child.java \
 	Choice.java \
 	Collect.java \
 	Collector.java \
 	DefUse.java \
 	DefinedCombinator.java \
+	Descendant.java \
 	DoWhileSuccess.java \
 	DownUp.java \
 	Fail.java \

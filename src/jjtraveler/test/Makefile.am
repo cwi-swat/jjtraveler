@@ -29,7 +29,9 @@ JAVA_JUNIT = \
 	DoWhileSuccessTest.java \
 	OneTest.java \
 	SuccessCounterTest.java \
-	CollectTest.java
+	CollectTest.java \
+	ChildTest.java \
+	DescendantTest.java 
 
 EXTRA_DIST = ${java_JAVA} package.html
 
