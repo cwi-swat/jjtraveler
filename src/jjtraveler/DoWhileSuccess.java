@@ -1,5 +1,14 @@
 package jjtraveler;
 
+/**
+ * Top down traversal as long as a condition holds, with separate actions
+ * during the traversal and at the border.
+ * This combinator can be used to express a number of other combinators;
+ * these are offered through factory methods.
+ *
+ * @author Arie van Deursen
+ */
+
 public class DoWhileSuccess extends DefinedCombinator {
 
     private Visitor action = new Identity();

@@ -8,6 +8,9 @@ import java.util.*;
  * In case of extensive use of "while not visited",
  * it is relevant for performance reasons to avoid the Not operator,
  * which causes exceptions to be thrown for every node.
+ *
+ * <p>
+ * @author Arie van Deursen
  */
 
 public class NotVisited extends VoidVisitor {
