@@ -37,7 +37,7 @@ Collect.java \
 VisitableList.java \
 SuccessCounter.java \
 DefinedCombinator.java \
-@JAVA_JUNIT@
+$(JAVA_JUNIT)
 
 javapackage	= jjtraveler
 javadir		= ${prefix}/classes/jjtraveler
@@ -67,22 +67,20 @@ JAVA_JUNIT = \
 	SuccessCounterTest.java \
 	CollectTest.java
 
-noinst_JAVA = @JAVA_JUNIT@
+noinst_JAVA = $(JAVA_JUNIT)
 
 EXTRA_JAVA  = $(JAVA_JUNIT)
 
 TESTS_JUNIT = MainTest 
 
-TESTS       = @TESTS_JUNIT@
+TESTS       = $(TESTS_JUNIT)
 
 EXTRA_TESTS = $(TESTS_JUNIT)
 
 MainTest: Makefile
 	echo "#! /bin/sh" > $@
-	echo "@JUNIT@ $(javapackage).TestAll" >> $@
+	echo "$(JUNIT) $(javapackage).TestAll" >> $@
 	chmod +x $@
-
-JAVACC      = @JAVACC@
 
 CLEANFILES += MainTest
 
@@ -106,7 +104,7 @@ clean-local: html-clean
 
 htmljava.stamp: $(java_JAVA) overview.html
 	mkdir -p ${DOCDIR}
-	@JAVADOC@ -windowtitle "JJTraveler Documentation" \
+	$(JAVADOC) -windowtitle "JJTraveler Documentation" \
 	  -sourcepath ${JAVASRCROOT} -classpath ${CLASSPATH} \
 	  -overview overview.html \
 	  -use -private -d ${DOCDIR} \
