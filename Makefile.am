@@ -21,10 +21,10 @@ ACLOCAL_FLAGS = -I .
 
 SUBDIRS	= jars src scripts
 
-EXTRA_DIST = reconf $(wildcard *.pkg) acincludejava.m4
+EXTRA_DIST = reconf package acincludejava.m4
              
 noinst_SCRIPTS = ${PACKAGE}-${VERSION}.pkg
 
-${PACKAGE}-${VERSION}.pkg: ${PACKAGE}.pkg Makefile
-	sed 's#__VERSION__#${VERSION}#g;\
-             s#__PACKAGE__#${PACKAGE}#g' < $< > $@
+${PACKAGE}-${VERSION}.pkg: package Makefile
+	cp $ < $@
+
