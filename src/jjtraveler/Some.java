@@ -33,7 +33,9 @@ public class Some implements Visitor {
 	    } catch(VisitFailure f) { }
 	}
 	if (successCount == 0) {
-	    throw new VisitFailure();
+	    throw new VisitFailure("Some: None of the " + 
+				   childCount + " arguments of " +
+				   any + " succeeded.");
 	}
 	return any;
     }
