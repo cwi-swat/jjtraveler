@@ -25,15 +25,15 @@ public abstract class VisitorTestCase extends TestCase
      */
     protected Node n0;
     protected Node n1;
-    protected Node n2;
     protected Node n11;
     protected Node n12;
+    protected Node n2;
 
     public Node buildTree() {
 	n11 = new Node();
 	n12 = new Node();
-	n2  = new Node();
 	n1  = new Node(new Node[]{n11,n12});
+	n2  = new Node();
 	n0  = new Node(new Node[]{n1,n2});
 	return n0;
     }
