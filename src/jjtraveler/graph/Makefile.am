@@ -1,6 +1,7 @@
 java_JAVA =\
 	Visited.java\
 	IsTree.java\
+	IsDag.java\
 	@JAVA_JUNIT@
 
 javapackage	= jjtraveler.graph
@@ -13,7 +14,8 @@ EXTRA_DIST	= package.html
 JAVA_JUNIT = \
 	TestAll.java\
 	VisitedTest.java\
-	IsTreeTest.java
+	IsTreeTest.java\
+	IsDagTest.java
 
 noinst_JAVA = @JAVA_JUNIT@
 

@@ -44,6 +44,8 @@ JAVA_JUNIT = \
 
 EXTRA_DIST	= package.html overview.html.src
 
+java_packages	= jjtraveler ${patsubst %,jjtraveler.%, ${SUBDIRS}}
+
 noinst_JAVA = @JAVA_JUNIT@
 
 EXTRA_JAVA  = $(JAVA_JUNIT)
@@ -81,7 +83,7 @@ htmljava.stamp: $(java_JAVA) overview.html
 	  -sourcepath ${JAVASRCROOT} -classpath ${CLASSPATH} \
 	  -overview overview.html \
 	  -use -private -d ${DOCDIR} \
-	  jjtraveler jjtraveler.util jjtraveler.test jjtraveler.reflective
+	  ${java_packages}
 	cp @JAVA_JUNIT@ $(DOCDIR)/$(javapackage)
 	echo timestamp > htmljava.stamp
 

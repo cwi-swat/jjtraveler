@@ -12,6 +12,7 @@ public class TestAll extends TestCase {
 	TestSuite suite = new TestSuite();
 	suite.addTest(new TestSuite(jjtraveler.graph.VisitedTest.class));
 	suite.addTest(new TestSuite(jjtraveler.graph.IsTreeTest.class));
+	suite.addTest(new TestSuite(jjtraveler.graph.IsDagTest.class));
 	return suite;
     }
 

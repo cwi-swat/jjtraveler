@@ -23,7 +23,7 @@ public class Visited extends VoidVisitor {
      * visited.
      */
     public Visited(Collection visited) {
-	visited = new HashSet(visited);
+	this.visited = new HashSet(visited);
     }
 
     public void voidVisit(Visitable x)
@@ -32,5 +32,12 @@ public class Visited extends VoidVisitor {
 	    visited.add(x);
 	    throw new VisitFailure();
 	}
+    }
+
+    /**
+     * Return collection of visitables visited so far.
+     */
+    public Collection getVisited() {
+	return visited;
     }
 }
