@@ -122,6 +122,36 @@ public class LibraryTest extends TestCase
 	assertEquals(n4, nodeReturned);
     }
 
+    public void testDownUp() throws jjtraveler.VisitFailure {
+	Identity id = new Identity();
+	Logger expected = new Logger(id, 
+	   new Visitable[]{n4, n3, n0, n0, n1, n1, n3, n2, n2, n4 } );
+
+	Visitor  visitor = new DownUp( logVisitor(id), logVisitor(id) );
+
+	Visitable nodeReturned = visitor.visit(n4);
+	assertEquals(expected, logger);
+	assertEquals(n4, nodeReturned);
+    }
+
+    public void testStopDownUp() throws jjtraveler.VisitFailure {
+	Identity downId = new Identity();
+	Identity upId = new Identity();
+	Identity stopId = new Identity();
+
+	Logger expected = new Logger();
+	expected.log( Event.makeVisitEvent(downId, n4) );
+	expected.log( Event.makeVisitEvent(stopId, n4) );
+	expected.log( Event.makeVisitEvent(upId, n4) );
+
+	Visitor  visitor = new DownUp( 
+	   logVisitor(downId), logVisitor(stopId), logVisitor(upId) );
+
+	Visitable nodeReturned = visitor.visit(n4);
+	assertEquals(expected, logger);
+	assertEquals(n4, nodeReturned);
+    }
+
     public void testDefUse() throws jjtraveler.VisitFailure {
 	class Def extends Identity implements Collector {
 	    public Collection getCollection() {
