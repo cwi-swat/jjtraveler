@@ -8,7 +8,8 @@ java_JAVA = \
 
 javadir = ${prefix}/classes/jjtraveler/util
 JAVAROOT = ${top_builddir}/src
-CLASSPATH_ENV = CLASSPATH=${JAVAROOT}:${srcdir}:${top_srcdir}/jars/junit.jar
+JAVASRCROOT = ${top_srcdir}/src
+CLASSPATH_ENV = CLASSPATH=${JAVAROOT}:${JAVASRCROOT}:${top_srcdir}/jars/junit.jar
 
 EXTRA_JAVA = \
 	TestAll.java \

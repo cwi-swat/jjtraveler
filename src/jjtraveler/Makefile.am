@@ -63,7 +63,7 @@ java_JAVA = \
 	TimeLogVisitor.java \
 	${EXTRA_JAVA}
 
-CLASSPATH_ENV = CLASSPATH=${JAVAROOT}:${srcdir}:${top_srcdir}/jars/junit.jar
+CLASSPATH_ENV = CLASSPATH=${JAVAROOT}:${JAVASRCROOT}:${top_srcdir}/jars/junit.jar
 java_packages	= jjtraveler $(patsubst %,jjtraveler.%, $(SUBDIRS))
 java_dirs	= $(srcdir) $(patsubst %,$(srcdir)/%, $(SUBDIRS))
 java_files	= $(wildcard $(patsubst %, %/*.java, $(java_dirs)))

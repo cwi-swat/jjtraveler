@@ -2,7 +2,7 @@ javapackage	= jjtraveler.graph
 javadir		= ${prefix}/classes/jjtraveler/graph
 JAVAROOT	= ${top_builddir}/src
 JAVASRCROOT	= ${top_srcdir}/src
-CLASSPATH_ENV = CLASSPATH=${JAVAROOT}:${top_srcdir}/jars/junit.jar
+CLASSPATH_ENV = CLASSPATH=${JAVAROOT}:${JAVASRCROOT}:${top_srcdir}/jars/junit.jar
 
 EXTRA_DIST	= ${java_JAVA} ${EXTRA_JAVA} package.html
 
