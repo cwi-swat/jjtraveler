@@ -48,6 +48,25 @@ public class LibraryTest extends TestCase
 	}
     }
 
+    public void testSequence() throws VisitFailure {
+	Identity id1 = new Identity();
+	Identity id2 = new Identity();
+
+	Logger expected = new Logger();
+	expected.log( Event.makeVisitEvent(id1, n0) );
+	expected.log( Event.makeVisitEvent(id2, n0) );
+
+	Sequence  ls = 
+	    new Sequence(
+	      new LogVisitor(id1, logger),
+	      new LogVisitor(id2, logger)
+	    );
+
+	ls.visit(n0);
+	assertEquals(expected, logger);
+    }
+
+
     public void testBacktrack() 
     throws jjtraveler.VisitFailure {
 	class Increment implements StateVisitor {
@@ -80,6 +99,7 @@ public class LibraryTest extends TestCase
 	n0.getLogger().reset();
 	v = new BreadthFirst(new LogVisitor(new Identity(), n0.getLogger()));
 	v.visit(n4);
+
 	assertEquals("jjtraveler.Identity.visit(Node-4)"+
 		     "Node.getChildCount"+"Node.getChildAt"+"Node.getChildAt"+
 		     "jjtraveler.Identity.visit(Node-3)"+
