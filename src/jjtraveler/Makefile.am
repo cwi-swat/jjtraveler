@@ -51,7 +51,7 @@ java_JAVA = \
 	Visitable.java \
 	VisitableList.java \
 	Visitor.java \
-	VoidVisitor.java
+	VoidVisitor.java\
 	Node.java \
 	NodeVisitor.java\
 	Logger.java \

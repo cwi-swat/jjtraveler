@@ -1,5 +1,3 @@
-DIST_SUBDIRS = test
-
 EXTRA_DIST = $(java_JAVA) $(EXTRA_JAVA)
 
 java_JAVA = \
