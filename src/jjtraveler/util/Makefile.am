@@ -2,7 +2,7 @@ java_JAVA = \
 	ASTToGraph.java\
 	Graph.java\
 	MkEdgesToKids.java\
-	DotGraph.java\
+	EdgesGraph.java\
 	MkEdgeFromParent.java\
 	ToStringVisitor.java\
 	ToGraph.java\

@@ -11,17 +11,15 @@ public class UtilTest extends VisitorTestCase {
     }
 
     public void testASTToGraph() throws jjtraveler.VisitFailure {
-	DotGraph g = new DotGraph();
+	EdgesGraph g = new EdgesGraph();
 	Visitor v = new ASTToGraph(g);
 	v.visit(n0);
-
-	DotGraph expected = new DotGraph();
+	EdgesGraph expected = new EdgesGraph();
 	expected.addEdge(n0, n1);
 	expected.addEdge(n0, n2);
 	expected.addEdge(n1, n11);
 	expected.addEdge(n1, n12);
-
-	assertEquals(expected.printGraph("name"),g.printGraph("name"));
+	assertEquals(expected,g);
     }
 
     public void testToStringVisitor() throws VisitFailure {
