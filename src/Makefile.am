@@ -17,7 +17,5 @@
 
 # $Id$
 
-SUBDIRS = @TOOLS@
-
-DIST_SUBDIRS = @RELEASED@
+SUBDIRS = jjtraveler templates
 

@@ -15,7 +15,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 # 02111-1307, USA.
 
-include package.conf
+include ${top_srcdir}/package.conf
 
 SUBDIRS	= src
 
