@@ -1,10 +1,9 @@
 package jjtraveler.util;
 
 import jjtraveler.VisitFailure;
-import jjtraveler.test.VisitorTestCase;
+import jjtraveler.VisitorTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import jjtraveler.util.*;
 
 public class UtilTest extends VisitorTestCase {
 
@@ -25,7 +24,7 @@ public class UtilTest extends VisitorTestCase {
     }
 
     public static Test suite() {
-	TestSuite suite = new TestSuite(jjtraveler.util.test.UtilTest.class);
+	TestSuite suite = new TestSuite(jjtraveler.util.UtilTest.class);
 	return suite;
     }
 

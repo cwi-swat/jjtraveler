@@ -1,14 +1,13 @@
 package jjtraveler.graph;
 
-import jjtraveler.graph.*;
+import jjtraveler.Event;
 import jjtraveler.Fail;
+import jjtraveler.FailAtNodes;
 import jjtraveler.Identity;
+import jjtraveler.Logger;
 import jjtraveler.VisitFailure;
 import jjtraveler.Visitor;
-import jjtraveler.test.Event;
-import jjtraveler.test.FailAtNodes;
-import jjtraveler.test.Logger;
-import jjtraveler.test.VisitorTestCase;
+import jjtraveler.VisitorTestCase;
 
 public class ToGraphTest extends VisitorTestCase {
 

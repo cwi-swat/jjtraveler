@@ -1,9 +1,8 @@
 package jjtraveler.graph;
 
-import jjtraveler.graph.*;
 import jjtraveler.VisitFailure;
 import jjtraveler.Visitable;
-import jjtraveler.test.VisitorTestCase;
+import jjtraveler.VisitorTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -35,7 +34,7 @@ public class IsDagTest extends VisitorTestCase {
     }
 
     public static Test suite() {
-        TestSuite suite = new TestSuite(jjtraveler.util.test.UtilTest.class);
+        TestSuite suite = new TestSuite(jjtraveler.util.UtilTest.class);
         return suite;
     }
 

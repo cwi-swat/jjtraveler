@@ -1,12 +1,11 @@
 package jjtraveler.graph;
 
-import jjtraveler.graph.*;
 import jjtraveler.Identity;
+import jjtraveler.Logger;
 import jjtraveler.VisitFailure;
 import jjtraveler.Visitable;
 import jjtraveler.Visitor;
-import jjtraveler.test.Logger;
-import jjtraveler.test.VisitorTestCase;
+import jjtraveler.VisitorTestCase;
 
 public class WhileNotVisitedTest extends VisitorTestCase {
 

@@ -28,9 +28,9 @@ public class TestAll extends TestCase {
 	suite.addTest( new TestSuite(SomeTest.class) );
 	suite.addTest( new TestSuite(CollectTest.class) );
 	suite.addTest( new TestSuite(SuccessCounterTest.class) );
-    suite.addTest(new TestSuite(jjtraveler.test.FailAtNodesTest.class));
-        suite.addTest(new TestSuite(jjtraveler.test.LoggerTest.class));
-        suite.addTest(new TestSuite(jjtraveler.test.TimeLogVisitorTest.class));
+    suite.addTest(new TestSuite(jjtraveler.FailAtNodesTest.class));
+        suite.addTest(new TestSuite(jjtraveler.LoggerTest.class));
+        suite.addTest(new TestSuite(jjtraveler.TimeLogVisitorTest.class));
 	return suite;
     }
     

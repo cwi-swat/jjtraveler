@@ -1,6 +1,6 @@
 package jjtraveler.util;
 
-import jjtraveler.test.VisitorTestCase;
+import jjtraveler.VisitorTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -12,7 +12,7 @@ public class TestAll extends VisitorTestCase {
 
     public static Test suite() {
 	TestSuite suite = new TestSuite();
-	suite.addTest( new TestSuite(jjtraveler.util.test.UtilTest.class) );
+	suite.addTest( new TestSuite(jjtraveler.util.UtilTest.class) );
 	return suite;
     }
 

@@ -5,10 +5,11 @@ config.*
 VERSION
 missing
 configure
-*.pkg
 *.tar.gz
-JJTraveler-0.4a
+JJTraveler-*.pkg
 bin
 .classpath
 .project
 autom4te*.cache
+install-sh
+mkinstalldirs

@@ -1,6 +1,5 @@
 package jjtraveler;
 
-import jjtraveler.*;
 
 /**
  * Test the Child combinator, distinguishing

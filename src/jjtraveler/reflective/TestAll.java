@@ -12,7 +12,7 @@ public class TestAll extends TestCase {
 
     public static Test suite() {
 	TestSuite suite = new TestSuite();
-	suite.addTest(new TestSuite(jjtraveler.reflective.test.WrapLogTest.class));
+	suite.addTest(new TestSuite(jjtraveler.reflective.WrapLogTest.class));
 	return suite;
     }
 

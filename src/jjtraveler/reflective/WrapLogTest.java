@@ -1,15 +1,14 @@
 package jjtraveler.reflective;
 
 import jjtraveler.BottomUp;
+import jjtraveler.Event;
+import jjtraveler.Logger;
 import jjtraveler.VisitFailure;
 import jjtraveler.Visitable;
 import jjtraveler.Visitor;
-import jjtraveler.test.Event;
-import jjtraveler.test.Logger;
-import jjtraveler.test.VisitorTestCase;
+import jjtraveler.VisitorTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import jjtraveler.reflective.*;
 
 public class WrapLogTest extends VisitorTestCase {
 
@@ -42,7 +41,7 @@ public class WrapLogTest extends VisitorTestCase {
     }
 
     public static Test suite() {
-        TestSuite suite = new TestSuite(jjtraveler.util.test.UtilTest.class);
+        TestSuite suite = new TestSuite(jjtraveler.util.UtilTest.class);
         return suite;
     }
 

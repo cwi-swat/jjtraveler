@@ -1,7 +1,6 @@
 package jjtraveler.graph;
 
-import jjtraveler.test.VisitorTestCase;
-import jjtraveler.graph.*;
+import jjtraveler.VisitorTestCase;
 
 public class EdgesGraphTest extends VisitorTestCase {
 

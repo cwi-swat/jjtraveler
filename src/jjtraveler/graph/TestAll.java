@@ -12,12 +12,12 @@ public class TestAll extends TestCase {
 
     public static Test suite() {
 	TestSuite suite = new TestSuite();
-	suite.addTest(new TestSuite(jjtraveler.graph.test.VisitedTest.class));
-	suite.addTest(new TestSuite(jjtraveler.graph.test.WhileNotVisitedTest.class));
-	suite.addTest(new TestSuite(jjtraveler.graph.test.IsTreeTest.class));
-	suite.addTest(new TestSuite(jjtraveler.graph.test.IsDagTest.class));
-	suite.addTest( new TestSuite(jjtraveler.graph.test.ToGraphTest.class) );
-	suite.addTest( new TestSuite(jjtraveler.graph.test.EdgesGraphTest.class) );
+	suite.addTest(new TestSuite(jjtraveler.graph.VisitedTest.class));
+	suite.addTest(new TestSuite(jjtraveler.graph.WhileNotVisitedTest.class));
+	suite.addTest(new TestSuite(jjtraveler.graph.IsTreeTest.class));
+	suite.addTest(new TestSuite(jjtraveler.graph.IsDagTest.class));
+	suite.addTest( new TestSuite(jjtraveler.graph.ToGraphTest.class) );
+	suite.addTest( new TestSuite(jjtraveler.graph.EdgesGraphTest.class) );
 	return suite;
     }
 

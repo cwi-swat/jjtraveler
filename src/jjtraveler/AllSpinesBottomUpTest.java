@@ -1,10 +1,5 @@
 package jjtraveler;
 
-import jjtraveler.AllSpinesBottomUp;
-import jjtraveler.Identity;
-import jjtraveler.VisitFailure;
-import jjtraveler.Visitable;
-import jjtraveler.Visitor;
 
 /** Various test cases for the rather tricky all spines bottom up.
  *
