@@ -10,28 +10,25 @@ package jjtraveler;
 
 public class AllSpinesBottomUp extends DefinedCombinator {
 
-    Visitor goDown;
-    Visitor successNode;
-    Visitor action;
+	Visitor goDown;
+	Visitor successNode;
+	Visitor action;
 
+	public AllSpinesBottomUp(
+		Visitor goDown,
+		Visitor successNode,
+		Visitor action) {
+		this.goDown = goDown;
+		this.successNode = successNode;
+		this.action = action;
 
-    public AllSpinesBottomUp(Visitor goDown,
-			     Visitor successNode,
-			     Visitor action) {
-	this.goDown = goDown;
-	this.successNode = successNode;
-	this.action = action;
-
-	setDefinition(
-          new IfThenElse(
-		successNode,
-		action,
-		new IfThenElse(
-                      goDown,
-		      new Sequence(new Some(this), action),
-		      new Fail()
-			  )
-		    )
-	      );
-    }
+		setDefinition(
+			new IfThenElse(
+				successNode,
+				action,
+				new IfThenElse(
+					goDown,
+					new Sequence(new Some(this), action),
+					new Fail())));
+	}
 }
