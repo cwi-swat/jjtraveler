@@ -22,7 +22,9 @@ VoidVisitor.java \
 Not.java \
 StateVisitor.java \
 Backtrack.java \
-BreadthFirst.java
+BreadthFirst.java \
+TopDownUntil.java \
+GuaranteeSuccess.java
 
 javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
