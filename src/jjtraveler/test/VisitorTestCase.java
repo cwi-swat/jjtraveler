@@ -40,6 +40,7 @@ public abstract class VisitorTestCase extends TestCase
     Logger logger;
 
     protected void setUp() {
+	Node.reset();
 	buildTree();
     }
 

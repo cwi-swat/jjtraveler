@@ -23,11 +23,11 @@ public class LibraryTest extends TestCase
 	Node.reset();
 	Node[] empty = {};
 	logger = new Logger();
-	n0 = Node.factory(empty,logger);
-	n1 = Node.factory(empty,logger);
-	n2 = Node.factory(empty,logger);
-	n3 = Node.factory(new Node[]{n0,n1},logger);
-	n4 = Node.factory(new Node[]{n3,n2},logger);
+	n0 = Node.factory(empty);
+	n1 = Node.factory(empty);
+	n2 = Node.factory(empty);
+	n3 = Node.factory(new Node[]{n0,n1});
+	n4 = Node.factory(new Node[]{n3,n2});
     }
 
     public void testIdentity() throws VisitFailure {
@@ -222,7 +222,6 @@ public class LibraryTest extends TestCase
 	assertNotNull(i.localState);
 	assertTrue(! initialState.equals(i.localState));
 	assertEquals(initialState,i.getState());
-	assertEquals("",n0.getLogger().getTrace());
     }	
 
     public LogVisitor logVisitor(Visitor v) {

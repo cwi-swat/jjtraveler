@@ -5,13 +5,12 @@ import java.io.*;
 public class Node implements jjtraveler.Visitable {
 
     Node[] kids;
-    Logger logger;
     int nodeID;
 
     static int nodeCounter = 0;
 
-    public static Node factory(Node[] kids, Logger logger) {
-	Node result = new Node(kids, logger, nodeCounter);
+    public static Node factory(Node[] kids) {
+	Node result = new Node(kids, nodeCounter);
 	nodeCounter++;
 	return result;
     }
@@ -20,47 +19,36 @@ public class Node implements jjtraveler.Visitable {
 	nodeCounter = 0;
     }
 
-    public Node(Node[] kids, Logger logger, int nodeID) {
+    public Node(Node[] kids, int nodeID) {
 	this.kids = kids;
-	this.logger = logger;
 	this.nodeID = nodeID;
     }
 
     public Node() {
 	this.kids = new Node[]{};
-	this.logger = new Logger();
 	this.nodeID = nodeCounter++;
     }
 
     public Node(Node[] kids) {
 	this.kids = kids;
-	this.logger = new Logger();
 	this.nodeID = nodeCounter++;
     }
 
     public Node accept(NodeVisitor v) throws jjtraveler.VisitFailure {
-	// logger.log("Node.accept");
 	return v.visitNode(this);
     }
 
     public int getChildCount() {
-	// logger.log("Node.getChildCount");
 	return kids.length;
     }
     
     public jjtraveler.Visitable getChildAt(int i) {
-	// logger.log("Node.getChildAt");
 	return kids[i];
     }
     
     public jjtraveler.Visitable setChildAt(int i, jjtraveler.Visitable child) {
-	// logger.log("Node.setChildAt");
 	kids[i] = (Node) child;
 	return this;
-    }
-
-    public Logger getLogger() {
-	return logger;
     }
 
     public String toString() {

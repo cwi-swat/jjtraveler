@@ -3,35 +3,16 @@ import junit.framework.*;
 import jjtraveler.*;
 import jjtraveler.util.*;
 
-public class UtilTest extends TestCase {
+public class UtilTest extends VisitorTestCase {
 
     public UtilTest(String test) {
 	super(test);
     }
 
-    Node n0;    //          4
-    Node n1;    //         / \
-    Node n2;    //        3   2
-    Node n3;    //       / \
-    Node n4;    //      0   1
-
-    Logger logger;
-
-    protected void setUp() {
-	Node.reset();
-	Node[] empty = {};
-	logger = new Logger();
-	n0 = Node.factory(empty,logger);
-	n1 = Node.factory(empty,logger);
-	n2 = Node.factory(empty,logger);
-	n3 = Node.factory(new Node[]{n0,n1},logger);
-	n4 = Node.factory(new Node[]{n3,n2},logger);
-    }
-
     public void testASTToGraph() throws jjtraveler.VisitFailure {
 	DotGraph g = new DotGraph();
 	Visitor v = new ASTToGraph(g);
-	v.visit(n4);
+	v.visit(n0);
 	String expected = "digraph name {\n";
 	expected += "Node-4 -> Node-3;\n";
 	expected += "Node-4 -> Node-2;\n";
