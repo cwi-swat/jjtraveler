@@ -28,19 +28,19 @@ public class DoWhileSuccess extends DefinedCombinator {
 
     /** Reuse DoWhileSuccess(v) as a TopDownWhile(v).
      */
-    static DoWhileSuccess TopDownWhile(Visitor v1) {
+    public static DoWhileSuccess TopDownWhile(Visitor v1) {
 	return new DoWhileSuccess(v1);
     }
 
     /** Reuse DoWhileSuccess(v1,id,v2) as a TopDownWhile(v1,v2)
      */
-    static DoWhileSuccess TopDownWhile(Visitor v1, Visitor v2) {
+    public static DoWhileSuccess TopDownWhile(Visitor v1, Visitor v2) {
 	return new DoWhileSuccess(v1, new Identity(), v2);
     }
 
-    /** Reuse DoWhileSuccess(id,v,id) as a TopDown;
+    /** Reuse DoWhileSuccess(id,v,id) as a TopDown(v);
      */
-    static DoWhileSuccess TopDown(Visitor v) {
+    public static DoWhileSuccess TopDown(Visitor v) {
 	return new DoWhileSuccess(new Identity(), v, new Identity());
     }
 
