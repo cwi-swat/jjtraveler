@@ -19,6 +19,7 @@ public class TestAll extends TestCase {
 	suite.addTest( new TestSuite(jjtraveler.TopDownUntilTest.class) );
 	suite.addTest( new TestSuite(jjtraveler.DoWhileSuccessTest.class) );
 	suite.addTest( new TestSuite(jjtraveler.OneTest.class) );
+	suite.addTest( new TestSuite(jjtraveler.CollectTest.class) );
 	return suite;
     }
 

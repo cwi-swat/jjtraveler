@@ -49,7 +49,8 @@ JAVA_JUNIT = \
 	OnceTopDownTest.java \
 	TopDownUntilTest.java \
 	DoWhileSuccessTest.java \
-	OneTest.java
+	OneTest.java \
+	CollectTest.java
 
 
 EXTRA_DIST	= package.html overview.html.src
