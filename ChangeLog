@@ -1,4 +1,8 @@
 2001-11-28 Joost.Visser@cwi.nl
+	* Started subpackage "graph" which contains combinators for
+	  operating on (non-tree) shaped graph structures.
+	
+2001-11-28 Joost.Visser@cwi.nl
 	* Improved documentation by (i) adding package overview files, and
  	  (ii) adding method and class comments.
 	* Created a reflective visitor combinator WrapLog that visits a 

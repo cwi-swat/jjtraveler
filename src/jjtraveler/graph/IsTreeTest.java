@@ -1,0 +1,43 @@
+package jjtraveler.graph;
+
+import junit.framework.*;
+import jjtraveler.*;
+import jjtraveler.test.*;
+
+public class IsTreeTest extends VisitorTestCase {
+
+    public void testTree() throws VisitFailure {
+	Visitable expectedNode = (new IsTree()).visit(n0);
+	assertEquals(expectedNode,n0);
+    }
+
+    public void testDiamond() throws VisitFailure {
+	Visitable expectedNode = null;
+	try {
+	    expectedNode = (new IsTree()).visit(rootOfDiamond);
+	    fail("VisitFailure should have occured");
+	} catch (VisitFailure vf) {
+	    assertNull(expectedNode);
+	}
+    }
+
+    public void testCircle() throws VisitFailure {
+	Visitable expectedNode = null;
+	try {
+	    expectedNode = (new IsTree()).visit(rootOfCircle);
+	    fail("VisitFailure should have occured");
+	} catch (VisitFailure vf) {
+	    assertNull(expectedNode);
+	}
+    }
+
+    public IsTreeTest(String test) {
+        super(test);
+    }
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite(jjtraveler.util.UtilTest.class);
+        return suite;
+    }
+
+}
