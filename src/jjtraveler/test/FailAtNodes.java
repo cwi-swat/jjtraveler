@@ -16,6 +16,10 @@ public class FailAtNodes implements jjtraveler.Visitor {
 	this.visitables.addAll(visitables);
     }
 
+    public FailAtNodes(Visitable n) {
+	visitables.add(n);
+    }
+
     public FailAtNodes(Visitable n1, Visitable n2) {
 	visitables.add(n1);
 	visitables.add(n2);

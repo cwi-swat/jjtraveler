@@ -13,6 +13,11 @@ public class SucceedAtNodes implements jjtraveler.Visitor {
     public SucceedAtNodes(Visitable n1, Visitable n2) {
 	success = new Not( new FailAtNodes(n1, n2) );
     }
+
+    public SucceedAtNodes(Visitable n) {
+	success = new Not( new FailAtNodes(n) );
+    }
+
     public Visitable visit(Visitable x) throws VisitFailure {
 	return success.visit(x);
     }
