@@ -33,8 +33,9 @@ public class LibraryTest extends TestCase
 	Identity id = new Identity();
 	Logger expected = new Logger();
 	expected.log( Event.makeVisitEvent(id, n0) );
-	(new LogVisitor(id, logger)).visit(n0);
+	Visitable nodeReturned = logVisitor(id).visit(n0);
 	assertEquals(expected, logger);
+	assertEquals(n0, nodeReturned);
     }
 
     public void testFail() {
@@ -56,14 +57,12 @@ public class LibraryTest extends TestCase
 	expected.log( Event.makeVisitEvent(id1, n0) );
 	expected.log( Event.makeVisitEvent(id2, n0) );
 
-	Sequence  ls = 
-	    new Sequence(
-	      new LogVisitor(id1, logger),
-	      new LogVisitor(id2, logger)
-	    );
+	Sequence  ls = new Sequence( logVisitor(id1), logVisitor(id2) );
 
-	ls.visit(n0);
+	Visitable nodeReturned = ls.visit(n0);
+
 	assertEquals(expected, logger);
+	assertEquals(nodeReturned, n0);
     }
 
     public void testLeftChoice() throws VisitFailure {
@@ -72,14 +71,11 @@ public class LibraryTest extends TestCase
 	Logger expected = new Logger();
 	expected.log( Event.makeVisitEvent(id, n0) );
 
-	Choice  ch = 
-	    new Choice(
-	      new LogVisitor(id, logger),
-	      new Identity()
-	    );
+	Choice  ch = new Choice( logVisitor(id), new Identity() );
 
-	ch.visit(n0);
+	Visitable nodeReturned = ch.visit(n0);
 	assertEquals(expected, logger);
+	assertEquals(n0, nodeReturned);
     }
 
 
@@ -89,14 +85,11 @@ public class LibraryTest extends TestCase
 	Logger expected = new Logger();
 	expected.log( Event.makeVisitEvent(id, n0) );
 
-	Choice  ch = 
-	    new Choice(
-	      new Fail(),
-	      new LogVisitor(id, logger)
-	    );
+	Choice  ch = new Choice( new Fail(), logVisitor(id) );
 
-	ch.visit(n0);
+	Visitable nodeReturned = ch.visit(n0);
 	assertEquals(expected, logger);
+	assertEquals(n0, nodeReturned);
     }
 
     public void testBacktrack() 
@@ -121,6 +114,10 @@ public class LibraryTest extends TestCase
 	assertEquals(initialState,i.getState());
 	assertEquals("",n0.getLogger().getTrace());
     }	
+
+    public LogVisitor logVisitor(Visitor v) {
+	return new LogVisitor(v, logger);
+    }
 
     public void testBreadthFirst()
       throws jjtraveler.VisitFailure {
