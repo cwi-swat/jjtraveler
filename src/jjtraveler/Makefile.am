@@ -55,6 +55,7 @@ JAVA_JUNIT = \
 	NestingDepthTest.java \
 	OnceTopDownTest.java \
 	SpineTopDownTest.java \
+	SpineBottomUpTest.java \
 	TopDownUntilTest.java \
 	DoWhileSuccessTest.java \
 	OneTest.java \

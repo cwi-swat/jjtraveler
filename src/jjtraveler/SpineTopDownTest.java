@@ -2,6 +2,14 @@ package jjtraveler;
 
 import jjtraveler.test.*;
 
+
+/** Various test cases for the rather tricky spine top down.
+ *
+ * @author Arie van Deursen, CWI
+ * @date December 2002
+ */
+
+
 public class SpineTopDownTest extends VisitorTestCase {
 
     public SpineTopDownTest(String test) {

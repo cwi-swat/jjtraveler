@@ -11,17 +11,18 @@ public class TestAll extends TestCase {
     public static Test suite() {
 	TestSuite suite = new TestSuite();
 	suite.addTest(new TestSuite(AllTest.class));
-	suite.addTest(new TestSuite(jjtraveler.FailTest.class));
-	suite.addTest( new TestSuite(jjtraveler.IdentityTest.class) );
-	suite.addTest( new TestSuite(jjtraveler.IfThenElseTest.class) );
-	suite.addTest( new TestSuite(jjtraveler.LibraryTest.class) );
-	suite.addTest( new TestSuite(jjtraveler.NestingDepthTest.class) );
-	suite.addTest( new TestSuite(jjtraveler.OnceTopDownTest.class) );
-	suite.addTest( new TestSuite(jjtraveler.SpineTopDownTest.class) );
-	suite.addTest( new TestSuite(jjtraveler.TopDownUntilTest.class) );
-	suite.addTest( new TestSuite(jjtraveler.DoWhileSuccessTest.class) );
-	suite.addTest( new TestSuite(jjtraveler.OneTest.class) );
-	suite.addTest( new TestSuite(jjtraveler.CollectTest.class) );
+	suite.addTest(new TestSuite(FailTest.class));
+	suite.addTest( new TestSuite(IdentityTest.class) );
+	suite.addTest( new TestSuite(IfThenElseTest.class) );
+	suite.addTest( new TestSuite(LibraryTest.class) );
+	suite.addTest( new TestSuite(NestingDepthTest.class) );
+	suite.addTest( new TestSuite(OnceTopDownTest.class) );
+	suite.addTest( new TestSuite(SpineTopDownTest.class) );
+	suite.addTest( new TestSuite(SpineBottomUpTest.class) );
+	suite.addTest( new TestSuite(TopDownUntilTest.class) );
+	suite.addTest( new TestSuite(DoWhileSuccessTest.class) );
+	suite.addTest( new TestSuite(OneTest.class) );
+	suite.addTest( new TestSuite(CollectTest.class) );
 	return suite;
     }
     
