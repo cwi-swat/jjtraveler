@@ -1,3 +1,8 @@
+2001-07-02 Joost Visser <Joost.Visser@cwi.nl>
+	 * "Not" combinator added.
+         * Visitor fields in visitor combinators are now public, to make
+	   extending them possible.
+
 2001-06-29 Joost Visser <Joost.Visser@cwi.nl>
          * Changed visitors into _returning_ visitors, i.e. the
  	   visit method now has a Visitable return value. 

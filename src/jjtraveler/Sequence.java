@@ -9,8 +9,8 @@ package jjtraveler;
 
 public class Sequence implements Visitor {
     
-    Visitor first;
-    Visitor then;
+    public Visitor first;
+    public Visitor then;
     
     public Sequence(Visitor first, Visitor then) {
 	this.first = first;

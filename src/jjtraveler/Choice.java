@@ -14,8 +14,8 @@ package jjtraveler;
 
 public class Choice implements Visitor {
 
-  Visitor first;
-  Visitor then;
+  public Visitor first;
+  public Visitor then;
 
   public Choice(Visitor first, Visitor then) {
     this.first = first;
