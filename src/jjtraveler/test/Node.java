@@ -5,24 +5,22 @@ import java.io.*;
 public class Node implements jjtraveler.Visitable {
 
     Node[] kids;
-    NodeLogger logger;
+    Logger logger;
     int nodeID;
 
     static int nodeCounter = 0;
-    static NodeLogger staticLogger = new NodeLogger();
 
-    public static Node factory(Node[] kids) {
-	Node result = new Node(kids, staticLogger, nodeCounter);
+    public static Node factory(Node[] kids, Logger logger) {
+	Node result = new Node(kids, logger, nodeCounter);
 	nodeCounter++;
 	return result;
     }
 
     public static void reset() {
 	nodeCounter = 0;
-	staticLogger = new NodeLogger();
     }
 
-    public Node(Node[] kids, NodeLogger logger, int nodeID) {
+    public Node(Node[] kids, Logger logger, int nodeID) {
 	this.kids = kids;
 	this.logger = logger;
 	this.nodeID = nodeID;
@@ -49,7 +47,7 @@ public class Node implements jjtraveler.Visitable {
 	return this;
     }
 
-    public NodeLogger getLogger() {
+    public Logger getLogger() {
 	return logger;
     }
 

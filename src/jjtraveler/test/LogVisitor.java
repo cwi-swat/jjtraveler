@@ -4,25 +4,27 @@ import jjtraveler.*;
 
 public class LogVisitor implements Visitor {
     Visitor visitor;
-    NodeLogger logger;
+    Logger logger;
     String visitorName;
     
-    public LogVisitor(Visitor v, NodeLogger l, String n) {
+    public LogVisitor(Visitor v, Logger l, String n) {
 	visitor = v;
 	logger = l;
 	visitorName = n;
     }
 
-    public LogVisitor(Visitor v, NodeLogger l) {
+    public LogVisitor(Visitor v, Logger l) {
 	visitor = v;
 	logger = l;
 	visitorName = v.getClass().getName();
     }
 
 
-    public Visitable visit(Visitable x) throws VisitFailure {
-	logger.log(visitorName+".visit("+x+")");
-	return visitor.visit(x);
+    public Visitable visit(Visitable visitable) throws VisitFailure {
+	Event e = Event.makeVisitEvent( visitor, visitable );
+	logger.log(e);
+	// logger.log(visitorName+".visit("+x+")");
+	return visitor.visit( visitable );
     }
 
 }

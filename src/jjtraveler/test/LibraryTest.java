@@ -12,6 +12,8 @@ public class LibraryTest extends TestCase
     Node n3;    //       / \
     Node n4;    //      0   1
 
+    Logger logger;
+
     public LibraryTest(String test) {
 	super(test);
     }
@@ -19,19 +21,20 @@ public class LibraryTest extends TestCase
     protected void setUp() {
 	Node.reset();
 	Node[] empty = {};
-	n0 = Node.factory(empty);
-	n1 = Node.factory(empty);
-	n2 = Node.factory(empty);
-	n3 = Node.factory(new Node[]{n0,n1});
-	n4 = Node.factory(new Node[]{n3,n2});
+	logger = new Logger();
+	n0 = Node.factory(empty,logger);
+	n1 = Node.factory(empty,logger);
+	n2 = Node.factory(empty,logger);
+	n3 = Node.factory(new Node[]{n0,n1},logger);
+	n4 = Node.factory(new Node[]{n3,n2},logger);
     }
 
     public void testIdentity() throws VisitFailure {
-	(new Identity()).visit(n0);
-	assertEquals("", n0.getLogger().getTrace());
-
-	(new LogVisitor(new Identity(), n0.getLogger())).visit(n0);
-	assertEquals("jjtraveler.Identity.visit(Node-0)", n0.getLogger().getTrace());
+	Identity id = new Identity();
+	Logger expected = new Logger();
+	expected.log( Event.makeVisitEvent(id, n0) );
+	(new LogVisitor(id, logger)).visit(n0);
+	assertEquals(expected, logger);
     }
 
     public void testFail() {
@@ -40,18 +43,21 @@ public class LibraryTest extends TestCase
 	    fail();
 	}
 	catch(VisitFailure vf) {
-	    assertEquals("", n0.getLogger().getTrace());
+	    Logger expected = new Logger();
+	    assertEquals(expected, logger);
 	}
     }
 
     public void testBacktrack() 
     throws jjtraveler.VisitFailure {
 	class Increment implements StateVisitor {
+	    Object localState = null;
 	    public int state = 0;
 	    public Object getState() {return new Integer(state);}
 	    public void setState(Object o) {state = ((Integer) o).intValue();}
 	    public Visitable visit(Visitable x) {
 		state++; 
+		localState = getState();
 		return x;
 	    }
 	}
@@ -59,6 +65,8 @@ public class LibraryTest extends TestCase
 	Increment i = new Increment();
 	Object initialState = i.getState();
 	(new Backtrack(i)).visit(n0);
+	assertNotNull(i.localState);
+	assertTrue(! initialState.equals(i.localState));
 	assertEquals(initialState,i.getState());
 	assertEquals("",n0.getLogger().getTrace());
     }	
@@ -84,6 +92,14 @@ public class LibraryTest extends TestCase
 		     "Node.getChildCount",
 		     n0.getLogger().getTrace());
     }
+    /*
+    Trace expected = 
+	new Trace( 
+		  new Event[] {
+	    new VisitEvent(id, n4)
+	    }
+	    )
+    */
 	
     public static Test suite() {
 	TestSuite suite = new TestSuite(jjtraveler.test.LibraryTest.class);
