@@ -166,7 +166,7 @@ AC_DEFUN([AC_CHECK_JUNIT],[
 AC_CACHE_VAL(ac_cv_prog_JUNIT,[
 AC_CHECK_CLASS(junit.textui.TestRunner)
 if test x"`eval 'echo $ac_cv_class_junit_textui_TestRunner'`" != xno ; then
-  ac_cv_prog_JUNIT='$(CLASSPATH_ENV) $(JAVA) $(JAVAFLAGS) junit.textui.TestRunner'
+  ac_cv_prog_JUNIT='CLASSPATH=./jars/junit.jar $(JAVA) $(JAVAFLAGS) junit.textui.TestRunner'
 fi])
 AC_MSG_CHECKING([for junit])
 if test x"`eval 'echo $ac_cv_prog_JUNIT'`" != x ; then

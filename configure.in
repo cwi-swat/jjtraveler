@@ -1,8 +1,8 @@
-dnl $Id$
+AC_REVISION($Id$)
 
 AC_INIT
 AC_CONFIG_SRCDIR([configure.in])
-AM_INIT_AUTOMAKE(JJTraveler,0.4.2)
+AM_INIT_AUTOMAKE(JJTraveler,0.4.3)
 AC_PREREQ(2.59)
 
 AC_SUBST(JAVA_SUBDIRS)
@@ -11,48 +11,30 @@ JAVAC=javac
 AC_CHECK_CLASSPATH
 AC_PROG_JAVAC
 AC_PROG_JAVA
-AC_CHECK_JUNIT
 AC_PROG_JAVADOC
-AC_SUBST(CLASSPATH)
 
-if test "x${JUNIT}" = "x"; then
-	AC_MSG_WARN([JUnit not found, the tests will be disabled!])
-	JJT_TESTS=""
-else
-	JJT_TESTS="test"
-fi
-
-AC_SUBST(JJT_TESTS)
-
-AC_REVISION($Id$)
+JUNIT='$(CLASSPATH_ENV) $(JAVA) $(JAVAFLAGS) junit.textui.TestRunner'
+JAVA_JUNIT='$(JAVA_JUNIT)'
+TESTS_JUNIT='$(TESTS_JUNIT)'
+AC_SUBST(JUNIT)
+AC_SUBST(JAVA_JUNIT)
+AC_SUBST(TESTS_JUNIT)
 
 AC_PROG_CC
 AC_PROG_INSTALL
 
-
 AC_PATH_PROGS(SH, sh)
-
-TOOLS="templates jjtraveler jjtraveler/test jjtraveler/reflective jjtraveler/reflective/test jjtraveler/graph jjtraveler/graph/test jjtraveler/util jjtraveler/util/test "
-UNRELEASED=""
-RELEASED="templates jjtraveler jjtraveler/test jjtraveler/reflective jjtraveler/reflective/test jjtraveler/graph jjtraveler/graph/test jjtraveler/util jjtraveler/util/test"
-
-AC_SUBST(TOOLS)
-AC_SUBST(RELEASED)
-AC_SUBST(UNRELEASED)
 
 AC_CONFIG_FILES([
   Makefile 
   VERSION 
   scripts/Makefile
+  jars/Makefile
   src/Makefile 
   src/templates/Makefile
   src/jjtraveler/Makefile
-  src/jjtraveler/test/Makefile
   src/jjtraveler/reflective/Makefile
-  src/jjtraveler/reflective/test/Makefile
   src/jjtraveler/graph/Makefile
-  src/jjtraveler/graph/test/Makefile
   src/jjtraveler/util/Makefile
-  src/jjtraveler/util/test/Makefile
 ])
 AC_OUTPUT

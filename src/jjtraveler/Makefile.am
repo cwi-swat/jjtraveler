@@ -3,57 +3,13 @@ javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
 JAVASRCROOT	= ${top_srcdir}/src
 
-SUBDIRS		= util @JJT_TESTS@ reflective graph
-DIST_SUBDIRS	= util test reflective graph
+SUBDIRS		= util reflective graph
 
 EXTRA_DIST = \
 	${java_JAVA} \
+	${EXTRA_JAVA} \
 	package.html \
 	overview.html.src
-
-
-java_packages	= jjtraveler $(patsubst %,jjtraveler.%, $(SUBDIRS))
-java_dirs	= $(srcdir) $(patsubst %,$(srcdir)/%, $(SUBDIRS))
-java_files	= $(wildcard $(patsubst %, %/*.java, $(java_dirs)))
-java_test_files	= $(wildcard $(patsubst %, %/TestAll.java, $(java_dirs)) $(patsubst %, %/*Test.java, $(java_dirs)))
-java_doc_files  = $(filter-out $(java_test_files), $(java_files))
-
-
-# Creating the javadocs
-DOCDIR=./doc
-
-# all-local: htmljava.stamp 
-
-#install-data-local: html-install 
-
-clean-local: html-clean
-
-htmljava.stamp: $(java_JAVA) overview.html
-	mkdir -p ${DOCDIR}
-	@JAVADOC@ -windowtitle "JJTraveler Documentation" \
-	  -sourcepath ${JAVASRCROOT} -classpath ${CLASSPATH} \
-	  -overview overview.html \
-	  -use -private -d ${DOCDIR} \
-	  $(java_packages)
-	echo timestamp > htmljava.stamp
-
-html-install: htmljava.stamp
-	$(mkinstalldirs) $(datadir)/JJTraveler/doc
-	cp -r ${DOCDIR}/* $(datadir)/JJTraveler/doc
-
-html-clean:
-	rm -fr ${DOCDIR} htmljava.stamp overview.html	
-
-echo-classpath:
-	@echo ${CLASSPATH}
-
-echo-%:
-	@echo ${$*}
-
-
-
-%: %.src
-	sed s/__VERSION__/${VERSION}/g $< > $@
 
 java_JAVA = \
 	All.java \
@@ -95,4 +51,93 @@ java_JAVA = \
 	Visitable.java \
 	VisitableList.java \
 	Visitor.java \
-	VoidVisitor.java
+	VoidVisitor.java\
+	Node.java \
+	NodeVisitor.java\
+	Logger.java \
+	LogVisitor.java \
+	Event.java \
+	VisitorTestCase.java \
+	FailAtNodes.java \
+	SucceedAtNodes.java \
+	TimeLogVisitor.java \
+	${EXTRA_JAVA}
+
+CLASSPATH_ENV = CLASSPATH=${JAVAROOT}:${JAVASRCROOT}:${top_srcdir}/jars/junit.jar
+java_packages	= jjtraveler $(patsubst %,jjtraveler.%, $(SUBDIRS))
+java_dirs	= $(srcdir) $(patsubst %,$(srcdir)/%, $(SUBDIRS))
+java_files	= $(wildcard $(patsubst %, %/*.java, $(java_dirs)))
+java_test_files	= $(wildcard $(patsubst %, %/TestAll.java, $(java_dirs)) $(patsubst %, %/*Test.java, $(java_dirs)))
+java_doc_files  = $(filter-out $(java_test_files), $(java_files))
+
+EXTRA_JAVA = \
+	FailAtNodesTest.java\
+	TestAll.java\
+	LoggerTest.java\
+	TimeLogVisitorTest.java \
+	AllSpinesBottomUpTest.java \
+	AllTest.java \
+	FailTest.java \
+	IdentityTest.java \
+	IfThenElseTest.java \
+	LibraryTest.java \
+	NestingDepthTest.java \
+	OnceTopDownTest.java \
+	SpineTopDownTest.java \
+	SomeTest.java \
+	SpineBottomUpTest.java \
+	TopDownUntilTest.java \
+	DoWhileSuccessTest.java \
+	OneTest.java \
+	SuccessCounterTest.java \
+	CollectTest.java \
+	ChildTest.java \
+	DescendantTest.java 
+
+TESTS_JUNIT = MainTest 
+
+TESTS       = @TESTS_JUNIT@
+
+EXTRA_TESTS = $(TESTS_JUNIT)
+
+MainTest: Makefile
+	echo "#! /bin/sh" > $@
+	echo "@JUNIT@ jjtraveler.TestAll" >> $@
+	chmod +x $@
+
+CLEANFILES=MainTest
+
+# Creating the javadocs
+DOCDIR=./doc
+
+# all-local: htmljava.stamp 
+
+#install-data-local: html-install 
+
+clean-local: html-clean
+
+htmljava.stamp: $(java_JAVA) overview.html
+	mkdir -p ${DOCDIR}
+	@JAVADOC@ -windowtitle "JJTraveler Documentation" \
+	  -sourcepath ${JAVASRCROOT} -classpath ${CLASSPATH} \
+	  -overview overview.html \
+	  -use -private -d ${DOCDIR} \
+	  $(java_packages)
+	echo timestamp > htmljava.stamp
+
+html-install: htmljava.stamp
+	$(mkinstalldirs) $(datadir)/JJTraveler/doc
+	cp -r ${DOCDIR}/* $(datadir)/JJTraveler/doc
+
+html-clean:
+	rm -fr ${DOCDIR} htmljava.stamp overview.html	
+
+echo-classpath:
+	@echo ${CLASSPATH}
+
+echo-%:
+	@echo ${$*}
+
+%: %.src
+	sed s/__VERSION__/${VERSION}/g $< > $@
+

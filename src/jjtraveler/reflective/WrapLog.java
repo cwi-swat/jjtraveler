@@ -1,8 +1,8 @@
 package jjtraveler.reflective;
 
 import jjtraveler.Visitable;
-import jjtraveler.test.LogVisitor;
-import jjtraveler.test.Logger;
+import jjtraveler.LogVisitor;
+import jjtraveler.Logger;
 
 /**
  * Wrap a LogVisitor around a visitor.
