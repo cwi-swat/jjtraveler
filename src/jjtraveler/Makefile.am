@@ -42,6 +42,7 @@ SUBDIRS		= util test reflective graph
 
 JAVA_JUNIT = \
 	TestAll.java \
+	AllTest.java \
 	FailTest.java \
 	IdentityTest.java \
 	IfThenElseTest.java \
