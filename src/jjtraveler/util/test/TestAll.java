@@ -3,7 +3,6 @@ package jjtraveler.util.test;
 import jjtraveler.test.VisitorTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import jjtraveler.util.*;
 
 public class TestAll extends VisitorTestCase {
 

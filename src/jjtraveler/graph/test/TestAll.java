@@ -1,6 +1,5 @@
 package jjtraveler.graph.test;
 
-import jjtraveler.graph.*;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
