@@ -5,5 +5,5 @@ java_JAVA = \
 	DotGraph.java\
 	MkEdgeFromParent.java
 
-javadir		= ${prefix}/classes/jjtraveler/test
+javadir		= ${prefix}/classes/jjtraveler/util
 JAVAROOT        = ${top_builddir}/src
