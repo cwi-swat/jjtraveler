@@ -9,6 +9,7 @@ javadir		= ${prefix}/classes/jjtraveler/test
 JAVAROOT        = ${top_builddir}/src
 
 JAVA_JUNIT = \
+	FailAtNodesTest.java\
 	TestAll.java 
 
 EXTRA_DIST = package.html
