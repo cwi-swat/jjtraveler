@@ -4,7 +4,6 @@ aclocal.m4
 config.*
 VERSION
 missing
-configure.in
 configure
 *.pkg
 *.tar.gz

@@ -19,6 +19,8 @@ include ${top_srcdir}/package.conf
 
 CLEANFILES = ${PACKAGE}-${VERSION}.pkg
 
+ACLOCAL_FLAGS = -I .
+
 SUBDIRS	= src scripts
 
 EXTRA_DIST = ADDING-TOOLS VERSION configure.in.src genconf.sh \
