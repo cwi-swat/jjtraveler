@@ -1,4 +1,4 @@
-# Copyright (C) 2000 Author's name <em@il>
+# Copyright (C) 2000 Joost Visser <Joost.Visser@cwi.nl>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

@@ -1,2 +1,10 @@
-Version 0.0 released: YYYY-MM-DD
-	* Remarks
+Version 0.1 released: 2001-06-28
+	* The JJTraveler package contains the visitor combinator framework
+          previously included in the JJForester distribution, with some
+          modifications:
+            - The names AnyVisitor, AnyVisitable, visit_Any, getKid,
+              and numberOfKids, have been changed into Visitor, Visitable,
+              visit, getChildAt, and getChildCount.
+            - The method setChildAt has been added to the Visitable
+              interface, and the method accept_Any has been removed.
+

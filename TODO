@@ -3,5 +3,5 @@ TODO
           and in the README.
 	* Add visitors with return values (rewritors or transformers).
 	* Add combinators for graph visitation.
-	* Add methods Visitable.setChildAt.
+
 
