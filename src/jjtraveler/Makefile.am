@@ -35,6 +35,7 @@ NestingDepth.java \
 DoWhileSuccess.java \
 Collect.java \
 VisitableList.java \
+SuccessCounter.java \
 DefinedCombinator.java \
 @JAVA_JUNIT@
 
@@ -63,6 +64,7 @@ JAVA_JUNIT = \
 	TopDownUntilTest.java \
 	DoWhileSuccessTest.java \
 	OneTest.java \
+	SuccessCounterTest.java \
 	CollectTest.java
 
 noinst_JAVA = @JAVA_JUNIT@
