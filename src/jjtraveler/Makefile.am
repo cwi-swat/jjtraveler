@@ -12,6 +12,7 @@ EXTRA_DIST = \
 	overview.html.src
 
 
+CLASSPATH_ENV = CLASSPATH=${JAVAROOT}:${top_srcdir}/jars/junit.jar
 java_packages	= jjtraveler $(patsubst %,jjtraveler.%, $(SUBDIRS))
 java_dirs	= $(srcdir) $(patsubst %,$(srcdir)/%, $(SUBDIRS))
 java_files	= $(wildcard $(patsubst %, %/*.java, $(java_dirs)))
@@ -140,7 +141,7 @@ EXTRA_TESTS = $(TESTS_JUNIT)
 
 MainTest: Makefile
 	echo "#! /bin/sh" > $@
-	echo "@JUNIT@ jjtraveler.test.TestAll" >> $@
+	echo "@JUNIT@ jjtraveler.TestAll" >> $@
 	chmod +x $@
 
 CLEANFILES=MainTest

@@ -5,14 +5,16 @@ EXTRA_DIST = $(java_JAVA) $(EXTRA_JAVA)
 java_JAVA = \
 	ToStringVisitor.java \
 	ToATermString.java \
-	ToXMLString.java
+	ToXMLString.java \
+	${EXTRA_JAVA}
 
 javadir = ${prefix}/classes/jjtraveler/util
 JAVAROOT = ${top_builddir}/src
+CLASSPATH_ENV = CLASSPATH=${JAVAROOT}:${srcdir}:${top_srcdir}/jars/junit.jar
 
 EXTRA_JAVA = \
 	TestAll.java \
-	UtilTest.java
+	UtilTest.java 
 
 TESTS_JUNIT = MainTest 
 
@@ -22,7 +24,7 @@ EXTRA_TESTS = $(TESTS_JUNIT)
 
 MainTest: Makefile
 	echo "#! /bin/sh" > $@
-	echo "@JUNIT@ jjtraveler.util.test.TestAll" >> $@
+	echo "@JUNIT@ jjtraveler.util.TestAll" >> $@
 	chmod +x $@
 
 CLEANFILES = MainTest
