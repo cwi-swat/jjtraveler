@@ -17,6 +17,11 @@ public class Sequence implements Visitor {
 	this.then  = then;
     }
 
+    public Sequence(Visitor v1, Visitor v2, Visitor v3) {
+	first = v1;
+	then = new Sequence(v2, v3);
+    }
+
     public Visitable visit(Visitable any) throws VisitFailure {
 	return then.visit(first.visit(any));
     }
