@@ -10,16 +10,31 @@ public class TopDownCutOff implements Visitor {
     Visitor stopAt;
     Visitor performAction;
 
+    Visitor tdco;
+
     public TopDownCutOff(Visitor stopAt, Visitor performAction) {
 	this.stopAt = stopAt;
 	this.performAction = performAction;
+	tdco = new IfThenElse(stopAt, 
+		       performAction, 
+		       new All( this) );
+
     }
 
 	
-    public Visitable visit(Visitable x) throws VisitFailure {
+    public Visitable visitOld(Visitable x) throws VisitFailure {
 	return (new IfThenElse(stopAt, 
 	                       performAction, 
 			       new All(this) ) ).visit(x);
     }
+
+    public Visitable visit(Visitable x) throws VisitFailure {
+	return tdco.visit(x);
+    }
+
+    public Visitable visitJoost(Visitable x) throws VisitFailure {
+	return (new TopDownUntil(new Sequence(stopAt, performAction))).visit(x);
+    }
+
 
 }

@@ -13,7 +13,19 @@ public class IfThenElse implements Visitor {
     }
 
     public Visitable visit(Visitable x) throws VisitFailure {
-	return (new Choice( new Sequence( condition, trueCase ), 
-			    falseCase ) ) . visit(x) ;
+	boolean success;
+	Visitable result;
+	try {
+	    condition.visit(x);
+	    success = true;
+	} catch (VisitFailure vf) {
+	    success = false;
+	}
+	if (success) {
+	    result = trueCase.visit(x);
+	} else {
+	    result = falseCase.visit(x);
+	}
+	return result;
     }
 }
