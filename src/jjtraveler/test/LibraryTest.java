@@ -92,6 +92,38 @@ public class LibraryTest extends TestCase
 	assertEquals(n0, nodeReturned);
     }
 
+
+    public void testAll() throws jjtraveler.VisitFailure {
+	Identity id = new Identity();
+
+	Logger expected = new Logger();
+	expected.log( Event.makeVisitEvent(id, n3) );
+	expected.log( Event.makeVisitEvent(id, n2) );
+
+	All  all = new All( logVisitor(id) );
+
+	Visitable nodeReturned = all.visit(n4);
+	assertEquals(expected, logger);
+	assertEquals(n4, nodeReturned);
+    }
+
+    public void testBottomUp() throws jjtraveler.VisitFailure {
+	Identity id = new Identity();
+
+	Logger expected = new Logger();
+	expected.log( Event.makeVisitEvent(id, n0) );
+	expected.log( Event.makeVisitEvent(id, n1) );
+	expected.log( Event.makeVisitEvent(id, n3) );
+	expected.log( Event.makeVisitEvent(id, n2) );
+	expected.log( Event.makeVisitEvent(id, n4) );
+
+	BottomUp  visitor = new BottomUp( logVisitor(id) );
+
+	Visitable nodeReturned = visitor.visit(n4);
+	assertEquals(expected, logger);
+	assertEquals(n4, nodeReturned);
+    }
+
     public void testBacktrack() 
     throws jjtraveler.VisitFailure {
 	class Increment implements StateVisitor {
