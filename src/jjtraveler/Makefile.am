@@ -38,7 +38,9 @@ clean-local: html-clean
 htmljava.stamp: $(java_JAVA)
 	mkdir -p ./doc
 	@JAVADOC@ -windowtitle "JJTraveler Documentation" \
-	  -use -private -d ./doc $?
+	  -sourcepath ${JAVAROOT} -classpath ${CLASSPATH} \
+	  -use -private -d ./doc \
+	  jjtraveler jjtraveler.util jjtraveler.test
 	echo timestamp > htmljava.stamp
 
 html-install: htmljava.stamp
