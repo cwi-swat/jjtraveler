@@ -1,13 +1,13 @@
 package jjtraveler.util;
 
+import jjtraveler.*;
+
 /**
  * <code>ASTToGraph 
  *       = TopDown(MkEdgesToKids)</code>
  * <p>
  * Creates a graph representation from a given object graph.
  */
-
-import jjtraveler.*;
 
 public class ASTToGraph extends TopDown {
     /**

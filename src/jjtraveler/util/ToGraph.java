@@ -1,5 +1,7 @@
 package jjtraveler.util;
 
+import jjtraveler.*;
+
 /**
  * <code>ToGraph(isNode)
  *       = TopDownUntil(Sequence(isNode,
@@ -10,8 +12,6 @@ package jjtraveler.util;
  * Creates a graph representation from a given object graph, where
  * <code>isNode</code> determines for which objects a node is generated.
  */
-
-import jjtraveler.*;
 
 public class ToGraph extends TopDownUntil {
 
