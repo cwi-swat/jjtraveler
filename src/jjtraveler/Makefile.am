@@ -23,3 +23,24 @@ javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
 
 SUBDIRS		= data
+
+all-local: htmljava.stamp
+
+install-data-local: html-install
+
+clean-local: html-clean
+
+htmljava.stamp: $(java_JAVA)
+	mkdir -p ./doc
+	@JAVADOC@ -windowtitle "JJTraveler Documentation" \
+	  -use -private -d ./doc $?
+	echo timestamp > htmljava.stamp
+
+html-install: htmljava.stamp
+	$(mkinstalldirs) $(datadir)/doc/jjtraveler
+	cp -r ./doc/* $(datadir)/doc/jjtraveler
+
+html-clean:
+	rm -fr ./doc htmljava.stamp
+
+

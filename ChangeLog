@@ -1,4 +1,6 @@
 2001-06-28 Joost Visser <Joost.Visser@cwi.nl>
+	 * Documentation for JJTraveler is now automically generated
+	   with javadoc.
          * Released version 0.1 and bumped to 0.2a.
 	
 2001-06-27 Joost Visser <Joost.Visser@cwi.nl>
