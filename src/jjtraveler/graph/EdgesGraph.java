@@ -4,7 +4,7 @@ import jjtraveler.*;
 import java.util.*;
 
 public class EdgesGraph implements Graph {
-    Set edges = new HashSet();
+    Collection edges = new Vector();
 
     public void addEdge(Visitable from, Visitable to) {
 	Edge edge = new Edge(from,to);
@@ -50,7 +50,7 @@ public class EdgesGraph implements Graph {
 	return result;
     }
 
-    class Edge {
+    class Edge implements Comparable {
 	Visitable source;
 	Visitable target;
 	public Edge(Visitable source, Visitable target) {
@@ -73,6 +73,14 @@ public class EdgesGraph implements Graph {
 	}
 	public int hashCode() {
 	    return source.hashCode() + target.hashCode();
+	}
+	public int compareTo(Object o) {
+	    if (o instanceof Edge) {
+		Edge edge = (Edge) o;
+		return this.hashCode() - edge.hashCode();
+	    } else {
+		throw new ClassCastException("Tried to compare an Edge to something that is not an edge");
+	    }
 	}
     }
 }
