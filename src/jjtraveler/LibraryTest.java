@@ -219,7 +219,7 @@ public class LibraryTest extends TestCase
 
 	Visitable resultNode = bf.visit(n4);
 	assertEquals(expected, logger);
-	assertEquals(resultNode, n1);
+	assertEquals(resultNode, n4);
     }
 
     public void testNotOnFailure() 

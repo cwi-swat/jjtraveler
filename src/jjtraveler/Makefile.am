@@ -23,6 +23,8 @@ Not.java \
 StateVisitor.java \
 Backtrack.java \
 BreadthFirst.java \
+BreadthFirstWhile.java\
+OnceBreadthFirst.java\
 TopDownUntil.java \
 TopDownWhile.java \
 GuaranteeSuccess.java \

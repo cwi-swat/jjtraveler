@@ -1,9 +1,10 @@
 package jjtraveler;
 
 /**
- * <code>BF(v) = Seq(v,All(EnQ),Try(Seq(DeQ,BF(v)))</code>
+ * <code>BF(v) = Seq(v,All(EnQ),IfThen(DeQ,BF(v)))</code>
  * <p>
- * Visit a tree in breadth-first order.
+ * Visit a tree in breadth-first order. Fails iff the argument visitor fails
+ * on any of the nodes of the tree.
  */
 
 import java.util.LinkedList;
@@ -30,12 +31,12 @@ public class BreadthFirst {
 	int childCount = result.getChildCount();
 
         for (int i = 0; i < childCount; i++) {
-            pending.addLast(x.getChildAt(i));
+            pending.addLast(result.getChildAt(i));
         }
 
 	if (pending.size() != 0) {
-	    result = (Visitable) pending.removeFirst();
-	    result = this.visit(result);
+	    Visitable next = (Visitable) pending.removeFirst();
+	    next = this.visit(next);
 	}
 
         return result;
