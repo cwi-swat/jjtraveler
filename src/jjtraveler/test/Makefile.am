@@ -2,6 +2,7 @@ java_JAVA = \
 	Node.java NodeVisitor.java\
 	Logger.java LogVisitor.java Event.java \
 	VisitorTestCase.java FailAtNodes.java \
+	SucceedAtNodes.java \
 	@JAVA_JUNIT@
 
 javadir		= ${prefix}/classes/jjtraveler/test
