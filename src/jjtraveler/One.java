@@ -24,7 +24,7 @@ public class One implements Visitor {
 	int childCount = any.getChildCount();
 	for (int i = 0; i < childCount; i++) {
 	    try { 
-		return any.setChildAt(i,visit(any.getChildAt(i))); 
+		return any.setChildAt(i,v.visit(any.getChildAt(i))); 
 	    } catch(VisitFailure f) { }
 	}
 	throw new VisitFailure();
