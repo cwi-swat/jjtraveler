@@ -2,7 +2,9 @@ package jjtraveler.util;
 
 /**
  * <code>ToGraph(isNode)
- *       = TopDownUntil(Sequence(isNode,MkEdgesToKids(ToGraph(isNode))))</code>
+ *       = TopDownUntil(Sequence(isNode,
+                        MkEdgesToKids(Sequence(isNode,
+                                               ToGraph(isNode)))))</code>
  * <p>
  *
  * Creates a graph representation from a given object graph, where
