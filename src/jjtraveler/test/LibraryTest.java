@@ -119,6 +119,25 @@ public class LibraryTest extends TestCase
 	return new LogVisitor(v, logger);
     }
 
+
+    public void testBreadthFirst() 
+      throws jjtraveler.VisitFailure {
+	Identity id = new Identity();
+	BreadthFirst bf = new BreadthFirst( logVisitor(id) );
+
+        Logger expected = new Logger();
+	expected.log( Event.makeVisitEvent(id, n4) );
+	expected.log( Event.makeVisitEvent(id, n3) );
+	expected.log( Event.makeVisitEvent(id, n2) );
+	expected.log( Event.makeVisitEvent(id, n0) );
+	expected.log( Event.makeVisitEvent(id, n1) );
+
+	Visitable resultNode = bf.visit(n4);
+	assertEquals(expected, logger);
+	assertEquals(resultNode, n1);
+    }
+
+    /*
     public void testBreadthFirst()
       throws jjtraveler.VisitFailure {
 	BreadthFirst v = new BreadthFirst(new Identity());
@@ -141,6 +160,7 @@ public class LibraryTest extends TestCase
 		     "Node.getChildCount",
 		     n0.getLogger().getTrace());
     }
+    */
     /*
     Trace expected = 
 	new Trace( 

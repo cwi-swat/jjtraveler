@@ -27,22 +27,22 @@ public class Node implements jjtraveler.Visitable {
     }
 
     public Node accept(NodeVisitor v) throws jjtraveler.VisitFailure {
-	logger.log("Node.accept");
+	// logger.log("Node.accept");
 	return v.visitNode(this);
     }
 
     public int getChildCount() {
-	logger.log("Node.getChildCount");
+	// logger.log("Node.getChildCount");
 	return kids.length;
     }
     
     public jjtraveler.Visitable getChildAt(int i) {
-	logger.log("Node.getChildAt");
+	// logger.log("Node.getChildAt");
 	return kids[i];
     }
     
     public jjtraveler.Visitable setChildAt(int i, jjtraveler.Visitable child) {
-	logger.log("Node.setChildAt");
+	// logger.log("Node.setChildAt");
 	kids[i] = (Node) child;
 	return this;
     }
