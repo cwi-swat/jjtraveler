@@ -30,14 +30,6 @@ public class LibraryTest extends TestCase
 	n4 = Node.factory(new Node[]{n3,n2});
     }
 
-    public void testIdentity() throws VisitFailure {
-	Identity id = new Identity();
-	Logger expected = new Logger(id, new Visitable[]{n0} );
-	Visitable nodeReturned = logVisitor(id).visit(n0);
-	assertEquals(expected, logger);
-	assertEquals(n0, nodeReturned);
-    }
-
     public void testFail() {
 	try {
 	    (new Fail()).visit(n0);
@@ -243,7 +235,7 @@ public class LibraryTest extends TestCase
 
     public static Test suite() {
 	TestSuite suite = new TestSuite(jjtraveler.test.LibraryTest.class);
-	suite.addTest(UtilTest.suite());
+//	suite.addTest(UtilTest.suite());
 	return suite;
     }
 

@@ -8,6 +8,7 @@ javadir		= ${prefix}/classes/jjtraveler/test
 JAVAROOT        = ${top_builddir}/src
 
 JAVA_JUNIT = \
+	TestAll.java \
 	LibraryTest.java\
 	UtilTest.java
 
@@ -23,7 +24,7 @@ EXTRA_TESTS = $(TESTS_JUNIT)
 
 MainTest: Makefile
 	echo "#! /bin/sh" > $@
-	echo "@JUNIT@ jjtraveler.test.LibraryTest" >> $@
+	echo "@JUNIT@ jjtraveler.test.TestAll" >> $@
 	chmod +x $@
 
 JAVACC      = @JAVACC@

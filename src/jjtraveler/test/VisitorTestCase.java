@@ -11,16 +11,17 @@ import jjtraveler.*;
 public abstract class VisitorTestCase extends TestCase 
 {
 
-    /** Nodes in a simple tree that can be used for
+    /** 
+     * Nodes in a simple tree that can be used for
      * testing traversals.
      * Names correspond to paths in the tree:
-     *
+     * <pre>
      *        n0
      *      /    \
      *    n1     n2
      *    / \    
      * n11  n12
-     *
+     * </pre>
      */
     Node n0;
     Node n1;
@@ -42,6 +43,14 @@ public abstract class VisitorTestCase extends TestCase
     protected void setUp() {
 	Node.reset();
 	buildTree();
+	logger = new Logger();
+    }
+
+    /** Many test cases will need a logging visitor:
+     * this methods returns one.
+     */
+    public LogVisitor logVisitor(Visitor v) {
+	return new LogVisitor(v, logger);
     }
 
     public VisitorTestCase(String name) {
