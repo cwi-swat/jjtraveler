@@ -33,7 +33,7 @@ JAVA_JUNIT = \
 
 EXTRA_DIST = package.html
 
-noinst_JAVA = @JAVA_JUNIT@
+#noinst_JAVA = @JAVA_JUNIT@
 
 EXTRA_JAVA  = $(JAVA_JUNIT)
 

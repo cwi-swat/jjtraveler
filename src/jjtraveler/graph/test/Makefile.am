@@ -13,9 +13,9 @@ JAVA_JUNIT = \
 	EdgesGraphTest.java \
 	WhileNotVisitedTest.java 
 
-noinst_JAVA = @JAVA_JUNIT@
+#noinst_JAVA = @JAVA_JUNIT@
 
-EXTRA_JAVA  = $(JAVA_JUNIT)
+EXTRA_JAVA = ${JAVA_JUNIT}
 
 TESTS_JUNIT = MainTest 
 
@@ -30,4 +30,4 @@ MainTest: Makefile
 
 JAVACC      = @JAVACC@
 
-CLEANFILES += MainTest
+CLEANFILES = MainTest

@@ -8,7 +8,7 @@ JAVA_JUNIT = \
 	TestAll.java \
 	UtilTest.java
 
-noinst_JAVA = @JAVA_JUNIT@
+#noinst_JAVA = @JAVA_JUNIT@
 
 EXTRA_JAVA  = $(JAVA_JUNIT)
 

@@ -8,7 +8,7 @@ JAVA_JUNIT=\
 	TestAll.java\
 	WrapLogTest.java
 
-noinst_JAVA = @JAVA_JUNIT@
+#noinst_JAVA = @JAVA_JUNIT@
 
 EXTRA_JAVA  = $(JAVA_JUNIT)
 
@@ -25,4 +25,4 @@ MainTest: Makefile
 
 JAVACC      = @JAVACC@
 
-CLEANFILES += MainTest
+CLEANFILES = MainTest

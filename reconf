@@ -28,6 +28,4 @@ rm -f acconfig.h
 
 aclocal -I .
 autoconf
-#acconfig
-autoheader
 automake -a
