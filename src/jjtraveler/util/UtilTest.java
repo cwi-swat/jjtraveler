@@ -1,7 +1,8 @@
-package jjtraveler.test;
+package jjtraveler.util;
+
 import junit.framework.*;
 import jjtraveler.*;
-import jjtraveler.util.*;
+import jjtraveler.test.VisitorTestCase;
 
 public class UtilTest extends VisitorTestCase {
 

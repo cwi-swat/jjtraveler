@@ -3,4 +3,5 @@ Makefile
 *.class
 classjava.stamp
 htmljava.stamp
-doc
+MainTest
+

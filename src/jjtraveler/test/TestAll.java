@@ -8,7 +8,7 @@ public class TestAll extends VisitorTestCase {
     }
 
     public static Test suite() {
-	TestSuite suite = new TestSuite(jjtraveler.test.UtilTest.class);
+	TestSuite suite = new TestSuite();
 	suite.addTest( new TestSuite( jjtraveler.test.IdentityTest.class) );
 	suite.addTest( new TestSuite( jjtraveler.test.FailTest.class) );
 	suite.addTest( new TestSuite( jjtraveler.test.IfThenElseTest.class) );
