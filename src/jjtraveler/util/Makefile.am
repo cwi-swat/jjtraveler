@@ -5,6 +5,7 @@ java_JAVA = \
 	DotGraph.java\
 	MkEdgeFromParent.java\
 	ToStringVisitor.java\
+	ToGraph.java\
 	@JAVA_JUNIT@
 
 javadir		= ${prefix}/classes/jjtraveler/util
@@ -12,7 +13,8 @@ JAVAROOT        = ${top_builddir}/src
 
 JAVA_JUNIT = \
 	TestAll.java \
-	UtilTest.java
+	UtilTest.java\
+	ToGraphTest.java
 
 noinst_JAVA = @JAVA_JUNIT@
 
