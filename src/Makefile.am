@@ -19,3 +19,11 @@
 
 SUBDIRS = jjtraveler templates
 
+data_DATA = ${JARFILE}
+
+JARFILE = jjtraveler-${VERSION}.jar
+
+${JARFILE}:
+	jar cf ${JARFILE} `cd ${top_builddir}/src && find . -name '*.class'`
+
+CLEANFILES+=${JARFILE}
