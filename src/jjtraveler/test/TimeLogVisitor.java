@@ -2,9 +2,9 @@ package jjtraveler.test;
 
 import jjtraveler.*;
 
-/** 
- * A combinator that generates a loggable event before and after 
- * each time that its argument visitor is invoked.
+/**
+ * This specialization of the LogVisitor additionally times the
+ * invocation and return moments of the argument visitor.
  */
 
 public class TimeLogVisitor extends LogVisitor {
@@ -33,9 +33,17 @@ public class TimeLogVisitor extends LogVisitor {
 	return result;
     }
 
+    /**
+     * Retrieve the total elapsed time (in milliseconds) since the
+     * first invocation of the argument visitor.
+     */
     public long getElapsedTime() {
 	return lastReturnTimeStamp - firstInvocationTimeStamp;
     }
+    /**
+     * Retrieve the cumulatively consumed time (in milliseconds)
+     * during all executions of the argument visitor.
+     */
     public long getConsumedTime() {
 	return consumedTime;
     }
