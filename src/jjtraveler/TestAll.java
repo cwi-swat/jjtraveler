@@ -22,6 +22,7 @@ public class TestAll extends TestCase {
 	suite.addTest( new TestSuite(TopDownUntilTest.class) );
 	suite.addTest( new TestSuite(DoWhileSuccessTest.class) );
 	suite.addTest( new TestSuite(OneTest.class) );
+	suite.addTest( new TestSuite(SomeTest.class) );
 	suite.addTest( new TestSuite(CollectTest.class) );
 	return suite;
     }

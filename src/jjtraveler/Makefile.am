@@ -25,6 +25,7 @@ Backtrack.java \
 BreadthFirst.java \
 BreadthFirstWhile.java\
 OnceBreadthFirst.java\
+Some.java\
 TopDownUntil.java \
 TopDownWhile.java \
 GuaranteeSuccess.java \
@@ -55,6 +56,7 @@ JAVA_JUNIT = \
 	NestingDepthTest.java \
 	OnceTopDownTest.java \
 	SpineTopDownTest.java \
+	SomeTest.java \
 	SpineBottomUpTest.java \
 	TopDownUntilTest.java \
 	DoWhileSuccessTest.java \
