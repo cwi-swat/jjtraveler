@@ -14,13 +14,14 @@ public class UtilTest extends VisitorTestCase {
 	DotGraph g = new DotGraph();
 	Visitor v = new ASTToGraph(g);
 	v.visit(n0);
-	String expected = "digraph name {\n";
-	expected += "Node-4 -> Node-3;\n";
-	expected += "Node-4 -> Node-2;\n";
-	expected += "Node-3 -> Node-0;\n";
-	expected += "Node-3 -> Node-1;\n";
-	expected += "}\n";
-	assertEquals(expected,g.printGraph("name"));
+
+	DotGraph expected = new DotGraph();
+	expected.addEdge(n0, n1);
+	expected.addEdge(n0, n2);
+	expected.addEdge(n1, n11);
+	expected.addEdge(n1, n12);
+
+	assertEquals(expected.printGraph("name"),g.printGraph("name"));
     }
 
     public static Test suite() {
