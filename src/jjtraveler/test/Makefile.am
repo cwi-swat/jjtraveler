@@ -1,5 +1,5 @@
 java_JAVA = \
-Node.java NodeVisitor.java NodeLogger.java \
+Node.java NodeVisitor.java NodeLogger.java LogVisitor.java \
 @JAVA_JUNIT@
 
 javadir		= ${prefix}/classes/jjtraveler/test

@@ -10,11 +10,13 @@ public class Node implements jjtraveler.Visitable {
 
     static int nodeCounter = 0;
     static NodeLogger staticLogger = new NodeLogger();
+
     public static Node factory(Node[] kids) {
 	Node result = new Node(kids, staticLogger, nodeCounter);
 	nodeCounter++;
 	return result;
     }
+
     public static void reset() {
 	nodeCounter = 0;
 	staticLogger = new NodeLogger();
@@ -49,5 +51,9 @@ public class Node implements jjtraveler.Visitable {
 
     public NodeLogger getLogger() {
 	return logger;
+    }
+
+    public String toString() {
+	return "Node-" + nodeID;
     }
 }

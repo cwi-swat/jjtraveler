@@ -13,13 +13,17 @@ public class LibraryTest extends TestCase
     }
 
     protected void setUp() {
+	Node.reset();
 	Node[] empty = {};
 	n1 = Node.factory(empty);
     }
 
-    public void testIdentity() {
+    public void testIdentity() throws VisitFailure {
 	(new Identity()).visit(n1);
 	assertEquals("", n1.getLogger().getTrace());
+
+	(new LogVisitor(new Identity(), n1.getLogger())).visit(n1);
+	assertEquals("jjtraveler.Identity.visit(Node-0)", n1.getLogger().getTrace());
     }
 
     public void testFail() {
