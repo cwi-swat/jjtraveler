@@ -1,4 +1,5 @@
 SUBDIRS=@JJT_TESTS@
+DIST_SUBDIRS=test
 
 java_JAVA = \
 	ToStringVisitor.java\
