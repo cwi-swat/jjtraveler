@@ -1,26 +1,32 @@
 
-2002-07-31 Jurgen.Vinju@cwi.nl
+2003-08-01 Jurgen.Vinju@cwi.nl
+	* Reactivated JUnit tests. If JUnit is found by the configure script,
+	  then the tests are activated. If JUnit is not found, the tests
+	  are deactivated and a warning message is printed.
+	* Set version to 0.4.2
+
+2003-07-31 Jurgen.Vinju@cwi.nl
 	* Removed JUnit check to make one release of the Meta-Environment
           build without the JUnit in the CLASSPATH
 	* JUnit tests are disabled for the moment
 
-2002-07-18 Jurgen.Vinju@cwi.nl
+2003-07-18 Jurgen.Vinju@cwi.nl
 	* Fixed some problems with the configure scripts on SunOs
 
-2002-07-17 Jurgen.Vinju@cwi.nl
+2003-07-17 Jurgen.Vinju@cwi.nl
 	* Checking for JUnit in configure.in strengtened. If JUnit is not
 	  found, the configure process fails with an error message. The
 	  user should then at least have a "." and the path to a junit.jar
 	* Set version to 0.4.1
        
-2002-07-03 Jurgen.Vinju@cwi.nl
+2003-07-03 Jurgen.Vinju@cwi.nl
 	* Changed location of JJTraveler distribution to 
           http://www.cwi.nl/projects/MetaEnv/jjtraveler
 
-2002-04-24 Jurgen.Vinju@cwi.nl
+2003-04-24 Jurgen.Vinju@cwi.nl
 	* Released version 0.4
 
-2002-03-20 Jurgen.Vinju@cwi.nl
+2003-03-20 Jurgen.Vinju@cwi.nl
 	* Added a script jjtraveler-config that prints the path to the jar file
 	  that this packages builds. This script can/will be used by other 
 	  packages for CLASSPATH construction.

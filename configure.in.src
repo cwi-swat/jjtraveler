@@ -46,9 +46,14 @@ AC_CHECK_JUNIT
 AC_PROG_JAVADOC
 AC_SUBST(CLASSPATH)
 
-dnl  if test "x$JUNIT" = "x"; then
-dnl  	AC_MSG_ERROR([No JUnit found, please add junit.jar to the CLASSPATH])
-dnl  fi
+if test "x${JUNIT}" = "x"; then
+	AC_MSG_WARN([JUnit not found, the tests will be disabled!])
+	JJT_TESTS=""
+else
+	JJT_TESTS="test"
+fi
+
+AC_SUBST(JJT_TESTS)
 
 AC_REVISION($Id$)
 
