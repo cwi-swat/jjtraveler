@@ -9,6 +9,9 @@ package jjtraveler;
  * <p>
  * In the Stratego Library, a strategy alltd(s) is present, that
  * resembles this TopDownUntil(v) combinator.
+ * <p>
+ * Test case documentation: 
+ * <a href="TopDownUntilTest.java">TopDownUntilTest</a>
  */
 
 public class TopDownUntil extends Choice {
