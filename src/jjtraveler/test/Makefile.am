@@ -14,6 +14,7 @@ JAVA_JUNIT = \
 	FailTest.java\
 	OneTest.java\
 	AllTest.java\
+	OnceTopDownTest.java\
 	IfThenElseTest.java \
 	TopDownCutOffTest.java 
 
