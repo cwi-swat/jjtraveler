@@ -28,6 +28,7 @@ TopDownWhile.java \
 GuaranteeSuccess.java \
 IfThenElse.java \
 NestingDepth.java \
+DoWhileSuccess.java \
 @JAVA_JUNIT@
 
 javapackage	= jjtraveler
@@ -46,6 +47,7 @@ JAVA_JUNIT = \
 	NestingDepthTest.java \
 	OnceTopDownTest.java \
 	TopDownUntilTest.java \
+	DoWhileSuccessTest.java \
 	OneTest.java
 
 

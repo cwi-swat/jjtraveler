@@ -17,6 +17,7 @@ public class TestAll extends TestCase {
 	suite.addTest( new TestSuite(jjtraveler.NestingDepthTest.class) );
 	suite.addTest( new TestSuite(jjtraveler.OnceTopDownTest.class) );
 	suite.addTest( new TestSuite(jjtraveler.TopDownUntilTest.class) );
+	suite.addTest( new TestSuite(jjtraveler.DoWhileSuccessTest.class) );
 	suite.addTest( new TestSuite(jjtraveler.OneTest.class) );
 	return suite;
     }
