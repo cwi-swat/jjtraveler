@@ -26,6 +26,7 @@ BreadthFirst.java
 
 javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
+JAVASRCROOT	= ${top_srcdir}/src
 
 SUBDIRS		= util test
 
@@ -38,7 +39,7 @@ clean-local: html-clean
 htmljava.stamp: $(java_JAVA)
 	mkdir -p ./doc
 	@JAVADOC@ -windowtitle "JJTraveler Documentation" \
-	  -sourcepath ${JAVAROOT} -classpath ${CLASSPATH} \
+	  -sourcepath ${JAVASRCROOT} -classpath ${CLASSPATH} \
 	  -use -private -d ./doc \
 	  jjtraveler jjtraveler.util jjtraveler.test
 	echo timestamp > htmljava.stamp
