@@ -1,0 +1,13 @@
+2001-06-06 Joost Visser <Joost.Visser@cwi.nl>
+         * Created a separate package for JJTraveler, the visitor
+	   combinator framework previously included in the JJForester
+	   distribution.
+	 * AnyVisitor and AnyVisitable are now called Visitor and
+	   Visitable.
+ 	 * The accept_Any methods has been removed from Visitable since
+ 	   one can always call Visitor.visit_Any directly, iso via
+	   accept_Any.
+	 * The methods visit_Any, getKid, and numberOfKids have been
+	   renamed to visit, getChildAt, and getChildCount. These names
+	   are inspired by javax.swing.tree.TreeNode.
+
