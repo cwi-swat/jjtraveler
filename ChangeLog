@@ -1,6 +1,13 @@
-2001-06-28 Joost Visser <Joost.Visser@cwi.nl>
+2001-06-29 Joost Visser <Joost.Visser@cwi.nl>
+         * Changed visitors into _returning_ visitors, i.e. the
+ 	   visit method now has a Visitable return value. 
+	   The original, non-returning visitor is now called VoidVisitor.
+ 	   VoidVisitor is a subtype of Visitor that adds the voidVisit
+ 	   method, and implements the visit method in terms of it.
 	 * Documentation for JJTraveler is now automically generated
 	   with javadoc.
+
+2001-06-28 Joost Visser <Joost.Visser@cwi.nl>
          * Released version 0.1 and bumped to 0.2a.
 	
 2001-06-27 Joost Visser <Joost.Visser@cwi.nl>

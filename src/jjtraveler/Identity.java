@@ -8,6 +8,8 @@ package jjtraveler;
 
 public class Identity implements Visitor {
 
-    public void visit(Visitable x) { }
+    public Visitable visit(Visitable x) {
+	return x;
+    }
 
 }

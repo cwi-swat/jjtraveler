@@ -17,9 +17,8 @@ public class Sequence implements Visitor {
 	this.then  = then;
     }
 
-    public void visit(Visitable any) throws VisitFailure {
-	first.visit(any);
-	then.visit(any);
+    public Visitable visit(Visitable any) throws VisitFailure {
+	return then.visit(first.visit(any));
     }
 
 }

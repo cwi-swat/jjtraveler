@@ -17,7 +17,8 @@ DownUp.java \
 SpineTopDown.java \
 SpineBottomUp.java \
 Collector.java \
-DefUse.java
+DefUse.java \
+VoidVisitor.java
 
 javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src

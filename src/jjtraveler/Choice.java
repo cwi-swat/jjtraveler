@@ -22,12 +22,12 @@ public class Choice implements Visitor {
     this.then  = then;
   }
 
-  public void visit(Visitable visitable) throws VisitFailure {
+  public Visitable visit(Visitable visitable) throws VisitFailure {
     try {
-        first.visit(visitable);
+        return first.visit(visitable);
     }
     catch (VisitFailure f) {
-        then.visit(visitable);
+        return then.visit(visitable);
     }
   }
 

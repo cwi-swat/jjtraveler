@@ -15,11 +15,13 @@ public class All implements Visitor {
 	this.v = v;
     }
 
-    public void visit(Visitable any) throws VisitFailure {
+    public Visitable visit(Visitable any) throws VisitFailure {
 	int childCount = any.getChildCount();
+	Visitable result = any;
 	for (int i = 0; i < childCount; i++) {
-	    v.visit(any.getChildAt(i));
+	    result = result.setChildAt(i,v.visit(result.getChildAt(i)));
 	}
+	return result;
     }
     
 }

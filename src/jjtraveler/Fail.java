@@ -8,7 +8,7 @@ package jjtraveler;
 
 public class Fail implements Visitor {
 
-    public void visit(Visitable any) throws VisitFailure {
+    public Visitable visit(Visitable any) throws VisitFailure {
 	throw new VisitFailure();
     }
 

@@ -9,6 +9,6 @@ public interface Visitor {
     /**
      * Pay a visit to any visitable object.
      */
-    public void visit(Visitable any) throws VisitFailure;
+    public Visitable visit(Visitable any) throws VisitFailure;
 
 }

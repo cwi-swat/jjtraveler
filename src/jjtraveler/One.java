@@ -20,12 +20,11 @@ public class One implements Visitor {
 	this.v = v;
     }
 
-    public void visit(Visitable any) throws VisitFailure {
+    public Visitable visit(Visitable any) throws VisitFailure {
 	int childCount = any.getChildCount();
 	for (int i = 0; i < childCount; i++) {
 	    try { 
-		visit(any.getChildAt(i)); 
-		return; 
+		return any.setChildAt(i,visit(any.getChildAt(i))); 
 	    } catch(VisitFailure f) { }
 	}
 	throw new VisitFailure();
