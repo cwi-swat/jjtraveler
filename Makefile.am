@@ -17,7 +17,7 @@
 
 include ${top_srcdir}/package.conf
 
-SUBDIRS	= src
+SUBDIRS	= src scripts
 
 EXTRA_DIST = ADDING-TOOLS VERSION configure.in.src genconf.sh \
              package.conf reconf $(PACKAGE)-$(VERSION).pkg \
