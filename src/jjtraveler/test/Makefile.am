@@ -2,7 +2,7 @@ java_JAVA = \
 Node.java NodeVisitor.java NodeLogger.java \
 @JAVA_JUNIT@
 
-javadir		= $(datadir)/src/jjtraveler/test
+javadir		= $(prefix)/classes/jjtraveler/test
 JAVAROOT        = ${top_builddir}/src
 
 JAVA_JUNIT = \
