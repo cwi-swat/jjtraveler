@@ -1,5 +1,7 @@
 java_JAVA = \
 	ToStringVisitor.java\
+	ToATermString.java\
+	ToXMLString.java\
 	@JAVA_JUNIT@
 
 javadir		= ${prefix}/classes/jjtraveler/util
