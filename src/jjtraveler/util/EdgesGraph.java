@@ -58,7 +58,7 @@ public class EdgesGraph implements Graph {
 	    return source+" -> "+target+";\n";
 	}
 	public String toRSF() {
-	    return "edge "+source+" "+target+";\n";
+	    return "edge "+source+" "+target+"\n";
 	}
 	public boolean equals(Object o) {
 	    boolean result = false;

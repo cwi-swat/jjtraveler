@@ -14,7 +14,8 @@ JAVAROOT        = ${top_builddir}/src
 JAVA_JUNIT = \
 	TestAll.java \
 	UtilTest.java\
-	ToGraphTest.java
+	ToGraphTest.java\
+	EdgesGraphTest.java
 
 noinst_JAVA = @JAVA_JUNIT@
 

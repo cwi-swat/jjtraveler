@@ -13,6 +13,7 @@ public class TestAll extends VisitorTestCase {
 	TestSuite suite = new TestSuite();
 	suite.addTest( new TestSuite(jjtraveler.util.UtilTest.class) );
 	suite.addTest( new TestSuite(jjtraveler.util.ToGraphTest.class) );
+	suite.addTest( new TestSuite(jjtraveler.util.EdgesGraphTest.class) );
 	return suite;
     }
 
