@@ -17,7 +17,8 @@ public class WhileNotVisited extends DoWhileSuccess {
      * Carry out action for all nodes in the graph.
      */
     public WhileNotVisited(Visitor action) {
-	super( new Not( new Visited() ), action );
+	// super( new Not( new Visited() ), action );
+	super( new NotVisited(), action );
     }
 
 }

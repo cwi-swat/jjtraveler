@@ -1,5 +1,6 @@
 java_JAVA =\
 	Visited.java\
+	NotVisited.java\
 	IsTree.java\
 	IsDag.java\
 	ASTToGraph.java\
