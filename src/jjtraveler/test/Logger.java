@@ -13,6 +13,14 @@ public class Logger {
 
     public Logger() {};
 
+    /** 
+     *  Create a new Logger which has as initialt trace a single
+     *  visit of a particular node.
+     */
+    public Logger(Visitor v, Visitable n) {
+	log( new Event(v, n) );
+    }
+
     /**
      * Create a new Logger, which has as initial trace a sequence of
      * visiting events where the visitor <code>v</code> visits each of
@@ -23,6 +31,7 @@ public class Logger {
 	    log( new Event(v, nodes[i]) );
 	}
     }
+
 
     /**
      * Log a single event.

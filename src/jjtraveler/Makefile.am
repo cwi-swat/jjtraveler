@@ -40,7 +40,8 @@ SUBDIRS		= util test reflective graph
 
 JAVA_JUNIT = \
 	TestAll.java \
-	FailTest.java
+	FailTest.java \
+	IdentityTest.java
 
 EXTRA_DIST	= package.html overview.html.src
 

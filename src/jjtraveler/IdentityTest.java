@@ -1,6 +1,6 @@
-package jjtraveler.test;
+package jjtraveler;
 import junit.framework.*;
-import jjtraveler.*;
+import jjtraveler.test.*;
 
 public class IdentityTest extends VisitorTestCase {
 
@@ -10,7 +10,7 @@ public class IdentityTest extends VisitorTestCase {
 
     public void testIdentity() throws VisitFailure {
 	Identity id = new Identity();
-	Logger expected = new Logger(id, new Visitable[]{n0} );
+	Logger expected = new Logger(id, n0);
 	Visitable nodeReturned = logVisitor(id).visit(n0);
 	assertEquals(expected, logger);
 	assertEquals(n0, nodeReturned);
