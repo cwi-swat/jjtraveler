@@ -7,19 +7,31 @@ package jjtraveler;
 
 public abstract class DefinedCombinator implements Visitor {
 
-    protected Visitor rhs;
-
-    /** Visiting defined combinators amounts to visiting
-     *  their definition.
+    /** The definition can be provided by setting the
+     *  rhs instance variable.
      */
-    public Visitable visit(Visitable x) throws VisitFailure {
-	return rhs.visit(x);
-    }
+    protected Visitor rhs;
 
     /** Provide the definition for this combinator.
      */
     void setDefinition(Visitor definition) {
 	rhs = definition;
     }
+
+    /** Return the defining visitor for this combinator.
+     *  following the abstract method design pattern,
+     *  this method can be refined in subclasses if necessary.
+     */
+    Visitor getDefinition() {
+	return rhs;
+    }
+
+   /** Visiting defined combinators amounts to visiting
+     *  their definition.
+     */
+    public Visitable visit(Visitable x) throws VisitFailure {
+	return getDefinition().visit(x);
+    }
+
 
 }
