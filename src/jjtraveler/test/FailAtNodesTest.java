@@ -1,6 +1,7 @@
 package jjtraveler.test;
-import junit.framework.*;
-import jjtraveler.*;
+import jjtraveler.Not;
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitor;
 
 public class FailAtNodesTest extends VisitorTestCase {
 

@@ -1,6 +1,9 @@
 package jjtraveler;
 
-import java.util.*;
+import java.util.AbstractList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Vector;
 
 /**
  * An auxiliary class to represent collections that implement the Visitable

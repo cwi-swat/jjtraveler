@@ -1,6 +1,8 @@
 package jjtraveler;
-import junit.framework.*;
-import jjtraveler.test.*;
+import jjtraveler.test.Event;
+import jjtraveler.test.Logger;
+import jjtraveler.test.SucceedAtNodes;
+import jjtraveler.test.VisitorTestCase;
 
 public class TopDownUntilTest extends VisitorTestCase {
 

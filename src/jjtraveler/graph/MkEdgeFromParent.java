@@ -1,6 +1,7 @@
 package jjtraveler.graph;
 
-import jjtraveler.*;
+import jjtraveler.Visitable;
+import jjtraveler.VoidVisitor;
 
 public class MkEdgeFromParent extends VoidVisitor {
     Visitable parent;

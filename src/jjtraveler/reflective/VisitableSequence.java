@@ -1,6 +1,7 @@
 package jjtraveler.reflective;
 
-import jjtraveler.*;
+import jjtraveler.Sequence;
+import jjtraveler.Visitable;
 
 public class VisitableSequence extends Sequence implements VisitableVisitor {
 

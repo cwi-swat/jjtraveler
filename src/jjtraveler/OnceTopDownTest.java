@@ -1,6 +1,7 @@
 package jjtraveler;
 
-import jjtraveler.test.*;
+import jjtraveler.test.Logger;
+import jjtraveler.test.VisitorTestCase;
 
 public class OnceTopDownTest extends VisitorTestCase {
 

@@ -1,7 +1,10 @@
 package jjtraveler.graph;
 
-import jjtraveler.*;
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Vector;
+
+import jjtraveler.Visitable;
 
 public class EdgesGraph implements Graph {
     Collection edges = new Vector();

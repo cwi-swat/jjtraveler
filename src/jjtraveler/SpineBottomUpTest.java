@@ -1,6 +1,8 @@
 package jjtraveler;
 
-import jjtraveler.test.*;
+import jjtraveler.test.FailAtNodes;
+import jjtraveler.test.Logger;
+import jjtraveler.test.VisitorTestCase;
 
 /** Various test cases for the rather tricky spine bottom up.
  *

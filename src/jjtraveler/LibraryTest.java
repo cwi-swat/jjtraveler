@@ -1,7 +1,12 @@
 package jjtraveler;
-import junit.framework.*;
-import jjtraveler.test.*;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+
+import jjtraveler.test.Event;
+import jjtraveler.test.LogVisitor;
+import jjtraveler.test.Logger;
+import jjtraveler.test.Node;
+import junit.framework.TestCase;
 
 
 public class LibraryTest extends TestCase 

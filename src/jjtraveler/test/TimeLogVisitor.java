@@ -1,6 +1,8 @@
 package jjtraveler.test;
 
-import jjtraveler.*;
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitable;
+import jjtraveler.Visitor;
 
 /**
  * This specialization of the LogVisitor additionally times the

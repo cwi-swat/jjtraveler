@@ -1,6 +1,12 @@
 package jjtraveler.graph;
 
-import jjtraveler.*;
+import jjtraveler.All;
+import jjtraveler.Identity;
+import jjtraveler.Sequence;
+import jjtraveler.TopDownUntil;
+import jjtraveler.Visitable;
+import jjtraveler.Visitor;
+import jjtraveler.VoidVisitor;
 
 /**
  * <code>MkEdgesToKids(IsKid)

@@ -1,8 +1,11 @@
 package jjtraveler.graph;
 
-import junit.framework.*;
-import jjtraveler.*;
-import jjtraveler.test.*;
+import jjtraveler.Identity;
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitable;
+import jjtraveler.Visitor;
+import jjtraveler.test.Logger;
+import jjtraveler.test.VisitorTestCase;
 
 public class WhileNotVisitedTest extends VisitorTestCase {
 

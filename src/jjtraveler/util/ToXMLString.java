@@ -1,6 +1,7 @@
 package jjtraveler.util;
 
-import jjtraveler.*;
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitable;
 
 public class ToXMLString extends ToStringVisitor {
 

@@ -1,6 +1,7 @@
 package jjtraveler.graph;
 
-import jjtraveler.*;
+import jjtraveler.DoWhileSuccess;
+import jjtraveler.Visitor;
 
 /**
  * Visit all nodes in the given graph exactly once,

@@ -1,6 +1,7 @@
 package jjtraveler.test;
 
-import jjtraveler.*;
+import jjtraveler.Visitable;
+import jjtraveler.Visitor;
 
 /** 
  * A class to represent a visting event: the fact that a visitable

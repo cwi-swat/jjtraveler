@@ -1,6 +1,8 @@
 package jjtraveler.graph;
 
-import jjtraveler.*;
+import jjtraveler.Sequence;
+import jjtraveler.TopDownUntil;
+import jjtraveler.Visitor;
 
 /**
  * <code>ToGraph(isNode)

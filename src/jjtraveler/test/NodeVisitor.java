@@ -1,6 +1,5 @@
 package jjtraveler.test;
-import java.util.*;
-import java.io.*;
+
 
 /**
  * An (abstract) implementation of the <code>Visitor</code> interface

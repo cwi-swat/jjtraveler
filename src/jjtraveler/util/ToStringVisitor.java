@@ -1,6 +1,8 @@
 package jjtraveler.util;
 
-import jjtraveler.*;
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitable;
+import jjtraveler.VoidVisitor;
 
 public class ToStringVisitor extends VoidVisitor {
     protected String string = "[WARNING] ToStringVisitor has not been invoked";

@@ -1,7 +1,7 @@
 package jjtraveler.graph;
 
-import jjtraveler.*;
-import java.util.*;
+import jjtraveler.Not;
+import jjtraveler.TopDown;
 
 /**
  * Checks whether the current visitable is the root of a tree

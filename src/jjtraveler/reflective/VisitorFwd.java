@@ -1,6 +1,7 @@
 package jjtraveler.reflective;
 
-import jjtraveler.*;
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitor;
 
 public class VisitorFwd extends VisitorVisitor {
     

@@ -1,7 +1,12 @@
 package jjtraveler.graph;
 
-import jjtraveler.*;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitable;
+import jjtraveler.VoidVisitor;
 
 /**
  * Checks whether it has previously visited the current visitable.

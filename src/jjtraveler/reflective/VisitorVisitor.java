@@ -1,6 +1,8 @@
 package jjtraveler.reflective;
 
-import jjtraveler.*;
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitable;
+import jjtraveler.Visitor;
 
 /**
  * A visitor for visiting VisitableVisitors

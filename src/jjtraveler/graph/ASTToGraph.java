@@ -1,6 +1,6 @@
 package jjtraveler.graph;
 
-import jjtraveler.*;
+import jjtraveler.TopDown;
 
 /**
  * <code>ASTToGraph 

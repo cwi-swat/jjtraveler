@@ -1,6 +1,7 @@
 package jjtraveler.reflective;
 
-import jjtraveler.*;
+import jjtraveler.Fail;
+import jjtraveler.Visitable;
 
 public class VisitableFail extends Fail implements VisitableVisitor {
 

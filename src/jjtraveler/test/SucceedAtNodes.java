@@ -1,6 +1,9 @@
 package jjtraveler.test;
 
-import jjtraveler.*;
+import jjtraveler.Not;
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitable;
+import jjtraveler.Visitor;
 
 /*
  * Simple visitor recognizing two nodes given at creation time.

@@ -1,5 +1,6 @@
 package jjtraveler.test;
-import junit.framework.*;
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 public class TestAll extends VisitorTestCase {
 

@@ -7,8 +7,8 @@ package jjtraveler;
  * on any of the nodes of the tree.
  */
 
-import java.util.LinkedList;
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class BreadthFirst {
 

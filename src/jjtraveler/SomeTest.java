@@ -1,6 +1,7 @@
 package jjtraveler;
-import junit.framework.*;
-import jjtraveler.test.*;
+import jjtraveler.test.FailAtNodes;
+import jjtraveler.test.Logger;
+import jjtraveler.test.VisitorTestCase;
 
 
 /** Test cases for Some, covering all failures, all successes,

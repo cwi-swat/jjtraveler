@@ -7,8 +7,8 @@ package jjtraveler;
  * nodes where the argument visitor fails. Guaranteed to succeed.
  */
 
-import java.util.LinkedList;
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class BreadthFirstWhile {
 

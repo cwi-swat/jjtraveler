@@ -1,9 +1,6 @@
 package jjtraveler.graph;
 
-import junit.framework.*;
-import jjtraveler.*;
 import jjtraveler.test.VisitorTestCase;
-import jjtraveler.test.*;
 
 public class EdgesGraphTest extends VisitorTestCase {
 

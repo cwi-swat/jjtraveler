@@ -1,8 +1,14 @@
 package jjtraveler.reflective;
 
-import junit.framework.*;
-import jjtraveler.*;
-import jjtraveler.test.*;
+import jjtraveler.BottomUp;
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitable;
+import jjtraveler.Visitor;
+import jjtraveler.test.Event;
+import jjtraveler.test.Logger;
+import jjtraveler.test.VisitorTestCase;
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 public class WrapLogTest extends VisitorTestCase {
 

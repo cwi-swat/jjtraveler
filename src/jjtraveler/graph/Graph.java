@@ -1,6 +1,6 @@
 package jjtraveler.graph;
 
-import jjtraveler.*;
+import jjtraveler.Visitable;
 
 /**
  * General graph interface, where nodes are assumend to be Visitables..

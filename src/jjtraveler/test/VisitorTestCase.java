@@ -1,6 +1,6 @@
 package jjtraveler.test;
-import junit.framework.*;
-import jjtraveler.*;
+import jjtraveler.Visitor;
+import junit.framework.TestCase;
 
 
 /** 

@@ -1,7 +1,7 @@
 package jjtraveler.reflective;
 
-import jjtraveler.Visitor;
 import jjtraveler.Visitable;
+import jjtraveler.Visitor;
 
 /**
  * A visitor that it iself visitable with a VisitorVisitor needs

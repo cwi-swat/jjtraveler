@@ -1,7 +1,10 @@
 package jjtraveler.test;
 
-import java.util.*;
-import jjtraveler.*;
+import java.util.Enumeration;
+import java.util.Vector;
+
+import jjtraveler.Visitable;
+import jjtraveler.Visitor;
 
 /**
  * Logs events and allows their trace to be inspected.

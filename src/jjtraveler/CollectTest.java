@@ -1,7 +1,8 @@
 package jjtraveler;
-import junit.framework.*;
-import jjtraveler.test.*;
-import java.util.*;
+import java.util.Collection;
+import java.util.Vector;
+
+import jjtraveler.test.VisitorTestCase;
 
 public class CollectTest extends VisitorTestCase {
 

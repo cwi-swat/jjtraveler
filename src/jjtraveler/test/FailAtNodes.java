@@ -1,7 +1,11 @@
 package jjtraveler.test;
 
-import jjtraveler.*;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitable;
 
 /*
  * Simple visitor recognizing two nodes given at creation time.

@@ -1,6 +1,10 @@
 package jjtraveler.test;
 
-import jjtraveler.*;
+import jjtraveler.Sequence;
+import jjtraveler.TopDown;
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitable;
+import jjtraveler.Visitor;
 
 public class TimeLogVisitorTest extends VisitorTestCase {
 

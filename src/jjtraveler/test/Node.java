@@ -1,6 +1,5 @@
 package jjtraveler.test;
-import java.util.*;
-import java.io.*;
+
 
 /**
  * An implementation of the <code>Visitable</code> interface for

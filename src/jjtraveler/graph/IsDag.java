@@ -1,7 +1,13 @@
 package jjtraveler.graph;
 
-import jjtraveler.*;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+
+import jjtraveler.All;
+import jjtraveler.Not;
+import jjtraveler.VisitFailure;
+import jjtraveler.Visitable;
+import jjtraveler.VoidVisitor;
 
 /**
  * Checks whether the current visitable is the root of a DAG: an
