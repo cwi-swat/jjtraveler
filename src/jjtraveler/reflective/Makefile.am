@@ -13,11 +13,11 @@ javadir		= ${prefix}/classes/jjtraveler/reflective
 JAVAROOT	= ${top_builddir}/src
 JAVASRCROOT	= ${top_srcdir}/src
 
-EXTRA_DIST	= package.html
-
 JAVA_JUNIT = \
 	TestAll.java \
 	WrapLogTest.java
+
+EXTRA_DIST	= package.html
 
 noinst_JAVA = @JAVA_JUNIT@
 

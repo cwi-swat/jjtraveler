@@ -28,15 +28,45 @@ TopDownWhile.java \
 GuaranteeSuccess.java \
 IfThenElse.java \
 TopDownCutOff.java \
-NestingDepth.java 
+NestingDepth.java \
+@JAVA_JUNIT@
 
+javapackage	= jjtraveler
 javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
 JAVASRCROOT	= ${top_srcdir}/src
 
 SUBDIRS		= util test reflective graph
 
+JAVA_JUNIT = \
+	TestAll.java \
+	FailTest.java
+
 EXTRA_DIST	= package.html overview.html.src
+
+noinst_JAVA = @JAVA_JUNIT@
+
+EXTRA_JAVA  = $(JAVA_JUNIT)
+
+TESTS_JUNIT = MainTest 
+
+TESTS       = @TESTS_JUNIT@
+
+EXTRA_TESTS = $(TESTS_JUNIT)
+
+MainTest: Makefile
+	echo "#! /bin/sh" > $@
+	echo "@JUNIT@ $(javapackage).TestAll" >> $@
+	chmod +x $@
+
+JAVACC      = @JAVACC@
+
+CLEANFILES += MainTest
+
+
+#
+# Creating the javadocs
+#
 
 all-local: htmljava.stamp
 

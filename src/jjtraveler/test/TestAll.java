@@ -10,7 +10,6 @@ public class TestAll extends VisitorTestCase {
     public static Test suite() {
 	TestSuite suite = new TestSuite();
 	suite.addTest( new TestSuite( jjtraveler.test.IdentityTest.class) );
-	suite.addTest( new TestSuite( jjtraveler.test.FailTest.class) );
 	suite.addTest( new TestSuite( jjtraveler.test.OneTest.class) );
 	suite.addTest( new TestSuite( jjtraveler.test.AllTest.class) );
 	suite.addTest( new TestSuite( jjtraveler.test.OnceTopDownTest.class) );

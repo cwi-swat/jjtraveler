@@ -11,7 +11,6 @@ JAVA_JUNIT = \
 	TestAll.java \
 	LibraryTest.java\
 	IdentityTest.java\
-	FailTest.java\
 	OneTest.java\
 	AllTest.java\
 	OnceTopDownTest.java\
