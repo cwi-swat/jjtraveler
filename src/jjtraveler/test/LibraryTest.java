@@ -66,6 +66,38 @@ public class LibraryTest extends TestCase
 	assertEquals(expected, logger);
     }
 
+    public void testLeftChoice() throws VisitFailure {
+	Identity id = new Identity();
+
+	Logger expected = new Logger();
+	expected.log( Event.makeVisitEvent(id, n0) );
+
+	Choice  ch = 
+	    new Choice(
+	      new LogVisitor(id, logger),
+	      new Identity()
+	    );
+
+	ch.visit(n0);
+	assertEquals(expected, logger);
+    }
+
+
+    public void testRightChoice() throws VisitFailure {
+	Identity id = new Identity();
+
+	Logger expected = new Logger();
+	expected.log( Event.makeVisitEvent(id, n0) );
+
+	Choice  ch = 
+	    new Choice(
+	      new Fail(),
+	      new LogVisitor(id, logger)
+	    );
+
+	ch.visit(n0);
+	assertEquals(expected, logger);
+    }
 
     public void testBacktrack() 
     throws jjtraveler.VisitFailure {
