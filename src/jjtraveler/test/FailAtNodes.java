@@ -1,6 +1,7 @@
 package jjtraveler.test;
 
 import jjtraveler.*;
+import java.util.*;
 
 /*
  * Simple visitor recognizing two nodes given at creation time.
@@ -9,18 +10,21 @@ import jjtraveler.*;
  */
 
 public class FailAtNodes implements jjtraveler.Visitor {
-    Visitable failNode1;
-    Visitable failNode2;
-    public FailAtNodes(Visitable n1, Visitable n2) {
-	failNode1 = n1;
-	failNode2 = n2;
+    Set visitables = new HashSet();
+
+    public FailAtNodes(Collection visitables) {
+	this.visitables.addAll(visitables);
     }
+
+    public FailAtNodes(Visitable n1, Visitable n2) {
+	visitables.add(n1);
+	visitables.add(n2);
+    }
+
     public Visitable visit(Visitable x) throws VisitFailure {
-	if (x.equals(failNode1) || x.equals(failNode2) ){
+	if (visitables.contains(x)) {
 	    throw (new VisitFailure());
-	} else {
-	    //
-	}
+	} 
 	return x;
     }
 }
