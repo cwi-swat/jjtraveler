@@ -1,5 +1,11 @@
 # $Id$
 
+Wed Apr 14 14:48:46 CEST 2004 <jurgenv@cwi,nl>
+	* Added junit.jar to distribution
+	* Moved all test java files back to the source packages 
+	* Removed one level of generation of configure.in scripts
+	  (old-style XT style, now in Meta-Environment style)
+
 Tue Feb 10, Arie.van.Deursen@cwi.nl
 	* Added Child and Descendant combinators and corresponding
 	  test cases.
