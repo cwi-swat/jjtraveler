@@ -1,3 +1,10 @@
+Version 0.3 released: 2002-01-08
+	* Improved documentation
+	* Added subpackages:
+		- reflective, with visitors that can themselves be visited
+		- graph, with visitors for graph operations
+	* Removed bug in One combinator.
+
 Version 0.2 released: 2001-11-20
 	* All visitors are now _returning_ visitors, i.e. the visit method
 	  now has a Visitable as return value.
