@@ -25,7 +25,9 @@ Backtrack.java \
 BreadthFirst.java \
 TopDownUntil.java \
 TopDownWhile.java \
-GuaranteeSuccess.java
+GuaranteeSuccess.java \
+IfThenElse.java \
+TopDownCutOff.java
 
 javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src

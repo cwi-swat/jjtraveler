@@ -23,11 +23,11 @@ public abstract class VisitorTestCase extends TestCase
      * n11  n12
      * </pre>
      */
-    Node n0;
-    Node n1;
-    Node n2;
-    Node n11;
-    Node n12;
+    protected Node n0;
+    protected Node n1;
+    protected Node n2;
+    protected Node n11;
+    protected Node n12;
 
     public Node buildTree() {
 	n11 = new Node();

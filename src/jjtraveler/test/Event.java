@@ -18,8 +18,8 @@ public class Event {
     }
 
     public String toString() {
-	String msg = visitor.getClass().getName() + ".visit(" + node.toString() + ")";
-	return msg;
+	return visitor + ".visit(" + node + ")";
     }
-   
+    //String msg = visitor.getClass().getName() + ".visit(" + node.toString() + ")";
+
 }

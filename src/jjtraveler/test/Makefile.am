@@ -12,7 +12,9 @@ JAVA_JUNIT = \
 	LibraryTest.java\
 	IdentityTest.java\
 	FailTest.java\
-	UtilTest.java
+	UtilTest.java \
+	IfThenElseTest.java \
+	TopDownCutOffTest.java 
 
 noinst_JAVA = @JAVA_JUNIT@
 
