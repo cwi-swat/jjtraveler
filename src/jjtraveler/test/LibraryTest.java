@@ -30,17 +30,6 @@ public class LibraryTest extends TestCase
 	n4 = Node.factory(new Node[]{n3,n2});
     }
 
-    public void testFail() {
-	try {
-	    (new Fail()).visit(n0);
-	    fail();
-	}
-	catch(VisitFailure vf) {
-	    Logger expected = new Logger();
-	    assertEquals(expected, logger);
-	}
-    }
-
     public void testSequence() throws VisitFailure {
 	Identity id1 = new Identity();
 	Identity id2 = new Identity();

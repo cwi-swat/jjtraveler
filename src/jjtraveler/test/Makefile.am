@@ -10,6 +10,8 @@ JAVAROOT        = ${top_builddir}/src
 JAVA_JUNIT = \
 	TestAll.java \
 	LibraryTest.java\
+	IdentityTest.java\
+	FailTest.java\
 	UtilTest.java
 
 noinst_JAVA = @JAVA_JUNIT@
