@@ -8,14 +8,7 @@ javadir		= ${prefix}/classes/jjtraveler/test
 JAVAROOT        = ${top_builddir}/src
 
 JAVA_JUNIT = \
-	TestAll.java \
-	LibraryTest.java\
-	OneTest.java\
-	AllTest.java\
-	OnceTopDownTest.java\
-	IfThenElseTest.java \
-	NestingDepthTest.java \
-	TopDownCutOffTest.java 
+	TestAll.java 
 
 EXTRA_DIST = package.html
 

@@ -1,6 +1,6 @@
-package jjtraveler.test;
+package jjtraveler;
 import junit.framework.*;
-import jjtraveler.*;
+import jjtraveler.test.*;
 import java.util.*;
 
 
@@ -220,12 +220,6 @@ public class LibraryTest extends TestCase
 	Visitable resultNode = bf.visit(n4);
 	assertEquals(expected, logger);
 	assertEquals(resultNode, n1);
-    }
-
-    public static Test suite() {
-	TestSuite suite = new TestSuite(jjtraveler.test.LibraryTest.class);
-//	suite.addTest(UtilTest.suite());
-	return suite;
     }
 
 }

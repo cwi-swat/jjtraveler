@@ -41,7 +41,14 @@ SUBDIRS		= util test reflective graph
 JAVA_JUNIT = \
 	TestAll.java \
 	FailTest.java \
-	IdentityTest.java
+	IdentityTest.java \
+	IfThenElseTest.java \
+	LibraryTest.java \
+	NestingDepthTest.java \
+	OnceTopDownTest.java \
+	OneTest.java \
+	TopDownCutOffTest.java
+
 
 EXTRA_DIST	= package.html overview.html.src
 

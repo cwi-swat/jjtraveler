@@ -1,6 +1,6 @@
-package jjtraveler.test;
+package jjtraveler;
 import junit.framework.*;
-import jjtraveler.*;
+import jjtraveler.test.*;
 
 public class NestingDepthTest extends VisitorTestCase {
 
