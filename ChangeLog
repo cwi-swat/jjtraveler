@@ -1,6 +1,6 @@
+
 2002-07-18 Jurgen.Vinju@cwi.nl
-	* Removed all @<name>@ variables from Makefile.am files and
-          replaced them by $(<name>).
+	* Fixed some problems with the configure scripts on SunOs
 
 2002-07-17 Jurgen.Vinju@cwi.nl
 	* Checking for JUnit in configure.in strengtened. If JUnit is not
