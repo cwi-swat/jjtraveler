@@ -21,7 +21,8 @@ DefUse.java \
 VoidVisitor.java \
 Not.java \
 StateVisitor.java \
-Backtrack.java
+Backtrack.java \
+BreadthFirst.java
 
 javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
@@ -47,4 +48,5 @@ html-install: htmljava.stamp
 html-clean:
 	rm -fr ./doc htmljava.stamp
 
-
+echo-classpath:
+	@echo ${CLASSPATH}

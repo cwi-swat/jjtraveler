@@ -13,4 +13,8 @@ public class NodeLogger {
 	return trace;
     }
 
+    public void reset() {
+	trace = "";
+    }
+
 }
