@@ -44,7 +44,8 @@ javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
 JAVASRCROOT	= ${top_srcdir}/src
 
-SUBDIRS		= util test reflective graph
+SUBDIRS		= util reflective graph
+DIST_SUBDIRS	= util test reflective graph
 
 EXTRA_DIST	= package.html overview.html.src
 

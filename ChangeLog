@@ -1,4 +1,9 @@
 
+2002-07-31 Jurgen.Vinju@cwi.nl
+	* Removed JUnit check to make one release of the Meta-Environment
+          build without the JUnit in the CLASSPATH
+	* JUnit tests are disabled for the moment
+
 2002-07-18 Jurgen.Vinju@cwi.nl
 	* Fixed some problems with the configure scripts on SunOs
 
