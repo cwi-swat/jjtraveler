@@ -1,3 +1,7 @@
+2001-06-27 Joost Visser <Joost.Visser@cwi.nl>
+         * Added explicit constructor definitions to the class
+ 	   VisitFailure.
+	
 2001-06-06 Joost Visser <Joost.Visser@cwi.nl>
          * Created a separate package for JJTraveler, the visitor
 	   combinator framework previously included in the JJForester

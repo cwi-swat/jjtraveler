@@ -7,4 +7,14 @@ package jjtraveler;
  * from failed visits.
  */
 
-public class VisitFailure extends Exception { }
+public class VisitFailure extends Exception {
+
+    public VisitFailure() {
+	super();
+    }
+
+    public VisitFailure(String msg) {
+	super(msg);
+    }
+
+}
