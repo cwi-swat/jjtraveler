@@ -1,4 +1,7 @@
 
+2003-09-26 Jurgen.Vinju@cwi.nl
+	* Release 0.4.2
+
 2003-08-05 Jurgen.Vinju@cwi.nl
 	* Separated out all JUnit tests into test directories.
 
