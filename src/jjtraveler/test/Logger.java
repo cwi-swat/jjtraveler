@@ -32,7 +32,6 @@ public class Logger {
 	}
     }
 
-
     /**
      * Log a single event.
      */
@@ -62,6 +61,22 @@ public class Logger {
 	    return false;
 	}
     }
-	
 
+    /**
+     * Hashcode must be redefined if equality is redefined.
+     */
+    public int hashCode() {
+	return toString().hashCode();
+    }
+
+    /**
+     * Compute the elapsed time (in milliseconds) between the first
+     * and last event on the logger's trace.
+     */
+    public long getElapsedTime() {
+	long startTime = ((Event) trace.firstElement()).getTimeStamp();
+	long endTime = ((Event) trace.lastElement()).getTimeStamp();
+	return endTime - startTime;
+    }
+	
 }

@@ -1,3 +1,6 @@
+2002-02-11 Joost.Visser@cwi.nl
+	* Added support to Logger for computing elapsed time.
+
 2001-12-10 Joost.Visser@cwi.nl
 	* Moved several graph-related classes from subpackage util to
 	  subpackage graph.

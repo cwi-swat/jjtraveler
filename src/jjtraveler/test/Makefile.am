@@ -10,7 +10,8 @@ JAVAROOT        = ${top_builddir}/src
 
 JAVA_JUNIT = \
 	FailAtNodesTest.java\
-	TestAll.java 
+	TestAll.java\
+	LoggerTest.java
 
 EXTRA_DIST = package.html
 
