@@ -134,6 +134,27 @@ public class LibraryTest extends TestCase
 	assertEquals(n4, nodeReturned);
     }
 
+    public void testNonStopDownUp() throws jjtraveler.VisitFailure {
+	Identity downId = new Identity();
+	Identity upId = new Identity();
+	Fail stop = new Fail();
+
+	Logger expected = new Logger();
+	expected.log( Event.makeVisitEvent(downId, n3) );
+	expected.log( Event.makeVisitEvent(downId, n0) );
+	expected.log( Event.makeVisitEvent(upId, n0) );
+	expected.log( Event.makeVisitEvent(downId, n1) );
+	expected.log( Event.makeVisitEvent(upId, n1) );
+	expected.log( Event.makeVisitEvent(upId, n3) );
+
+	Visitor  visitor = new DownUp( 
+	   logVisitor(downId), stop, logVisitor(upId) );
+
+	Visitable nodeReturned = visitor.visit(n3);
+	assertEquals(expected, logger);
+	assertEquals(n3, nodeReturned);
+    }
+
     public void testStopDownUp() throws jjtraveler.VisitFailure {
 	Identity downId = new Identity();
 	Identity upId = new Identity();
