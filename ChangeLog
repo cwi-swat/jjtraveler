@@ -1,3 +1,6 @@
+2001-11-20 Joost.Visser@cwi.nl
+	* Released version 0.2 and bumped to 0.3a.
+	
 2001-11-12 Joost.Visser@cwi.nl
 	* Started a new subpackage "util", and added some combinators
 	  for constructing graphs.
