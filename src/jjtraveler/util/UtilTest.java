@@ -24,6 +24,10 @@ public class UtilTest extends VisitorTestCase {
 	assertEquals(expected.printGraph("name"),g.printGraph("name"));
     }
 
+    public void testToStringVisitor() throws VisitFailure {
+	assertEquals(n0.toString(),ToStringVisitor.doToString(n0));
+    }
+
     public static Test suite() {
 	TestSuite suite = new TestSuite(jjtraveler.util.UtilTest.class);
 	return suite;

@@ -4,6 +4,7 @@ java_JAVA = \
 	MkEdgesToKids.java\
 	DotGraph.java\
 	MkEdgeFromParent.java\
+	ToStringVisitor.java\
 	@JAVA_JUNIT@
 
 javadir		= ${prefix}/classes/jjtraveler/util
