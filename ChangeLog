@@ -1,4 +1,8 @@
 
+2004-01-30 Jurgen.Vinju@cwi.nl
+	* Bumped to 0.4.3
+	* Made configure.in, reconf and Makefile.am's automake-1.6 compliant
+
 2003-09-26 Jurgen.Vinju@cwi.nl
 	* Release 0.4.2
 
