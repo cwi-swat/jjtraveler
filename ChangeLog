@@ -1,7 +1,9 @@
 2002-03-20 Jurgen.Vinju@cwi.nl
-    * Added a script jjtraveler-config that prints the path to the jar file
-      that this packages builds. This script can/will be used by other packages
-      for CLASSPATH construction.
+	* Added a script jjtraveler-config that prints the path to the jar file
+	  that this packages builds. This script can/will be used by other 
+	  packages for CLASSPATH construction.
+	* Added automatic construction and installation of a jar file:
+          jjtraveler-<VERSION>.jar
       
 2002-02-11 Joost.Visser@cwi.nl
 	* Added support to Logger for computing elapsed time.
