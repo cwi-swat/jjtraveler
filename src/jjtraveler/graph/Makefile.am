@@ -1,5 +1,6 @@
 java_JAVA =\
 	Visited.java\
+	IsTree.java\
 	@JAVA_JUNIT@
 
 javapackage	= jjtraveler.graph
