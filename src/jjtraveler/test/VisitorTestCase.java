@@ -37,11 +37,26 @@ public abstract class VisitorTestCase extends TestCase {
 	return n0;
     }
 
+    protected Node rootOfDiamond;
+    void buildDiamond() {
+	Node sink = new Node();
+	rootOfDiamond = new Node(new Node[]{sink,sink});
+    }
+
+    protected Node rootOfCircle;
+    void buildCircle() {
+	Node node = new Node(new Node[]{null});
+	rootOfCircle = new Node(new Node[]{node});
+	node.setChildAt(0,rootOfCircle);
+    }
+
     public Logger logger;
 
     protected void setUp() {
 	Node.reset();
 	buildTree();
+	buildDiamond();
+	buildCircle();
 	logger = new Logger();
     }
 
