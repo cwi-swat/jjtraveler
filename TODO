@@ -1,5 +1,71 @@
 TODO
-	* Split the library up into subpackages.
-	* Improve unit tests.
 
+* Move graph package from ControlCruiser to JJTraveler.
+* Add more links to test files.
 
+MORE COMBINATORS:
+
+WorkList:
+  A combinator that maintains a list of Visitors. At each invocation, the
+  first visitor on the list is applied. If it fails, it is rotated to the end
+  of the list. If it succeeds, it is removed from the list.
+  
+  A combinator with method:
+     VisitorCollection void do(Visitor next, boolean success,
+                               Visitable in, Visitable out);
+  Its visit method is implemented as:
+     final Visitable visit(Visitable in) {
+       Visitor v = workList.pop();
+       Visitable out = v.visit(in);
+       workList.push(do(v,in,out));
+     }
+  Default implementation of do() is:
+     { VisitorCollection vc = new VisitorCollection();
+       if (success==false) {
+         add(next);  // Rotate failed visitor to the end of the list
+       }
+       return vc;
+     }
+         
+
+Parallel:
+  A combinator that has a list of visitors as arguments. At each invocation,
+  all these visitors are tried in parallel on the current visitable. The
+  combinator uses the method:
+    Visitable result(Visitables results);
+  to determine which out of the results of the successful visitors is returned
+  as the overall result.
+  
+EagerParallel:
+  Like Parallel, except that the result of the visitor that succeeds first is
+  returned as soon as it is available. If the flag interrupt=true, then the
+  visitors that are still running are interrupted.
+  
+Graph2ATerm:
+  Performs a BottomUp traversal over the object graph, creating the ATerm
+  representation of each node along the way. If a node is encountered for the
+  second time, its bottom-up index in the graph is used to construct the ATerm
+  representation hash-sign-index(<index>).
+Graph2Tree:
+  Like Graph2ATerm, except no ATerm representation is created. Instead, null
+  pointers are installed where already visited nodes are encountered, and an
+  entry <from,to> is added to a reference table, where from is the bottom-up
+  index of the current occurance of the node, and to is the index of the first
+  occurance.
+  
+Tree2Graph:
+  Uses a reference table to replace null pointers again by references to
+  nodes. This is done during a bottom-up traversal, where a bottom-up index
+  table is built, and each null pointer is replaced by 
+    from >-reftable-> to >-buindex-> node
+    
+IntroduceSharing:
+  Bottom-up traversal, building *set* of visited nodes along the way. If a
+  node is encoutered that is already in the set (equality based), then it is
+  replaced by it representant in from the set, otherwise it is added to the
+  set. 
+    Optimization: if any of a node's children needed to be added, so does the
+  node iself.
+    Note: information that is irrelevant to a node's equality (such as
+  position information) will be lost when sharing is introduced.
+  

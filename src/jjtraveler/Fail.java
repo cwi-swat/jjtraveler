@@ -11,8 +11,24 @@ package jjtraveler;
 
 public class Fail implements Visitor {
 
+    private String message;
+    
+    /** 
+     * Construct Fail combinator with empty failure message.
+     */
+    public Fail() { 
+      this.message = ""; 
+    }
+    /**
+     * Construct Fail combinator with a failure message to be passed to the
+     * VisitFailure that it throws.
+     */
+    public Fail(String message) {
+      this.message = message;
+    }
+
     public Visitable visit(Visitable any) throws VisitFailure {
-	throw new VisitFailure();
+	throw new VisitFailure(message);
     }
 
 }
