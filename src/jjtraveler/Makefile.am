@@ -52,7 +52,7 @@ JAVA_JUNIT = \
 EXTRA_DIST	= package.html overview.html.src
 
 java_packages	= jjtraveler $(patsubst %,jjtraveler.%, $(SUBDIRS))
-java_dirs	= . $(patsubst %,./%, $(SUBDIRS))
+java_dirs	= $(srcdir) $(patsubst %,$(srcdir)/%, $(SUBDIRS))
 java_files	= $(wildcard $(patsubst %, %/*.java, $(java_dirs)))
 java_test_files	= $(wildcard $(patsubst %, %/TestAll.java, $(java_dirs)) $(patsubst %, %/*Test.java, $(java_dirs)))
 java_doc_files  = $(filter-out $(java_test_files), $(java_files))
