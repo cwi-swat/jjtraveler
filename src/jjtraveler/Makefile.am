@@ -33,6 +33,7 @@ NestingDepth.java \
 DoWhileSuccess.java \
 Collect.java \
 VisitableList.java \
+DefinedCombinator.java \
 @JAVA_JUNIT@
 
 javapackage	= jjtraveler
