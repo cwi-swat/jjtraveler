@@ -11,51 +11,6 @@ EXTRA_DIST = \
 	package.html \
 	overview.html.src
 
-
-CLASSPATH_ENV = CLASSPATH=${JAVAROOT}:${top_srcdir}/jars/junit.jar
-java_packages	= jjtraveler $(patsubst %,jjtraveler.%, $(SUBDIRS))
-java_dirs	= $(srcdir) $(patsubst %,$(srcdir)/%, $(SUBDIRS))
-java_files	= $(wildcard $(patsubst %, %/*.java, $(java_dirs)))
-java_test_files	= $(wildcard $(patsubst %, %/TestAll.java, $(java_dirs)) $(patsubst %, %/*Test.java, $(java_dirs)))
-java_doc_files  = $(filter-out $(java_test_files), $(java_files))
-
-
-# Creating the javadocs
-DOCDIR=./doc
-
-# all-local: htmljava.stamp 
-
-#install-data-local: html-install 
-
-clean-local: html-clean
-
-htmljava.stamp: $(java_JAVA) overview.html
-	mkdir -p ${DOCDIR}
-	@JAVADOC@ -windowtitle "JJTraveler Documentation" \
-	  -sourcepath ${JAVASRCROOT} -classpath ${CLASSPATH} \
-	  -overview overview.html \
-	  -use -private -d ${DOCDIR} \
-	  $(java_packages)
-	echo timestamp > htmljava.stamp
-
-html-install: htmljava.stamp
-	$(mkinstalldirs) $(datadir)/JJTraveler/doc
-	cp -r ${DOCDIR}/* $(datadir)/JJTraveler/doc
-
-html-clean:
-	rm -fr ${DOCDIR} htmljava.stamp overview.html	
-
-echo-classpath:
-	@echo ${CLASSPATH}
-
-echo-%:
-	@echo ${$*}
-
-
-
-%: %.src
-	sed s/__VERSION__/${VERSION}/g $< > $@
-
 java_JAVA = \
 	All.java \
 	AllSpinesBottomUp.java \
@@ -105,9 +60,17 @@ java_JAVA = \
 	VisitorTestCase.java \
 	FailAtNodes.java \
 	SucceedAtNodes.java \
-	TimeLogVisitor.java 
+	TimeLogVisitor.java \
+	${EXTRA_JAVA}
 
-JAVA_JUNIT = \
+CLASSPATH_ENV = CLASSPATH=${JAVAROOT}:${srcdir}:${top_srcdir}/jars/junit.jar
+java_packages	= jjtraveler $(patsubst %,jjtraveler.%, $(SUBDIRS))
+java_dirs	= $(srcdir) $(patsubst %,$(srcdir)/%, $(SUBDIRS))
+java_files	= $(wildcard $(patsubst %, %/*.java, $(java_dirs)))
+java_test_files	= $(wildcard $(patsubst %, %/TestAll.java, $(java_dirs)) $(patsubst %, %/*Test.java, $(java_dirs)))
+java_doc_files  = $(filter-out $(java_test_files), $(java_files))
+
+EXTRA_JAVA = \
 	FailAtNodesTest.java\
 	TestAll.java\
 	LoggerTest.java\
@@ -131,8 +94,6 @@ JAVA_JUNIT = \
 	ChildTest.java \
 	DescendantTest.java 
 
-EXTRA_JAVA  = $(JAVA_JUNIT)
-
 TESTS_JUNIT = MainTest 
 
 TESTS       = @TESTS_JUNIT@
@@ -145,3 +106,38 @@ MainTest: Makefile
 	chmod +x $@
 
 CLEANFILES=MainTest
+
+# Creating the javadocs
+DOCDIR=./doc
+
+# all-local: htmljava.stamp 
+
+#install-data-local: html-install 
+
+clean-local: html-clean
+
+htmljava.stamp: $(java_JAVA) overview.html
+	mkdir -p ${DOCDIR}
+	@JAVADOC@ -windowtitle "JJTraveler Documentation" \
+	  -sourcepath ${JAVASRCROOT} -classpath ${CLASSPATH} \
+	  -overview overview.html \
+	  -use -private -d ${DOCDIR} \
+	  $(java_packages)
+	echo timestamp > htmljava.stamp
+
+html-install: htmljava.stamp
+	$(mkinstalldirs) $(datadir)/JJTraveler/doc
+	cp -r ${DOCDIR}/* $(datadir)/JJTraveler/doc
+
+html-clean:
+	rm -fr ${DOCDIR} htmljava.stamp overview.html	
+
+echo-classpath:
+	@echo ${CLASSPATH}
+
+echo-%:
+	@echo ${$*}
+
+%: %.src
+	sed s/__VERSION__/${VERSION}/g $< > $@
+
