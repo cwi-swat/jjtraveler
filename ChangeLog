@@ -1,3 +1,7 @@
+# $Id$
+
+Mon Feb  2 14:42:35 CET 2004 <jong@cwi.nl>
+	* Makefile.am: add generated package file to CLEANFILES
 
 2004-01-30 Jurgen.Vinju@cwi.nl
 	* Bumped to 0.4.3
