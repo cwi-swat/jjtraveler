@@ -7,9 +7,13 @@ public class ToStringVisitor extends VoidVisitor {
     public static String doToString(Visitable visitable)
       throws VisitFailure {
 	ToStringVisitor v = new ToStringVisitor();
-	v.visit(visitable);
-	return v.getString();
+	return v.visitableToString(visitable);
     }
+    public String visitableToString(Visitable visitable) {
+	voidVisit(visitable);
+	return getString();
+    }
+	
     public void voidVisit(Visitable visitable) {
 	string = visitable.toString();
     }
