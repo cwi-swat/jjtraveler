@@ -98,7 +98,7 @@ htmljava.stamp: $(java_JAVA) overview.html
 	  -sourcepath ${JAVASRCROOT} -classpath ${CLASSPATH} \
 	  -overview overview.html \
 	  -use -private -d ${DOCDIR} \
-	  $(java_doc_files)
+	  $(java_packages)
 	cp ${patsubst %,${srcdir}/%,${JAVA_JUNIT}} $(DOCDIR)/$(javapackage)
 	echo timestamp > htmljava.stamp
 
