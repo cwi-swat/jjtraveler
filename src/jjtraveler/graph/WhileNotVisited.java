@@ -5,6 +5,10 @@ import jjtraveler.*;
 /**
  * Visit all nodes in the given graph exactly once,
  * in a top down fashion.
+ *
+ * <p>
+ * Test case documentation: 
+ * <a href="WhileNotVisitedTest.java">WhileNotVisitedTest</a>
  */
 
 public class WhileNotVisited extends DoWhileSuccess {
