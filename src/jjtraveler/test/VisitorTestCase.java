@@ -29,11 +29,11 @@ public abstract class VisitorTestCase extends TestCase {
     protected Node n2;
 
     public Node buildTree() {
-	n11 = new Node();
-	n12 = new Node();
-	n1  = new Node(new Node[]{n11,n12});
-	n2  = new Node();
-	n0  = new Node(new Node[]{n1,n2});
+	n11 = new Node(); // Node-0
+	n12 = new Node(); // Node-1
+	n1  = new Node(new Node[]{n11,n12}); // Node-2
+	n2  = new Node(); // Node-3
+	n0  = new Node(new Node[]{n1,n2}); // Node-4
 	return n0;
     }
 
