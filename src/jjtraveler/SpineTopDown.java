@@ -12,7 +12,7 @@ public class SpineTopDown extends Sequence {
 
     public SpineTopDown(Visitor v) {
 	super(v,null);
-	first = new Choice(new One(this),
+	then = new Choice(new One(this),
                            new All(new Fail()));
     }
     

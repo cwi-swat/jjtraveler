@@ -54,6 +54,7 @@ JAVA_JUNIT = \
 	LibraryTest.java \
 	NestingDepthTest.java \
 	OnceTopDownTest.java \
+	SpineTopDownTest.java \
 	TopDownUntilTest.java \
 	DoWhileSuccessTest.java \
 	OneTest.java \

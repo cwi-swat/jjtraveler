@@ -6,6 +6,8 @@ package jjtraveler;
  *
  * A typical example of its usage is for counting the
  * maximum nesting level of if-statements in a program.
+ *
+ * @author Arie van Deursen, CWI
  */
 public class NestingDepth implements Visitor, Cloneable {
 
