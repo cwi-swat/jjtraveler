@@ -24,7 +24,7 @@ public class UtilTest extends VisitorTestCase {
     }
 
     public static Test suite() {
-	TestSuite suite = new TestSuite(jjtraveler.test.UtilTest.class);
+	TestSuite suite = new TestSuite(jjtraveler.util.UtilTest.class);
 	return suite;
     }
 
