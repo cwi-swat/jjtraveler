@@ -25,6 +25,7 @@ EXTRA_DIST = ADDING-TOOLS VERSION configure.in.src genconf.sh \
 
 noinst_DATA = $(PACKAGE)-$(VERSION).pkg
              
+CLEANFILES = $(PACKAGE)-*.pkg
 
 # Generation of a package defintion file from the package.conf file. This
 # file in combination with autobundle enables integration of the package
