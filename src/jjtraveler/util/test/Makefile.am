@@ -1,20 +1,19 @@
 java_JAVA = \
 	@JAVA_JUNIT@
 
-javadir		= ${prefix}/classes/jjtraveler/util/test
-JAVAROOT        = ${top_builddir}/src
+javadir = ${prefix}/classes/jjtraveler/util/test
+JAVAROOT = ${top_builddir}/src
 
 JAVA_JUNIT = \
 	TestAll.java \
 	UtilTest.java
 
-#noinst_JAVA = @JAVA_JUNIT@
 
-EXTRA_JAVA  = $(JAVA_JUNIT)
+EXTRA_DIST = $(JAVA_JUNIT)
 
 TESTS_JUNIT = MainTest 
 
-TESTS       = @TESTS_JUNIT@
+TESTS = @TESTS_JUNIT@
 
 EXTRA_TESTS = $(TESTS_JUNIT)
 
@@ -23,6 +22,6 @@ MainTest: Makefile
 	echo "@JUNIT@ jjtraveler.util.test.TestAll" >> $@
 	chmod +x $@
 
-JAVACC      = @JAVACC@
+JAVACC = @JAVACC@
 
-CLEANFILES=MainTest
+CLEANFILES = MainTest

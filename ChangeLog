@@ -2,6 +2,8 @@
 
 Mon Feb  2 14:42:35 CET 2004 <jong@cwi.nl>
 	* Makefile.am: add generated package file to CLEANFILES
+	* .../util/test/Makefile.am: EXTRA_JAVA -> EXTRA_DIST or
+	  TestAll.java doesn't get added in the distribution
 
 2004-01-30 Jurgen.Vinju@cwi.nl
 	* Bumped to 0.4.3
