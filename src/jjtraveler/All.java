@@ -23,5 +23,12 @@ public class All implements Visitor {
 	}
 	return result;
     }
-    
+
+    // Factory method
+    public All make(Visitor v) {
+	return new All(v);
+    }
+    protected void setArgumentTo(Visitor v) {
+	this.v = v;
+    }
 }

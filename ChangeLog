@@ -1,3 +1,7 @@
+2001-11-12 Joost.Visser@cwi.nl
+	* Started a new subpackage "util", and added some combinators
+	  for constructing graphs.
+	
 2001-10-24 Joost.Visser@cwi.nl 
 	* Added visitor combinator Backtrack(StateVisitor), which saves
    	  the state of its argument visitor before executing it, and

@@ -1,0 +1,6 @@
+Makefile.in
+Makefile
+*.class
+classjava.stamp
+htmljava.stamp
+doc

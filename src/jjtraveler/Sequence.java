@@ -21,4 +21,11 @@ public class Sequence implements Visitor {
 	return then.visit(first.visit(any));
     }
 
+    protected void setArgumentAt(int i, Visitor v) {
+	switch (i) {
+	case 1: first = v; return;
+	case 2: then =v; return;
+	default: throw new RuntimeException("Argument out of bounds: "+i);
+	}
+    }
 }

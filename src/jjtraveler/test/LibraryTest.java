@@ -244,6 +244,7 @@ public class LibraryTest extends TestCase
 
     public static Test suite() {
 	TestSuite suite = new TestSuite(jjtraveler.test.LibraryTest.class);
+	suite.addTest(UtilTest.suite());
 	return suite;
     }
 

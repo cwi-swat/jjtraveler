@@ -27,7 +27,7 @@ BreadthFirst.java
 javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
 
-SUBDIRS		= test
+SUBDIRS		= util test
 
 all-local: htmljava.stamp
 

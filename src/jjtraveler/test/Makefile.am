@@ -1,12 +1,14 @@
 java_JAVA = \
-Node.java NodeVisitor.java Logger.java LogVisitor.java Event.java \
-@JAVA_JUNIT@
+	Node.java NodeVisitor.java\
+	Logger.java LogVisitor.java Event.java \
+	@JAVA_JUNIT@
 
 javadir		= ${prefix}/classes/jjtraveler/test
 JAVAROOT        = ${top_builddir}/src
 
 JAVA_JUNIT = \
-LibraryTest.java
+	LibraryTest.java\
+	UtilTest.java
 
 noinst_JAVA = @JAVA_JUNIT@
 

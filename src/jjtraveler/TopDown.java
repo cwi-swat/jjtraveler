@@ -22,5 +22,10 @@ public class TopDown extends Sequence {
 	super(v,null);
 	then = new All(this);
     }
+
+    // Factory method
+    public TopDown make(Visitor v) {
+	return new TopDown(v);
+    }
     
 }
