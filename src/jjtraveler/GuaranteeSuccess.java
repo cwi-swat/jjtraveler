@@ -28,7 +28,7 @@ public class GuaranteeSuccess implements Visitor {
 	Visitable result;
 	try { return v.visit(visitable); }
 	catch (VisitFailure f) {
-	    throw new RuntimeException();
+	    throw new RuntimeException(f.getMessage());
 	}
     }
 }
