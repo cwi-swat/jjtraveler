@@ -10,7 +10,7 @@ public class WhileNotVisitedTest extends VisitorTestCase {
         super(test);
     }
 
-    public void testCircle()  {
+    public void testCircle()  throws VisitFailure {
 	Visitor id = new Identity();
 
 	Visitable returned = 

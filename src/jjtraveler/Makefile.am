@@ -42,6 +42,8 @@ JAVASRCROOT	= ${top_srcdir}/src
 
 SUBDIRS		= util test reflective graph
 
+EXTRA_DIST	= package.html overview.html.src
+
 JAVA_JUNIT = \
 	TestAll.java \
 	AllTest.java \
@@ -55,19 +57,6 @@ JAVA_JUNIT = \
 	DoWhileSuccessTest.java \
 	OneTest.java \
 	CollectTest.java
-
-
-EXTRA_DIST	= package.html overview.html.src
-
-java_packages	= jjtraveler $(patsubst %,jjtraveler.%, $(SUBDIRS))
-java_dirs	= $(srcdir) $(patsubst %,$(srcdir)/%, $(SUBDIRS))
-java_files	= $(wildcard $(patsubst %, %/*.java, $(java_dirs)))
-java_test_files	= $(wildcard $(patsubst %, %/TestAll.java, $(java_dirs)) $(patsubst %, %/*Test.java, $(java_dirs)))
-java_doc_files  = $(filter-out $(java_test_files), $(java_files))
-
-
-
-
 
 noinst_JAVA = @JAVA_JUNIT@
 
@@ -88,6 +77,12 @@ JAVACC      = @JAVACC@
 
 CLEANFILES += MainTest
 
+
+java_packages	= jjtraveler $(patsubst %,jjtraveler.%, $(SUBDIRS))
+java_dirs	= $(srcdir) $(patsubst %,$(srcdir)/%, $(SUBDIRS))
+java_files	= $(wildcard $(patsubst %, %/*.java, $(java_dirs)))
+java_test_files	= $(wildcard $(patsubst %, %/TestAll.java, $(java_dirs)) $(patsubst %, %/*Test.java, $(java_dirs)))
+java_doc_files  = $(filter-out $(java_test_files), $(java_files))
 
 #
 # Creating the javadocs

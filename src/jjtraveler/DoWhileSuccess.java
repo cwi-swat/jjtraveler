@@ -1,12 +1,16 @@
 package jjtraveler;
 
-public class DoWhileSuccess extends GuaranteeSuccess {
+public class DoWhileSuccess implements Visitor {
+
+    Visitor dws;
     
     public DoWhileSuccess ( Visitor condition, Visitor action ) {
-	super(new TopDownWhile(
-			       new IfThenElse(condition,
-					      new Try(action),
-					      new Fail() ) ) );
+	dws = new IfThenElse( condition, 
+			      new Sequence(action, new All(this)));
+    }
+
+    public Visitable visit(Visitable x) throws VisitFailure {
+	return dws.visit(x);
     }
 }
 
