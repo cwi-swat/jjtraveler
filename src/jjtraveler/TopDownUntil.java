@@ -22,7 +22,11 @@ public class TopDownUntil extends Choice {
      */
     public TopDownUntil(Visitor v) {
 	super(v,null);
-	then = new All(this);
+	setThen(new All(this));
+    }
+
+    protected void setArgument(Visitor v) {
+	setFirst(v);
     }
 
 }

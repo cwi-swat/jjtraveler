@@ -14,21 +14,27 @@ package jjtraveler;
 
 public class Choice implements Visitor {
 
-  public Visitor first;
-  public Visitor then;
-
-  public Choice(Visitor first, Visitor then) {
-    this.first = first;
-    this.then  = then;
-  }
-
-  public Visitable visit(Visitable visitable) throws VisitFailure {
-    try {
-        return first.visit(visitable);
+    Visitor first;
+    Visitor then;
+    
+    public Choice(Visitor first, Visitor then) {
+	this.first = first;
+	this.then  = then;
     }
-    catch (VisitFailure f) {
-        return then.visit(visitable);
+    
+    public Visitable visit(Visitable visitable) throws VisitFailure {
+	try {
+	    return first.visit(visitable);
+	}
+	catch (VisitFailure f) {
+	    return then.visit(visitable);
+	}
     }
-  }
-
+    
+    protected void setFirst(Visitor first) {
+	this.first = first;
+    }
+    protected void setThen(Visitor then) {
+	this.then  = then;
+    }
 }
