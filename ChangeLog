@@ -1,3 +1,9 @@
+2002-07-17 Jurgen.Vinju@cwi.nl
+	* Checking for JUnit in configure.in strengtened. If JUnit is not
+	  found, the configure process fails with an error message. The
+	  user should then at least have a "." and the path to a junit.jar
+	* Set version to 0.4.1
+       
 2002-07-03 Jurgen.Vinju@cwi.nl
 	* Changed location of JJTraveler distribution to 
           http://www.cwi.nl/projects/MetaEnv/jjtraveler
