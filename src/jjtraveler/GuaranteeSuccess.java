@@ -11,24 +11,24 @@ package jjtraveler;
  */
 
 public class GuaranteeSuccess implements Visitor {
-    Visitor v;
+	Visitor v;
 
-    /**
-     * Indicate that the argument visitor is guaranteed to succeed.
-     */
-    public GuaranteeSuccess(Visitor v) {
-	this.v = v;
-    }
-    
-    /* Visit the current visitable with the argument visitor v,
-     * and turn any VisitFailure that might occur into a 
-     * RuntimeException.
-     */
-    public Visitable visit(Visitable visitable) {
-	Visitable result;
-	try { return v.visit(visitable); }
-	catch (VisitFailure f) {
-	    throw new RuntimeException(f.getMessage());
+	/**
+	 * Indicate that the argument visitor is guaranteed to succeed.
+	 */
+	public GuaranteeSuccess(Visitor v) {
+		this.v = v;
 	}
-    }
+
+	/* Visit the current visitable with the argument visitor v,
+	 * and turn any VisitFailure that might occur into a 
+	 * RuntimeException.
+	 */
+	public Visitable visit(Visitable visitable) {
+		try {
+			return v.visit(visitable);
+		} catch (VisitFailure f) {
+			throw new RuntimeException(f.getMessage());
+		}
+	}
 }
