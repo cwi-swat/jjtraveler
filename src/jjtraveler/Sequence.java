@@ -9,28 +9,28 @@ package jjtraveler;
 
 public class Sequence implements Visitor {
     
-    public Visitor first;
-    public Visitor then;
+  public Visitor first;
+  public Visitor then;
     
-    public Sequence(Visitor first, Visitor then) {
-	this.first = first;
-	this.then  = then;
-    }
+  public Sequence(Visitor first, Visitor then) {
+    this.first = first;
+    this.then  = then;
+  }
 
-    public Sequence(Visitor v1, Visitor v2, Visitor v3) {
-	first = v1;
-	then = new Sequence(v2, v3);
-    }
+  public Sequence(Visitor v1, Visitor v2, Visitor v3) {
+    first = v1;
+    then = new Sequence(v2, v3);
+  }
 
-    public Visitable visit(Visitable any) throws VisitFailure {
-	return then.visit(first.visit(any));
-    }
+  public Visitable visit(Visitable any) throws VisitFailure {
+    return then.visit(first.visit(any));
+  }
 
-    protected void setArgumentAt(int i, Visitor v) {
-	switch (i) {
-	case 1: first = v; return;
-	case 2: then =v; return;
-	default: throw new RuntimeException("Argument out of bounds: "+i);
-	}
+  protected void setArgumentAt(int i, Visitor v) {
+    switch (i) {
+    case 1: first = v; return;
+    case 2: then = v; return;
+    default: throw new RuntimeException("Argument out of bounds: "+i);
     }
+  }
 }

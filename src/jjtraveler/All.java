@@ -19,7 +19,7 @@ public class All implements Visitor {
 		int childCount = any.getChildCount();
 		Visitable result = any;
 		for (int i = 0; i < childCount; i++) {
-			result.setChildAt(i, v.visit(result.getChildAt(i)));
+			result = result.setChildAt(i, v.visit(result.getChildAt(i)));
 		}
 		return result;
 	}

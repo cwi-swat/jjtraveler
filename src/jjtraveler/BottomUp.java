@@ -19,8 +19,8 @@ public class BottomUp extends Sequence {
      * set it to its proper value afterwards.
      */
     public BottomUp(Visitor v) {
-	super(null,v);
-	first = new All(this);
+      super(null,v);
+      first = new All(this);
     }
     
 }

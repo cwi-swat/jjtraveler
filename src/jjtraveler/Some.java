@@ -17,27 +17,28 @@ package jjtraveler;
 
 public class Some implements Visitor {
 
-    public Visitor v;
+  public Visitor v;
 
-    public Some(Visitor v) {
-	this.v = v;
-    }
+  public Some(Visitor v) {
+    this.v = v;
+  }
 
-    public Visitable visit(Visitable any) throws VisitFailure {
-	int childCount = any.getChildCount();
-	int successCount = 0;
-	for (int i = 0; i < childCount; i++) {
+  public Visitable visit(Visitable any) throws VisitFailure {
+    int childCount = any.getChildCount();
+    Visitable result = any;
+    int successCount = 0;
+    for (int i = 0; i < childCount; i++) {
 	    try { 
-		any.setChildAt(i,v.visit(any.getChildAt(i))); 
-		successCount++;
+        result = result.setChildAt(i,v.visit(any.getChildAt(i))); 
+        successCount++;
 	    } catch(VisitFailure f) { }
-	}
-	if (successCount == 0) {
-	    throw new VisitFailure("Some: None of the " + 
-				   childCount + " arguments of " +
-				   any + " succeeded.");
-	}
-	return any;
     }
+    if (successCount == 0) {
+	    throw new VisitFailure("Some: None of the " + 
+                             childCount + " arguments of " +
+                             any + " succeeded.");
+    }
+    return result;
+  }
 
 }

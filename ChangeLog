@@ -1,4 +1,7 @@
-# $Id$
+2004-09-01  pem  <pem@polly.loria.fr>
+
+	* src/jjtraveler/All.java:  use the result of setChildAt in visit methods
+	* src/jjtraveler/Some.java: to deal with functional data-structures (like ATerms)
 
 Wed Apr 14 14:48:46 CEST 2004 <jurgenv@cwi,nl>
 	* Added junit.jar to distribution
