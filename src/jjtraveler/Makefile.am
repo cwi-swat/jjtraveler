@@ -24,6 +24,7 @@ StateVisitor.java \
 Backtrack.java \
 BreadthFirst.java \
 TopDownUntil.java \
+TopDownWhile.java \
 GuaranteeSuccess.java
 
 javadir		= ${prefix}/classes/jjtraveler
