@@ -7,6 +7,7 @@ Sequence.java \
 Fail.java \
 Choice.java \
 All.java \
+AllSpinesBottomUp.java \
 One.java \
 Try.java \
 TopDown.java \
@@ -48,6 +49,7 @@ EXTRA_DIST	= package.html overview.html.src
 
 JAVA_JUNIT = \
 	TestAll.java \
+	AllSpinesBottomUpTest.java \
 	AllTest.java \
 	FailTest.java \
 	IdentityTest.java \

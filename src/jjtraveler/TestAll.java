@@ -11,6 +11,7 @@ public class TestAll extends TestCase {
     public static Test suite() {
 	TestSuite suite = new TestSuite();
 	suite.addTest(new TestSuite(AllTest.class));
+	suite.addTest(new TestSuite(AllSpinesBottomUpTest.class));
 	suite.addTest(new TestSuite(FailTest.class));
 	suite.addTest( new TestSuite(IdentityTest.class) );
 	suite.addTest( new TestSuite(IfThenElseTest.class) );
