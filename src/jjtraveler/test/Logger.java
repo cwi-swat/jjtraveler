@@ -22,7 +22,7 @@ public class Logger {
     public String toString() {
 	String result = "";
 	for (Enumeration e = trace.elements() ; e.hasMoreElements() ;) {
-	    result += e.nextElement().toString();
+	    result += e.nextElement().toString() + "\n";
 	}
 	return result;
     }

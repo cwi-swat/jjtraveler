@@ -38,7 +38,7 @@ public abstract class VisitorTestCase extends TestCase
 	return n0;
     }
 
-    Logger logger;
+    public Logger logger;
 
     protected void setUp() {
 	Node.reset();
