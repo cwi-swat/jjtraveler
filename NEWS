@@ -1,3 +1,15 @@
+Version 0.2 released: 2001-11-20
+	* All visitors are now _returning_ visitors, i.e. the visit method
+	  now has a Visitable as return value.
+	* The original, non-returning visitor is now called VoidVisitor.
+	  VoidVisitor is a subtype of Visitor that adds the voidVisit
+	  method, an implements the visit method in terms of it.
+	* Documentation for JJTraveler is now automically generated
+	  with javadoc.
+	* Added many unit tests, using the JUnit testing tools.
+	* Many new combinators added.
+
+
 Version 0.1 released: 2001-06-28
 	* The JJTraveler package contains the visitor combinator framework
           previously included in the JJForester distribution, with some

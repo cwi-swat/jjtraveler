@@ -1,7 +1,5 @@
 TODO
-	* Update author information in the copyright notices
-          and in the README.
-	* Add visitors with return values (rewritors or transformers).
-	* Add combinators for graph visitation.
+	* Split the library up into subpackages.
+	* Improve unit tests.
 
 
