@@ -2,6 +2,12 @@ java_JAVA =\
 	Visited.java\
 	IsTree.java\
 	IsDag.java\
+	ASTToGraph.java\
+	Graph.java\
+	MkEdgesToKids.java\
+	EdgesGraph.java\
+	MkEdgeFromParent.java\
+	ToGraph.java\
 	@JAVA_JUNIT@
 
 javapackage	= jjtraveler.graph
@@ -15,7 +21,9 @@ JAVA_JUNIT = \
 	TestAll.java\
 	VisitedTest.java\
 	IsTreeTest.java\
-	IsDagTest.java
+	IsDagTest.java\
+	ToGraphTest.java\
+	EdgesGraphTest.java
 
 noinst_JAVA = @JAVA_JUNIT@
 

@@ -1,4 +1,4 @@
-package jjtraveler.util;
+package jjtraveler.graph;
 
 import junit.framework.*;
 import jjtraveler.*;

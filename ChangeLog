@@ -1,3 +1,7 @@
+2001-12-10 Joost.Visser@cwi.nl
+	* Moved several graph-related classes from subpackage util to
+	  subpackage graph.
+	
 2001-11-28 Joost.Visser@cwi.nl
 	* Started subpackage "graph" which contains combinators for
 	  operating on (non-tree) shaped graph structures.
