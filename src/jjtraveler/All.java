@@ -1,7 +1,7 @@
 package jjtraveler;
 
 /**
- * <code>T(t1,..,tN).accept(All(v)) = T(t1.accept(v),..,tN.accept(v))</code>
+ * <code>All(v).visit(T(t1,...,tN) = T(t1.visit(v), ..., tN.visit(v))</code>
  * <p>
  * Basic visitor combinator with one visitor argument, that applies
  * this visitor to all children.
