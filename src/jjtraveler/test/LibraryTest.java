@@ -54,8 +54,8 @@ public class LibraryTest extends TestCase
 	Identity id2 = new Identity();
 
 	Logger expected = new Logger();
-	expected.log( Event.makeVisitEvent(id1, n0) );
-	expected.log( Event.makeVisitEvent(id2, n0) );
+	expected.log( new Event(id1, n0) );
+	expected.log( new Event(id2, n0) );
 
 	Sequence  ls = new Sequence( logVisitor(id1), logVisitor(id2) );
 
@@ -140,12 +140,12 @@ public class LibraryTest extends TestCase
 	Fail stop = new Fail();
 
 	Logger expected = new Logger();
-	expected.log( Event.makeVisitEvent(downId, n3) );
-	expected.log( Event.makeVisitEvent(downId, n0) );
-	expected.log( Event.makeVisitEvent(upId, n0) );
-	expected.log( Event.makeVisitEvent(downId, n1) );
-	expected.log( Event.makeVisitEvent(upId, n1) );
-	expected.log( Event.makeVisitEvent(upId, n3) );
+	expected.log( new Event(downId, n3) );
+	expected.log( new Event(downId, n0) );
+	expected.log( new Event(upId, n0) );
+	expected.log( new Event(downId, n1) );
+	expected.log( new Event(upId, n1) );
+	expected.log( new Event(upId, n3) );
 
 	Visitor  visitor = new DownUp( 
 	   logVisitor(downId), stop, logVisitor(upId) );
@@ -161,9 +161,9 @@ public class LibraryTest extends TestCase
 	Identity stopId = new Identity();
 
 	Logger expected = new Logger();
-	expected.log( Event.makeVisitEvent(downId, n4) );
-	expected.log( Event.makeVisitEvent(stopId, n4) );
-	expected.log( Event.makeVisitEvent(upId, n4) );
+	expected.log( new Event(downId, n4) );
+	expected.log( new Event(stopId, n4) );
+	expected.log( new Event(upId, n4) );
 
 	Visitor  visitor = new DownUp( 
 	   logVisitor(downId), logVisitor(stopId), logVisitor(upId) );

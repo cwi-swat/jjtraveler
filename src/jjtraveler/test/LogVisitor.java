@@ -21,8 +21,7 @@ public class LogVisitor implements Visitor {
 
 
     public Visitable visit(Visitable visitable) throws VisitFailure {
-	Event e = Event.makeVisitEvent( visitor, visitable );
-	logger.log(e);
+	logger.log( new Event(visitor, visitable) );
 	return visitor.visit( visitable );
     }
 
