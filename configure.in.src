@@ -67,7 +67,8 @@ AC_SUBST(UNRELEASED)
 AC_OUTPUT( 
 	Makefile 
 	VERSION 
-
+    
+    scripts/Makefile
 	src/Makefile 
 	
         __MAKEFILES__
