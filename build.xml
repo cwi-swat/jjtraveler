@@ -108,8 +108,16 @@
   <mkdir dir="${dist}"/>
   <jar destfile="${dist}/JJTraveler-${version}.jar"
        basedir="${build}"
-       excludes="**/*Test.java,**/TestAll.java"
+       excludes="**/TestAll.class,**/*Test.class,**/*Test$$*.class"
+       update="false"
   />
 </target> 
+
+<target name="clean">
+  <delete verbose="true" dir="${build}"/>
+  <delete verbose="true" dir="${doc}"/>
+  <delete verbose="true" dir="${dist}"/>
+</target>
+
 
 </project>
