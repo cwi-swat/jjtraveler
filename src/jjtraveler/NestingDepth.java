@@ -62,21 +62,22 @@ public class NestingDepth implements Visitor, Cloneable {
     public Visitable visit(Visitable x) throws VisitFailure {
 	try {
 	    goOnWhileSuccess.visit(x);
-	    // all is fine -- we'll continue below;
+	    // we can continue searching for nested constructs.
+	    try {
+		nestingRecognizer.visit(x);
+		// yes, we found a nesting construct -- recurse!
+		maxNestingDepth = restart().apply(x).getDepth();
+	    } 
+	    catch (VisitFailure noNestingConstructFound) {
+		// no nesting construct here, keep on looking.
+		this.apply(x);
+	    }
 	} catch (VisitFailure stopNow) {
-	    return x; 
-	}
-
-	// we can continue searching for nested constructs.
-	try {
-	    nestingRecognizer.visit(x);
-	    maxNestingDepth = restart().apply(x).getDepth();
-	} 
-	catch (VisitFailure noNestingConstructFound) {
-	    this.apply(x);
+	    // ready -- no more recursion required.
 	}
 	return x;
     }
+
 
     /** Status printing that can be used for debugging purposes.
      */
