@@ -10,8 +10,8 @@ package jjtraveler;
 
 public class Identity implements Visitor {
 
-    public Visitable visit(Visitable x) {
-	return x;
-    }
+	public Visitable visit(Visitable x) {
+		return x;
+	}
 
 }
