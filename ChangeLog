@@ -1,9 +1,17 @@
 # $Id$
 
-Mon Feb  2 14:42:35 CET 2004 <jong@cwi.nl>
+Mon Feb  2 14:42:35 CET 2004 <{jong,kooiker}@cwi.nl>
 	* Makefile.am: add generated package file to CLEANFILES
 	* .../util/test/Makefile.am: EXTRA_JAVA -> EXTRA_DIST or
 	  TestAll.java doesn't get added in the distribution
+	* After previous two fixes, several more came up:
+	  - had to add all java_JAVA contents to EXTRA_DIST or
+	    .java files won't end up in distribution.
+	  - suspended installation of html (javadoc) files: these
+	    were installed using a "manual" cp (rather than a proper
+	    automake installation) and were never *un*installed which
+	    1.6 automake doesn't like.
+
 
 2004-01-30 Jurgen.Vinju@cwi.nl
 	* Bumped to 0.4.3

@@ -11,5 +11,3 @@ java_JAVA = \
 
 javadir = ${prefix}/classes/jjtraveler/util
 JAVAROOT = ${top_builddir}/src
-
-JAVACC = @JAVACC@

@@ -1,16 +1,10 @@
-java_JAVA = \
-        @JAVA_JUNIT@
 
 javadir		= ${prefix}/classes/jjtraveler/reflective/test
 JAVAROOT	= ${top_builddir}/src
 
-JAVA_JUNIT=\
-	TestAll.java\
-	WrapLogTest.java
-
 #noinst_JAVA = @JAVA_JUNIT@
 
-EXTRA_JAVA  = $(JAVA_JUNIT)
+EXTRA_DIST  = ${java_JAVA}
 
 TESTS_JUNIT = MainTest 
 
@@ -23,6 +17,9 @@ MainTest: Makefile
 	echo "@JUNIT@ jjtraveler.reflective.test.TestAll" >> $@
 	chmod +x $@
 
-JAVACC      = @JAVACC@
-
 CLEANFILES = MainTest
+
+java_JAVA = \
+	TestAll.java\
+	WrapLogTest.java
+

@@ -1,5 +1,7 @@
 bin_SCRIPTS = jjtraveler-config
 
+CLEANFILES = jjtraveler-config
+
 EXTRA_DIST = jjtraveler-config.sh.src
 
 % : %.sh.src Makefile

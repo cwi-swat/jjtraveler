@@ -1,43 +1,3 @@
-java_JAVA = \
-VisitFailure.java \
-Visitor.java \
-Visitable.java \
-Identity.java \
-Sequence.java \
-Fail.java \
-Choice.java \
-All.java \
-AllSpinesBottomUp.java \
-One.java \
-Try.java \
-TopDown.java \
-BottomUp.java \
-OnceTopDown.java \
-OnceBottomUp.java \
-DownUp.java \
-SpineTopDown.java \
-SpineBottomUp.java \
-Collector.java \
-DefUse.java \
-VoidVisitor.java \
-Not.java \
-StateVisitor.java \
-Backtrack.java \
-BreadthFirst.java \
-BreadthFirstWhile.java\
-OnceBreadthFirst.java\
-Some.java\
-TopDownUntil.java \
-TopDownWhile.java \
-GuaranteeSuccess.java \
-IfThenElse.java \
-NestingDepth.java \
-DoWhileSuccess.java \
-Collect.java \
-VisitableList.java \
-SuccessCounter.java \
-DefinedCombinator.java 
-
 javapackage	= jjtraveler
 javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
@@ -46,10 +6,10 @@ JAVASRCROOT	= ${top_srcdir}/src
 SUBDIRS		= util @JJT_TESTS@ reflective graph
 DIST_SUBDIRS	= util test reflective graph
 
-EXTRA_DIST	= package.html overview.html.src
-
-
-JAVACC      = @JAVACC@
+EXTRA_DIST = \
+	${java_JAVA} \
+	package.html \
+	overview.html.src
 
 
 java_packages	= jjtraveler $(patsubst %,jjtraveler.%, $(SUBDIRS))
@@ -59,15 +19,12 @@ java_test_files	= $(wildcard $(patsubst %, %/TestAll.java, $(java_dirs)) $(patsu
 java_doc_files  = $(filter-out $(java_test_files), $(java_files))
 
 
-
-#
 # Creating the javadocs
-#
 DOCDIR=./doc
 
 # all-local: htmljava.stamp 
 
-install-data-local: html-install 
+#install-data-local: html-install 
 
 clean-local: html-clean
 
@@ -97,3 +54,43 @@ echo-%:
 
 %: %.src
 	sed s/__VERSION__/${VERSION}/g $< > $@
+
+java_JAVA = \
+	All.java \
+	AllSpinesBottomUp.java \
+	Backtrack.java \
+	BottomUp.java \
+	BreadthFirst.java \
+	BreadthFirstWhile.java \
+	Choice.java \
+	Collect.java \
+	Collector.java \
+	DefUse.java \
+	DefinedCombinator.java \
+	DoWhileSuccess.java \
+	DownUp.java \
+	Fail.java \
+	GuaranteeSuccess.java \
+	Identity.java \
+	IfThenElse.java \
+	NestingDepth.java \
+	Not.java \
+	OnceBottomUp.java \
+	OnceBreadthFirst.java \
+	OnceTopDown.java \
+	One.java \
+	Sequence.java \
+	Some.java \
+	SpineBottomUp.java \
+	SpineTopDown.java \
+	StateVisitor.java \
+	SuccessCounter.java \
+	TopDown.java \
+	TopDownUntil.java \
+	TopDownWhile.java \
+	Try.java \
+	VisitFailure.java \
+	Visitable.java \
+	VisitableList.java \
+	Visitor.java \
+	VoidVisitor.java

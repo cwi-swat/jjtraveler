@@ -31,7 +31,7 @@ JAVA_JUNIT = \
 	SuccessCounterTest.java \
 	CollectTest.java
 
-EXTRA_DIST = package.html
+EXTRA_DIST = ${java_JAVA} package.html
 
 #noinst_JAVA = @JAVA_JUNIT@
 
@@ -47,7 +47,5 @@ MainTest: Makefile
 	echo "#! /bin/sh" > $@
 	echo "@JUNIT@ jjtraveler.test.TestAll" >> $@
 	chmod +x $@
-
-JAVACC      = @JAVACC@
 
 CLEANFILES=MainTest

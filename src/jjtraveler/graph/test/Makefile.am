@@ -1,21 +1,8 @@
-java_JAVA =\
-	@JAVA_JUNIT@
 
-javadir		= ${prefix}/classes/jjtraveler/graph/test
-JAVAROOT	= ${top_builddir}/src
+javadir = ${prefix}/classes/jjtraveler/graph/test
+JAVAROOT = ${top_builddir}/src
 
-JAVA_JUNIT = \
-	TestAll.java\
-	VisitedTest.java\
-	IsTreeTest.java\
-	IsDagTest.java\
-	ToGraphTest.java\
-	EdgesGraphTest.java \
-	WhileNotVisitedTest.java 
-
-#noinst_JAVA = @JAVA_JUNIT@
-
-EXTRA_JAVA = ${JAVA_JUNIT}
+EXTRA_DIST = ${java_JAVA}
 
 TESTS_JUNIT = MainTest 
 
@@ -31,3 +18,12 @@ MainTest: Makefile
 JAVACC      = @JAVACC@
 
 CLEANFILES = MainTest
+
+java_JAVA = \
+	TestAll.java\
+	VisitedTest.java\
+	IsTreeTest.java\
+	IsDagTest.java\
+	ToGraphTest.java\
+	EdgesGraphTest.java \
+	WhileNotVisitedTest.java 
