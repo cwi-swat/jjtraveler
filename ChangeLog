@@ -1,5 +1,8 @@
 # $Id$
 
+Fri Dec 17 09:16:46 CET 2004 <kooiker@cwi.nl>
+ * Bumped to 0.4.5 
+
 Wed Apr 14 14:48:46 CEST 2004 <jurgenv@cwi,nl>
 	* Added junit.jar to distribution
 	* Moved all test java files back to the source packages 
