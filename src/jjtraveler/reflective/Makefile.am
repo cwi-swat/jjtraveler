@@ -8,8 +8,10 @@ java_JAVA =\
 	WrapLog.java\
 	@JAVA_JUNIT@
 
+DOCDIR		= ../doc
 javapackage	= jjtraveler.reflective
-javadir		= ${prefix}/classes/jjtraveler/reflective
+packagedir	= jjtraveler/reflective
+javadir		= $(prefix)/classes/$(packagedir)
 JAVAROOT	= ${top_builddir}/src
 JAVASRCROOT	= ${top_srcdir}/src
 
@@ -37,3 +39,10 @@ MainTest: Makefile
 JAVACC      = @JAVACC@
 
 CLEANFILES += MainTest
+
+all-local: htmljava.stamp 
+
+htmljava.stamp: $(JAVA_UNIT)
+	$(mkinstalldirs) $(DOCDIR)/$(packagedir)
+	cp @JAVA_JUNIT@ $(DOCDIR)/$(packagedir)
+	echo timestamp > htmljava.stamp

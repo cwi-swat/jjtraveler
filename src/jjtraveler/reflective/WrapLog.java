@@ -5,6 +5,8 @@ import jjtraveler.test.*;
 
 /**
  * Wrap a LogVisitor around a visitor.
+ * <p>
+ * Test case documentation: <a href="WrapLogTest.java">WrapLogTest</a>
  */
 
 public class WrapLog extends VisitorVisitor {

@@ -67,31 +67,35 @@ CLEANFILES += MainTest
 #
 # Creating the javadocs
 #
+DOCDIR=./doc
 
-all-local: htmljava.stamp
+all-local: htmljava.stamp 
 
-install-data-local: html-install
+install-data-local: html-install 
 
 clean-local: html-clean
 
 htmljava.stamp: $(java_JAVA) overview.html
-	mkdir -p ./doc
+	mkdir -p ${DOCDIR}
 	@JAVADOC@ -windowtitle "JJTraveler Documentation" \
 	  -sourcepath ${JAVASRCROOT} -classpath ${CLASSPATH} \
 	  -overview overview.html \
-	  -use -private -d ./doc \
+	  -use -private -d ${DOCDIR} \
 	  jjtraveler jjtraveler.util jjtraveler.test jjtraveler.reflective
+	cp @JAVA_JUNIT@ $(DOCDIR)/$(javapackage)
 	echo timestamp > htmljava.stamp
 
 html-install: htmljava.stamp
-	$(mkinstalldirs) $(datadir)/doc/jjtraveler
-	cp -r ./doc/* $(datadir)/doc/jjtraveler
+	$(mkinstalldirs) $(datadir)/JJTraveler/doc
+	cp -r ${DOCDIR}/* $(datadir)/JJTraveler/doc
 
 html-clean:
-	rm -fr ./doc htmljava.stamp overview.html
+	rm -fr ${DOCDIR} htmljava.stamp overview.html	
 
 echo-classpath:
 	@echo ${CLASSPATH}
+
+
 
 %: %.src
 	sed s/__VERSION__/${VERSION}/g $< > $@
