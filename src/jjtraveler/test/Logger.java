@@ -14,7 +14,7 @@ public class Logger {
 
     Vector trace = new Vector();
 
-    public Logger() {};
+    public Logger() {}
 
     /** 
      *  Create a new Logger which has as initialt trace a single
