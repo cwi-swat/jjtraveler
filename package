@@ -7,7 +7,7 @@ identification
   description='JJTraveler: a visitor combinator framework for Java'
   keywords=visitor pattern, visitor combinator, traversal strategy
 
-interface
+configuration interface
   
 requires
   
