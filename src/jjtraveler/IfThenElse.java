@@ -12,6 +12,13 @@ public class IfThenElse implements Visitor {
 	falseCase = f;
     }
 
+    public IfThenElse(Visitor c, Visitor t) {
+	condition = c;
+	trueCase = t;
+	falseCase = new Identity();
+    }
+
+
     public Visitable visit(Visitable x) throws VisitFailure {
 	boolean success;
 	Visitable result;
