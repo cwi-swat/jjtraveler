@@ -11,4 +11,4 @@ JJTraveler-0.4a
 bin
 .classpath
 .project
-autom4te-2.53.cache
+autom4te*.cache

@@ -23,7 +23,7 @@ ACLOCAL_FLAGS = -I .
 
 SUBDIRS	= src scripts
 
-EXTRA_DIST = ADDING-TOOLS VERSION configure.in.src genconf.sh \
+EXTRA_DIST = ADDING-TOOLS VERSION genconf.sh \
              package.conf reconf $(PACKAGE)-$(VERSION).pkg \
              acincludejava.m4
              
