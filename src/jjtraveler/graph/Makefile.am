@@ -1,3 +1,5 @@
+SUBDIRS=@JJT_TESTS@
+
 java_JAVA =\
 	Visited.java\
 	NotVisited.java\
@@ -9,8 +11,7 @@ java_JAVA =\
 	EdgesGraph.java\
 	MkEdgeFromParent.java\
 	ToGraph.java\
-	WhileNotVisited.java \
-	@JAVA_JUNIT@
+	WhileNotVisited.java 
 
 javapackage	= jjtraveler.graph
 javadir		= ${prefix}/classes/jjtraveler/graph
@@ -19,30 +20,4 @@ JAVASRCROOT	= ${top_srcdir}/src
 
 EXTRA_DIST	= package.html
 
-JAVA_JUNIT = \
-	TestAll.java\
-	VisitedTest.java\
-	IsTreeTest.java\
-	IsDagTest.java\
-	ToGraphTest.java\
-	EdgesGraphTest.java \
-	WhileNotVisitedTest.java 
-
-noinst_JAVA = @JAVA_JUNIT@
-
-EXTRA_JAVA  = $(JAVA_JUNIT)
-
-TESTS_JUNIT = MainTest 
-
-TESTS       = @TESTS_JUNIT@
-
-EXTRA_TESTS = $(TESTS_JUNIT)
-
-MainTest: Makefile
-	echo "#! /bin/sh" > $@
-	echo "@JUNIT@ $(javapackage).TestAll" >> $@
-	chmod +x $@
-
 JAVACC      = @JAVACC@
-
-CLEANFILES += MainTest

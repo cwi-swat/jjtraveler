@@ -59,7 +59,7 @@ public class DoWhileSuccess extends DefinedCombinator {
 
 	/** Reuse DoWhileSuccess(not(v)) as a TopDownUntil(v);
 	 */
-	static DoWhileSuccess TopDownUntil(Visitor v1) {
+	public static DoWhileSuccess TopDownUntil(Visitor v1) {
 		return new DoWhileSuccess(new Not(v1));
 	}
 	

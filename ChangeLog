@@ -1,4 +1,7 @@
 
+2003-08-05 Jurgen.Vinju@cwi.nl
+	* Separated out all JUnit tests into test directories.
+
 2003-08-01 Jurgen.Vinju@cwi.nl
 	* Reactivated JUnit tests. If JUnit is found by the configure script,
 	  then the tests are activated. If JUnit is not found, the tests

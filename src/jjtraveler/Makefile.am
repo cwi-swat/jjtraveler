@@ -36,56 +36,20 @@ DoWhileSuccess.java \
 Collect.java \
 VisitableList.java \
 SuccessCounter.java \
-DefinedCombinator.java \
-@JAVA_JUNIT@
+DefinedCombinator.java 
 
 javapackage	= jjtraveler
 javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
 JAVASRCROOT	= ${top_srcdir}/src
 
-SUBDIRS		= util reflective graph
+SUBDIRS		= util @JJT_TESTS@ reflective graph
 DIST_SUBDIRS	= util test reflective graph
 
 EXTRA_DIST	= package.html overview.html.src
 
-JAVA_JUNIT = \
-	TestAll.java \
-	AllSpinesBottomUpTest.java \
-	AllTest.java \
-	FailTest.java \
-	IdentityTest.java \
-	IfThenElseTest.java \
-	LibraryTest.java \
-	NestingDepthTest.java \
-	OnceTopDownTest.java \
-	SpineTopDownTest.java \
-	SomeTest.java \
-	SpineBottomUpTest.java \
-	TopDownUntilTest.java \
-	DoWhileSuccessTest.java \
-	OneTest.java \
-	SuccessCounterTest.java \
-	CollectTest.java
-
-noinst_JAVA = @JAVA_JUNIT@
-
-EXTRA_JAVA  = $(JAVA_JUNIT)
-
-TESTS_JUNIT = MainTest 
-
-TESTS       = @TESTS_JUNIT@
-
-EXTRA_TESTS = $(TESTS_JUNIT)
-
-MainTest: Makefile
-	echo "#! /bin/sh" > $@
-	echo "@JUNIT@ $(javapackage).TestAll" >> $@
-	chmod +x $@
 
 JAVACC      = @JAVACC@
-
-CLEANFILES += MainTest
 
 
 java_packages	= jjtraveler $(patsubst %,jjtraveler.%, $(SUBDIRS))
@@ -93,6 +57,8 @@ java_dirs	= $(srcdir) $(patsubst %,$(srcdir)/%, $(SUBDIRS))
 java_files	= $(wildcard $(patsubst %, %/*.java, $(java_dirs)))
 java_test_files	= $(wildcard $(patsubst %, %/TestAll.java, $(java_dirs)) $(patsubst %, %/*Test.java, $(java_dirs)))
 java_doc_files  = $(filter-out $(java_test_files), $(java_files))
+
+
 
 #
 # Creating the javadocs
@@ -112,7 +78,6 @@ htmljava.stamp: $(java_JAVA) overview.html
 	  -overview overview.html \
 	  -use -private -d ${DOCDIR} \
 	  $(java_packages)
-	cp ${patsubst %,${srcdir}/%,${JAVA_JUNIT}} $(DOCDIR)/$(javapackage)
 	echo timestamp > htmljava.stamp
 
 html-install: htmljava.stamp

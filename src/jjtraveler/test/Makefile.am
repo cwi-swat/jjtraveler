@@ -13,7 +13,23 @@ JAVA_JUNIT = \
 	FailAtNodesTest.java\
 	TestAll.java\
 	LoggerTest.java\
-	TimeLogVisitorTest.java
+	TimeLogVisitorTest.java \
+	AllSpinesBottomUpTest.java \
+	AllTest.java \
+	FailTest.java \
+	IdentityTest.java \
+	IfThenElseTest.java \
+	LibraryTest.java \
+	NestingDepthTest.java \
+	OnceTopDownTest.java \
+	SpineTopDownTest.java \
+	SomeTest.java \
+	SpineBottomUpTest.java \
+	TopDownUntilTest.java \
+	DoWhileSuccessTest.java \
+	OneTest.java \
+	SuccessCounterTest.java \
+	CollectTest.java
 
 EXTRA_DIST = package.html
 
