@@ -27,6 +27,7 @@ public class TestAll extends TestCase {
 	suite.addTest( new TestSuite(OneTest.class) );
 	suite.addTest( new TestSuite(SomeTest.class) );
 	suite.addTest( new TestSuite(CollectTest.class) );
+	suite.addTest( new TestSuite(SuccessCounterTest.class) );
 	return suite;
     }
     
