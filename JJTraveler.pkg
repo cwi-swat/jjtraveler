@@ -1,0 +1,13 @@
+package
+identification
+  name=__PACKAGE__
+  version=__VERSION__
+  location=http://www.cwi.nl/projects/MetaEnv/jjtraveler
+  info=http://www.jjforester.org
+  description='JJTraveler: a visitor combinator framework for Java'
+  keywords=visitor pattern, visitor combinator, traversal strategy
+
+configuration interface
+  
+requires
+  
