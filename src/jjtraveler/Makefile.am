@@ -91,7 +91,7 @@ CLEANFILES += MainTest
 #
 DOCDIR=./doc
 
-all-local: htmljava.stamp 
+# all-local: htmljava.stamp 
 
 install-data-local: html-install 
 

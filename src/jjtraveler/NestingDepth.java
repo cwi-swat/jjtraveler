@@ -27,21 +27,24 @@ public class NestingDepth implements Visitor {
     public Visitable visit(Visitable x) throws VisitFailure {
 	try {
 	    nestingRecognizer.visit(x);
-            (new All(this)).visit(x);
+	    (new All(this)).visit(x);
 	} catch (VisitFailure vf) {
 	    // we did find a nesting construct.
-	    
-	    nestingLevel++;
-	    maxNestingDepth = max(maxNestingDepth, nestingLevel);
 
-	    NestingDepth deeper = new NestingDepth(nestingRecognizer, 
-						   nestingLevel,
-						   maxNestingDepth
-						   );
+	    NestingDepth deeper = 
+		new NestingDepth(nestingRecognizer, 
+				 nestingLevel + 1,
+				 max(maxNestingDepth, nestingLevel + 1)
+				 );
 	    (new All( deeper )).visit(x);
 	    maxNestingDepth = deeper.maxNestingDepth;
 	}
 	return x;
+    }
+
+    private String status() {
+	return " maxNestingDepth = " + maxNestingDepth + "; " +
+	    "nestingLevel = " + nestingLevel;
     }
 
     public int max(int i1, int i2) {
