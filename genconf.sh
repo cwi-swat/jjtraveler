@@ -101,8 +101,7 @@ then
    for tool in ${released} ${unreleased}
    do
       MAKEFILES="${MAKEFILES} \
-                 src/${tool}/Makefile \
-                 src/${tool}/data/Makefile"
+                 src/${tool}/Makefile"
    done
 fi
 

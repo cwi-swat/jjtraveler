@@ -24,7 +24,7 @@ Not.java
 javadir		= ${prefix}/classes/jjtraveler
 JAVAROOT	= ${top_builddir}/src
 
-SUBDIRS		= data
+SUBDIRS		= test
 
 all-local: htmljava.stamp
 

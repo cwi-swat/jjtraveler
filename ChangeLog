@@ -1,3 +1,9 @@
+2001-10-24 Joost.Visser@cwi.nl, Arie.van.Deursen@cwi.nl
+	* Added subpackage "test", containing unit tests for the library
+	  combinators. These tests make use of a class Node of mock objects
+	  that log invocations of their methods.
+	* "data" subdirectories are no longer required.
+
 2001-07-02 Joost Visser <Joost.Visser@cwi.nl>
 	 * "Not" combinator added.
          * Visitor fields in visitor combinators are now public, to make
