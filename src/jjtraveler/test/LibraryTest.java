@@ -49,8 +49,9 @@ public class LibraryTest extends TestCase
 	}
 
 	Increment i = new Increment();
+	Object initialState = i.getState();
 	(new Backtrack(i)).visit(n1);
-	assertEquals(0,i.state);
+	assertEquals(initialState,i.getState());
 	assertEquals("",n1.getLogger().getTrace());
     }	
 	
