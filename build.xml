@@ -20,9 +20,12 @@
   </description>
    
   <!-- set global properties for this build -->
+
+  <!-- current version of JJTraveler -->
+  <property name="version" value="0.4a"/>
   
   <!-- prefix used for all installed targets -->
-  <property name="prefix"  location="/tmp"/>
+  <property name="prefix"  location="/tmp/jjtraveler-${version}/"/>
   
   <!-- place to find the sources -->
   <property name="src"   location="src"/>
@@ -39,9 +42,6 @@
   <!-- place to put the documentation -->
   <property name="doc"   location="${prefix}/doc"/> 
 
-  <!-- current version of JJTraveler -->
-  <property name="version" value="4.0a"/>
-  
   <!-- external dependency: junit.jar. 
        either put it in your class path, 
        or define the junitjar property -->
@@ -50,7 +50,6 @@
     location="/home/pkgs/junit3.8.1/junit.jar"
   /> 
   
-   
   <target 
    name="compile"  
    description="compile the JJTraveler sources" 
@@ -106,7 +105,7 @@
 
 <target name="jar" depends="compile">
   <mkdir dir="${dist}"/>
-  <jar destfile="${dist}/JJTraveler-${version}.jar"
+  <jar destfile="${dist}/jjtraveler.jar"
        basedir="${build}"
        excludes="**/TestAll.class,**/*Test.class,**/*Test$$*.class"
        update="false"
