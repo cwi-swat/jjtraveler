@@ -1,30 +1,33 @@
-# Copyright (C) 2000 Joost Visser <Joost.Visser@cwi.nl>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2, or (at your option)
-# any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-# 02111-1307, USA.
+# $Id$
 
-CLEANFILES = ${PACKAGE}-${VERSION}.pkg
+SUBDIRS	= scripts
 
 ACLOCAL_FLAGS = -I .
 
-SUBDIRS	= jars src scripts
+JARFILE = jjtraveler-${VERSION}.jar
+JARFILE_ENV = JAR=${JARFILE}
+JARS_ENV = JARS=${EXTERNAL_JARS}:${top_srcdir}/jars/junit.jar
 
-EXTRA_DIST = reconf package acincludejava.m4
-             
+data_DATA = ${JARFILE}
 noinst_SCRIPTS = ${PACKAGE}-${VERSION}.pkg
+
+EXTRA_DIST = reconf package acincludejava.m4 build.xml ${JARFILE}
 
 ${PACKAGE}-${VERSION}.pkg: package Makefile
 	cp $< $@
 
+CLEANFILES = ${PACKAGE}-${VERSION}.pkg
+
+check:
+	${JARS_ENV} ${JARFILE_ENV} ant check
+
+if MAINTAINER_MODE
+${JARFILE}:
+	${JARS_ENV} ${JARFILE_ENV} ant dist
+
+doc:
+	${JARS_ENV} ant doc
+
+clean-local:
+	${JARFILE_ENV} ant clean
+endif

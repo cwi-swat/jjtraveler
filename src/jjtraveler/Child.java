@@ -24,7 +24,7 @@ public class Child extends DefinedCombinator {
  	/**
  	 * @param condition Visitor that determines if the action
  	 * 		  should be applied.
-	 * @param action Visitor to be applied to immediate children.
+	 * @param childAction Visitor to be applied to immediate children.
 	 */
 	public Child(Visitor condition, Visitor childAction) {
   		setDefinition(

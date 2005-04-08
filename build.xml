@@ -1,138 +1,73 @@
-<project name="JJTraveler in Ant" default="compile">
- 
-  <description>
-   Build script using Ant offering checks, dists,
-   installation, and so on.
-   It aims at offering the same functionality as the
-   automake files included in the JJTraveler source
-   distribution.
-   
-   To use this build file, install ant,
-   and just run ant in the current directory.
-   
-   You can modify certain default settings via
-   ant -Ddist="/home/yourdirectory"
-   for the various properties listed below.
-   
-   Author: Arie van Deursen, CWI
-   Created: June 23, 2003.
-   Version: $Id$
-  </description>
-   
-  <!-- set global properties for this build -->
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JJTraveler" default="build" basedir=".">
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="testresults" location="testresults"/>
+  <property name="dist" location="dist"/>
+  <property name="doc" location="doc"/> 
+  <property environment="env"/>
+  <path id="project.classpath">
+    <pathelement path="${env.JARS}"/>
+  </path>
 
-  <!-- current version of JJTraveler -->
-  <property name="version" value="0.4a"/>
-  
-  <!-- prefix used for all installed targets -->
-  <property name="prefix"  location="/tmp/jjtraveler-${version}/"/>
-  
-  <!-- place to find the sources -->
-  <property name="src"   location="src"/>
-
-  <!-- place to put the results of a build -->
-  <property name="build" location="${prefix}/build"/>
-
-  <!-- place to put results of running all junit tests -->
-  <property name="testresults" location="${prefix}/testresults"/>
-  
-  <!-- place to put the distribution -->
-  <property name="dist"  location="${prefix}/dist"/>
-  
-  <!-- place to put the documentation -->
-  <property name="doc"   location="${prefix}/doc"/> 
-
-  <!-- external dependency: junit.jar. 
-       either put it in your class path, 
-       or define the junitjar property -->
-  <property
-    name="junitjar"
-    location="/home/pkgs/junit3.8.1/junit.jar"
-  /> 
-  
-  <target 
-   name="compile"  
-   description="compile the JJTraveler sources" 
-  >
+  <target name="build">
     <mkdir dir="${build}"/>
-    <!-- Compile the java code from ${src} into ${build} -->
-    <javac 
-      srcdir="${src}" 
-      destdir="${build}"
-    >
-     <classpath>
-      <pathelement path="${classpath}"/>
-      <pathelement location="${junitjar}"/>
-     </classpath>
+    <javac destdir="${build}">
+      <src path="${src}"/>
+      <classpath refid="project.classpath"/>
     </javac>
   </target>    
- 
 
- <target
-   name="check"
-   depends="compile"
-   description="Testing JJTraveler"
-  >
-  <mkdir dir="${testresults}"/>
-  <junit printsummary="withOutAndErr" showoutput="yes">
-   <classpath>
-    <pathelement path="${classpath}"/>
-    <pathelement location="${build}"/>
-    <pathelement location="${unitjar}"/>
-   </classpath>
-   <formatter type="plain"/>
-   <batchtest todir="${testresults}" >
-    <fileset dir="${src}">
-      <include name="**/TestAll.java"/>
-    </fileset>
-   </batchtest>
-  </junit>
-</target>
+  <target name="check" depends="build">
+    <mkdir dir="${testresults}"/>
+    <junit printsummary="withOutAndErr" showoutput="yes">
+      <classpath>
+	<pathelement path="project.classpath"/>
+	<pathelement location="${build}"/>
+      </classpath>
+      <formatter type="plain"/>
+      <batchtest todir="${testresults}" >
+	<fileset dir="${src}">
+	  <include name="**/TestAll.java"/>
+	</fileset>
+      </batchtest>
+    </junit>
+  </target>
 
+  <target name="doc">
+    <mkdir dir="${doc}"/>
+    <javadoc 
+      sourcepath="${src}"
+      destdir="${doc}"
+      author="true"
+      overview="overview.html"
+      packagenames="jjtraveler,jjtraveler.test,jjtraveler.graph"
+      private="true"
+      use="true"
+      version="true"
+      windowtitle="JJTraveler Documentation">
+      <classpath refid="project.classpath"/>
+    </javadoc>
+  </target> 
 
-<target name="doc">
-  <mkdir dir="${doc}"/>
-  <javadoc 
-    sourcepath="${src}"
-    destdir="${doc}"
-    author="true"
-    version="true"
-    packagenames="jjtraveler,jjtraveler.test,jjtraveler.graph"
-    use="true"
-  />
-</target> 
-  
+  <target name="dist" depends="build">
+    <mkdir dir="${dist}/src"/>
+    <copy todir="${dist}/src">
+      <fileset dir="${src}" includes="**/*.java"/>
+    </copy>
+    <jar destfile="${src}/${env.JAR}">
+      <fileset dir="${build}">
+	<exclude name="**/TestAll.class,**/*Test.class,**/*Test$$*.class"/>
+      </fileset>
+      <fileset dir="${dist}" includes="**/*.java"/>
+    </jar>
+  </target> 
 
-<target name="jar" depends="compile">
-  <mkdir dir="${dist}"/>
-  <jar destfile="${dist}/jjtraveler.jar"
-       basedir="${build}"
-       excludes="**/TestAll.class,**/*Test.class,**/*Test$$*.class"
-       update="false"
-  />
-</target> 
-
-<target name="clean"
-	description="Purges temporary files" >
-  <delete verbose="true" dir="${build}"/>
-  <delete verbose="true" dir="${doc}"/>
-  <delete verbose="true" dir="${dist}"/>
-</target>
-
-
-<!-- to run this task, make sure you install
-     jdepend version 2.6, and include jdepend.jar
-     in your classpath -->
-<target name="jdepend"
-        depends="jar"
-        description="compute package dependencies" >
-
-  <jdepend classpathref="base.path">
-    <sourcespath>
-        <pathelement location="${dist}"/>
-    </sourcespath>
-  </jdepend>
-</target>
-
+  <target name="clean">
+    <delete dir="${build}"/>
+    <delete dir="${doc}"/>
+    <delete dir="${dist}"/>
+    <delete dir="${testresults}"/>
+  </target>
 
 </project>
