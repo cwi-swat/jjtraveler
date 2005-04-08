@@ -55,7 +55,7 @@
     <copy todir="${dist}/src">
       <fileset dir="${src}" includes="**/*.java"/>
     </copy>
-    <jar destfile="${src}/${env.JAR}">
+    <jar destfile="${env.JAR}">
       <fileset dir="${build}">
 	<exclude name="**/TestAll.class,**/*Test.class,**/*Test$$*.class"/>
       </fileset>
