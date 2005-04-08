@@ -68,6 +68,7 @@
     <delete dir="${doc}"/>
     <delete dir="${dist}"/>
     <delete dir="${testresults}"/>
+    <delete file="${env.JAR}"/>
   </target>
 
 </project>
