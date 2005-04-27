@@ -9,6 +9,7 @@ Mon Apr 11 15:24:46 CEST 2005 <kooiker@cwi.nl>
 
 Fri Apr  8 14:24:26 CEST 2005 <kooiker@cwi.nl>
  * use Ant
+ * To build the jar you have to use --enable-maintainer-mode
 
 2004-09-01  pem  <pem@polly.loria.fr>
 
