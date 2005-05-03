@@ -40,7 +40,7 @@
       sourcepath="${src}"
       destdir="${doc}"
       author="true"
-      overview="overview.html"
+      overview="${src}/overview.html"
       packagenames="jjtraveler,jjtraveler.test,jjtraveler.graph"
       private="true"
       use="true"
@@ -48,6 +48,7 @@
       windowtitle="JJTraveler Documentation">
       <classpath refid="project.classpath"/>
     </javadoc>
+    <replace file="${doc}/overview-summary.html" token="__VERSION__" value="${env.PKG_VERSION}"/>	
   </target> 
 
   <target name="dist" depends="build">

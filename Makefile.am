@@ -7,6 +7,7 @@ ACLOCAL_FLAGS = -I .
 JARFILE = jjtraveler-${VERSION}.jar
 JARFILE_ENV = JAR=${JARFILE}
 JARS_ENV = JARS=${EXTERNAL_JARS}:${top_srcdir}/jars/junit.jar
+PACKAGE_VERSION = PKG_VERSION=${VERSION}
 
 data_DATA = ${JARFILE}
 noinst_SCRIPTS = ${PACKAGE}-${VERSION}.pkg
@@ -31,7 +32,7 @@ check:
 	${JARS_ENV} ${JARFILE_ENV} ant check
 
 doc:
-	${JARS_ENV} ant doc
+	${JARS_ENV} ${PACKAGE_VERSION} ant doc
 
 clean-local:
 	${JARFILE_ENV} ant clean
