@@ -9,28 +9,28 @@ import junit.framework.TestSuite;
 public class IsTreeTest extends VisitorTestCase {
 
     public void testTree() throws VisitFailure {
-	Visitable expectedNode = (new IsTree()).visit(n0);
-	assertEquals(expectedNode,n0);
+        Visitable expectedNode = (new IsTree()).visit(n0);
+        assertEquals(expectedNode, n0);
     }
 
-    public void testDiamond() throws VisitFailure {
-	Visitable expectedNode = null;
-	try {
-	    expectedNode = (new IsTree()).visit(rootOfDiamond);
-	    fail("VisitFailure should have occured");
-	} catch (VisitFailure vf) {
-	    assertNull(expectedNode);
-	}
+    public void testDiamond() {
+        Visitable expectedNode = null;
+        try {
+            expectedNode = (new IsTree()).visit(rootOfDiamond);
+            fail("VisitFailure should have occured");
+        } catch (VisitFailure vf) {
+            assertNull(expectedNode);
+        }
     }
 
-    public void testCircle() throws VisitFailure {
-	Visitable expectedNode = null;
-	try {
-	    expectedNode = (new IsTree()).visit(rootOfCircle);
-	    fail("VisitFailure should have occured");
-	} catch (VisitFailure vf) {
-	    assertNull(expectedNode);
-	}
+    public void testCircle() {
+        Visitable expectedNode = null;
+        try {
+            expectedNode = (new IsTree()).visit(rootOfCircle);
+            fail("VisitFailure should have occured");
+        } catch (VisitFailure vf) {
+            assertNull(expectedNode);
+        }
     }
 
     public IsTreeTest(String test) {
