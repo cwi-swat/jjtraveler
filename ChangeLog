@@ -1,5 +1,8 @@
 # $Id$
 
+Mon Aug 15 15:33:29 CEST 2005 <kooiker@cwi.nl>
+ * init-package.m4: fix underquoted GLT_INIT_PACKAGE macro
+
 Wed May 25 15:54:53 CEST 2005 <kooiker@cwi.nl>
  * src/*.java:
    - Solved Eclipse warnings about unnecessary else en throws
