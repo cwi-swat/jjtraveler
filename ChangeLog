@@ -1,5 +1,16 @@
 # $Id$
 
+Thu Feb  2 14:30:19 CET 2006 <jurgenv@cwi.nl>
+ * src/jjtraveler/{Fail.java,FailAtNodes.java,NodeVisitor.java,Not.java,One.java
+,Some.java,VisitFailure.java}: these classes now all keep a static reference
+   reference to a VisitFailure. Since each creation of a VisitFailure 
+   involves creating a Java stacktrace it is very expensive. Caching an
+   exception like this kills the usability of the trace, but it is faster!
+   VisitFailure was adapted to keep a message for itself, such that a
+   static object can be updated with a new message once in a while just
+   before throwing (prototype design).
+ * package: bumped version to 0.5
+
 Mon Aug 15 15:33:29 CEST 2005 <kooiker@cwi.nl>
  * init-package.m4: fix underquoted GLT_INIT_PACKAGE macro
 

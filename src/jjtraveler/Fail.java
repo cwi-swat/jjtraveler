@@ -1,34 +1,36 @@
 package jjtraveler;
 
 /**
- * <code>x.accept(Fail)</code> always raises a VisitFailure exception. 
+ * <code>x.accept(Fail)</code> always raises a VisitFailure exception.
  * <p>
  * Basic visitor combinator without arguments, that always fails.
  * <p>
- * Test case documentation:
- * <a href="FailTest.java">FailTest</a>
+ * Test case documentation: <a href="FailTest.java">FailTest</a>
  */
 
 public class Fail implements Visitor {
+	/* Constructing exceptions is very expensive because a 
+	 * stacktrace is generated. We store a static
+	 * reference to a reusable exception here, making the
+	 * stacktrace unusable, but at least it is fast!
+	 */
+	static private VisitFailure failure = new VisitFailure();
 
-    private String message;
-    
-    /** 
-     * Construct Fail combinator with empty failure message.
-     */
-    public Fail() { 
-      this.message = ""; 
-    }
-    /**
-     * Construct Fail combinator with a failure message to be passed to the
-     * VisitFailure that it throws.
-     */
-    public Fail(String message) {
-      this.message = message;
-    }
+	/**
+	 * Construct Fail combinator with empty failure message.
+	 */
+	public Fail() {
+	}
 
-    public Visitable visit(Visitable any) throws VisitFailure {
-	throw new VisitFailure(message);
-    }
+	/**
+	 * Construct Fail combinator with a failure message to be passed to the
+	 * VisitFailure that it throws.
+	 */
+	public Fail(String message) {
+		failure.setMessage(message);
+	}
 
+	public Visitable visit(Visitable any) throws VisitFailure {
+		throw failure;
+	}
 }

@@ -14,25 +14,31 @@ import jjtraveler.Visitable;
  */
 
 public class FailAtNodes implements jjtraveler.Visitor {
-    Set visitables = new HashSet();
+	/*
+	 * caching a VisitFailure for efficiency (preventing generation of a
+	 * stacktrace)
+	 */
+	private static VisitFailure failure = new VisitFailure();
 
-    public FailAtNodes(Collection visitables) {
-	this.visitables.addAll(visitables);
-    }
+	Set visitables = new HashSet();
 
-    public FailAtNodes(Visitable n) {
-	visitables.add(n);
-    }
+	public FailAtNodes(Collection visitables) {
+		this.visitables.addAll(visitables);
+	}
 
-    public FailAtNodes(Visitable n1, Visitable n2) {
-	visitables.add(n1);
-	visitables.add(n2);
-    }
+	public FailAtNodes(Visitable n) {
+		visitables.add(n);
+	}
 
-    public Visitable visit(Visitable x) throws VisitFailure {
-	if (visitables.contains(x)) {
-	    throw (new VisitFailure());
-	} 
-	return x;
-    }
+	public FailAtNodes(Visitable n1, Visitable n2) {
+		visitables.add(n1);
+		visitables.add(n2);
+	}
+
+	public Visitable visit(Visitable x) throws VisitFailure {
+		if (visitables.contains(x)) {
+			throw failure;
+		}
+		return x;
+	}
 }

@@ -5,21 +5,25 @@ package jjtraveler;
  */
 
 public class Not implements Visitor {
+	/*
+	 * caching a VisitFailure for efficiency (preventing generation of a
+	 * stacktrace)
+	 */
+	private static VisitFailure failure = new VisitFailure();
 
-    Visitor v;
+	Visitor v;
 
-    public Not(Visitor v) {
-	this.v = v;
-    }
-
-    public Visitable visit(Visitable x) throws VisitFailure {
-	try {
-	    v.visit(x);
+	public Not(Visitor v) {
+		this.v = v;
 	}
-	catch (VisitFailure f) {
-	    return x;
+
+	public Visitable visit(Visitable x) throws VisitFailure {
+		try {
+			v.visit(x);
+		} catch (VisitFailure f) {
+			return x;
+		}
+		throw failure;
 	}
-	throw new VisitFailure();
-    }
 
 }

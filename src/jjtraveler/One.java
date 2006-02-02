@@ -13,6 +13,11 @@ package jjtraveler;
  */
 
 public class One implements Visitor {
+	/*
+	 * caching a VisitFailure for efficiency (preventing generation of a
+	 * stacktrace)
+	 */
+	private static VisitFailure failure = new VisitFailure();
 
     public Visitor v;
 
@@ -27,7 +32,7 @@ public class One implements Visitor {
           return any.setChildAt(i,v.visit(any.getChildAt(i))); 
         } catch(VisitFailure f) { }
       }
-      throw new VisitFailure();
+      throw failure;
     }
 
 }
