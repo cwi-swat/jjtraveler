@@ -6,7 +6,8 @@ ACLOCAL_FLAGS = -I .
 
 JARFILE = jjtraveler-${VERSION}.jar
 JARFILE_ENV = JAR=${JARFILE}
-JARS_ENV = JARS=${EXTERNAL_JARS}:${top_srcdir}/jars/junit.jar
+JUNIT = ${top_srcdir}/jars/junit.jar
+ANT_ENV = JARS=${EXTERNAL_JARS}:${JUNIT} CLASSPATH=${JUNIT}
 PACKAGE_VERSION = PKG_VERSION=${VERSION}
 
 data_DATA = ${JARFILE}
@@ -26,13 +27,13 @@ CLEANFILES = ${PACKAGE}-${VERSION}.pkg
 
 if MAINTAINER_MODE
 ${JARFILE}:
-	${JARS_ENV} ${JARFILE_ENV} ant dist
+	${ANT_ENV} ${JARFILE_ENV} ant dist
 
 check:
-	${JARS_ENV} ${JARFILE_ENV} ant check
+	${ANT_ENV} ${JARFILE_ENV} ant check
 
 doc:
-	${JARS_ENV} ${PACKAGE_VERSION} ant doc
+	${ANT_ENV} ${PACKAGE_VERSION} ant doc
 
 clean-local:
 	${JARFILE_ENV} ant clean

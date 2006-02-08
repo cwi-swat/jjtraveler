@@ -1,5 +1,9 @@
 # $Id$
 
+Wed Feb  8 11:33:50 CET 2006 <{jong,kooiker}@cwi.nl>
+ * Makefile.am:
+   - Added CLASSPATH to ANT_ENV which includes junit.jar
+
 Thu Feb  2 14:30:19 CET 2006 <jurgenv@cwi.nl>
  * src/jjtraveler/{Fail.java,FailAtNodes.java,NodeVisitor.java,Not.java,One.java
 ,Some.java,VisitFailure.java}: these classes now all keep a static reference
