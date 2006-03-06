@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo "__PREFIX__/share/jjtraveler-__VERSION__.jar"
+echo "__PREFIX__/share/JJTraveler/jjtraveler-__VERSION__.jar"
 

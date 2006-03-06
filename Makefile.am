@@ -20,14 +20,18 @@ EXTRA_DIST = \
 	build.xml \
 	${JARFILE}
 
+pkgdata_DATA = ${JARFILE}
+
 ${PACKAGE}-${VERSION}.pkg: package Makefile
 	cp $< $@
 
 CLEANFILES = ${PACKAGE}-${VERSION}.pkg
 
 if MAINTAINER_MODE
-${JARFILE}:
+${JARFILE}: dummy
 	${ANT_ENV} ${JARFILE_ENV} ant dist
+
+dummy:
 
 check:
 	${ANT_ENV} ${JARFILE_ENV} ant check
