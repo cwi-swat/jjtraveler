@@ -4,7 +4,7 @@ Mon Mar  6 10:14:35 CET 2006 <kooiker@cwi.nl>
  * Makefile.am:
    - Add pkgdata_DATA to install the .jar file into JJTraveler directory
  * scripts/jjtraveler-config.sh.src:
-   - Addept to use new install directory
+   - Adapt to use new install directory
 
 Wed Feb  8 11:33:50 CET 2006 <{jong,kooiker}@cwi.nl>
  * Makefile.am:
