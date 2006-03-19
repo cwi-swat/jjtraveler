@@ -1,5 +1,11 @@
 # $Id$
 
+Sun Mar 19 11:32:16 CET 2006 <kooiker@cwi.nl>
+ * scripts/Makefile.am: 
+   - Make (> 3.80) makes a distinction between " and '. See |make info| for 
+     more details. Therefore the |sed| command needs to be quoted with " to
+     prevent the line continuation character to be passed to the sed command.
+
 Mon Mar  6 10:14:35 CET 2006 <kooiker@cwi.nl>
  * Makefile.am:
    - Add pkgdata_DATA to install the .jar file into JJTraveler directory
