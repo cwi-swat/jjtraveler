@@ -1,5 +1,9 @@
 # $Id$
 
+Thu Jun  8 13:23:59 CEST 2006 <gerco@cwi.nl>
+ * src/jjtraveler/VisitFailure.java:
+   - Add a UID required for serialization.
+ 
 Sun Mar 19 11:32:16 CET 2006 <kooiker@cwi.nl>
  * scripts/Makefile.am: 
    - Make (> 3.80) makes a distinction between " and '. See |make info| for 

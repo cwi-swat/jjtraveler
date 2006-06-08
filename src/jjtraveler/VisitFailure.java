@@ -7,6 +7,8 @@ package jjtraveler;
  */
 
 public class VisitFailure extends Exception {
+	private static final long serialVersionUID = -1190261403667634678L;
+
 	private String message;
 
 	public VisitFailure() {
