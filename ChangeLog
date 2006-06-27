@@ -1,5 +1,8 @@
 # $Id$
 
+Tue Jun 27 15:43:16 CEST 2006 <jurgenv@cwi.nl>
+ * doc: added generation of doxygen site in MAINTAINER_MODE
+
 Thu Jun  8 13:23:59 CEST 2006 <gerco@cwi.nl>
  * src/jjtraveler/VisitFailure.java:
    - Add a UID required for serialization.

@@ -1,6 +1,6 @@
 # $Id$
 
-SUBDIRS	= scripts
+SUBDIRS	= scripts doc
 
 ACLOCAL_FLAGS = -I .
 
@@ -36,8 +36,9 @@ dummy:
 check:
 	${ANT_ENV} ${JARFILE_ENV} ant check
 
+.PHONY: doc
 doc:
-	${ANT_ENV} ${PACKAGE_VERSION} ant doc
+	cd doc && $(MAKE) $(AM_MAKE_FLAGS) doc
 
 clean-local:
 	${JARFILE_ENV} ant clean
