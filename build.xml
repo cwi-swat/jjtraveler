@@ -35,10 +35,10 @@
   </target>
 
   <target name="doc">
-    <mkdir dir="${doc}"/>
+    <mkdir dir="${doc}/html"/>
     <javadoc 
       sourcepath="${src}"
-      destdir="${doc}"
+      destdir="${doc}/html"
       author="true"
       overview="${src}/overview.html"
       packagenames="jjtraveler,jjtraveler.test,jjtraveler.graph"
@@ -48,7 +48,7 @@
       windowtitle="JJTraveler Documentation">
       <classpath refid="project.classpath"/>
     </javadoc>
-    <replace file="${doc}/overview-summary.html" token="__VERSION__" value="${env.PKG_VERSION}"/>	
+    <replace file="${doc}/html/overview-summary.html" token="__VERSION__" value="${env.PKG_VERSION}"/>	
   </target> 
 
   <target name="dist" depends="build">

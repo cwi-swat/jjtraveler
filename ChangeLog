@@ -1,5 +1,9 @@
 # $Id$
 
+Wed Jun 28 17:19:28 CEST 2006 <jurgenv@cwi.nl>
+ * doc: changed generation of doxygen to generation of javadoc, because
+   the doxygen documentation is not as good.
+
 Tue Jun 27 15:43:16 CEST 2006 <jurgenv@cwi.nl>
  * doc: added generation of doxygen site in MAINTAINER_MODE
 
