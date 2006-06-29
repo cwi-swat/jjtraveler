@@ -1,5 +1,11 @@
 # $Id$
 
+Thu Jun 29 16:33:09 CEST 2006 <{storm,jurgenv}@cwi.nl>
+ * Makefile.am,java_make_rules: attempt at making JJTraveler package
+   look more like the other packages (in terms of javadoc and java_make_rules)
+   So far, JJTraveler is the only package with JUNIT tests, so after this
+   the other packages should look more like JJTraveler.
+
 Wed Jun 28 17:19:28 CEST 2006 <jurgenv@cwi.nl>
  * doc: changed generation of doxygen to generation of javadoc, because
    the doxygen documentation is not as good.

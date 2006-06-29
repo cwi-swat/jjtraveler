@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="JJTraveler" default="build" basedir=".">
-  <property name="src" location="src"/>
-  <property name="build" location="build"/>
-  <property name="testresults" location="testresults"/>
-  <property name="dist" location="dist"/>
-  <property name="doc" location="doc"/> 
+
+<project>
   <property environment="env"/>
+  <property name="build" location="build"/>
+  <property name="dist" location="dist"/>
+  <property name="src" value="src"/>
+  <property name="resources" value="resources"/>
+  <property name="doc" location="doc/html"/> 
+  <property environment="env"/>
+
   <path id="project.classpath">
-    <pathelement path="${env.JARS}"/>
+    <pathelement path="${env.LOCAL_JARS}"/>
+    <pathelement path="${env.EXTERNAL_JARS}"/>
   </path>
 
   <target name="build">
@@ -16,7 +20,7 @@
       <src path="${src}"/>
       <classpath refid="project.classpath"/>
     </javac>
-  </target>    
+  </target>
 
   <target name="check" depends="build">
     <mkdir dir="${testresults}"/>
@@ -34,41 +38,50 @@
     </junit>
   </target>
 
-  <target name="doc">
-    <mkdir dir="${doc}/html"/>
-    <javadoc 
-      sourcepath="${src}"
-      destdir="${doc}/html"
-      author="true"
-      overview="${src}/overview.html"
-      packagenames="jjtraveler,jjtraveler.test,jjtraveler.graph"
-      private="true"
-      use="true"
-      version="true"
-      windowtitle="JJTraveler Documentation">
-      <classpath refid="project.classpath"/>
-    </javadoc>
-    <replace file="${doc}/html/overview-summary.html" token="__VERSION__" value="${env.PKG_VERSION}"/>	
-  </target> 
-
   <target name="dist" depends="build">
     <mkdir dir="${dist}/src"/>
+    <copy todir="${dist}/resources" failonerror="false">
+      <fileset dir="${resources}"/>
+    </copy>
+    <copy todir="${dist}">
+      <fileset dir="${build}"/>
+    </copy>
     <copy todir="${dist}/src">
       <fileset dir="${src}" includes="**/*.java"/>
     </copy>
     <jar destfile="${env.JAR}">
-      <fileset dir="${build}">
-	<exclude name="**/TestAll.class,**/*Test.class,**/*Test$$*.class"/>
-      </fileset>
-      <fileset dir="${dist}" includes="**/*.java"/>
+      <manifest>
+	<attribute name="Main-Class" value="${env.MAIN_CLASS}"/>
+      </manifest>
+      <fileset dir="${dist}"/>
     </jar>
+  </target>
+
+
+  <target name="doc">
+    <mkdir dir="${doc}"/>
+    <javadoc 
+      sourcepath="${src}"
+      destdir="${doc}"
+      author="true"
+      overview="${src}/overview.html"
+      packagenames="${env.JAVA_PACKAGES}"
+      private="true"
+      use="true"
+      linksource="yes"
+      version="true"
+      windowtitle="${env.PACKAGE}"
+    >
+      <classpath refid="project.classpath"/>
+    </javadoc>
+    <replace file="${doc}/overview-summary.html" token="__VERSION__" value="${env.PKG_VERSION}"/>	
   </target> 
+
 
   <target name="clean">
     <delete dir="${build}"/>
-    <delete dir="${doc}"/>
     <delete dir="${dist}"/>
-    <delete dir="${testresults}"/>
+    <delete dir="${doc}"/>
     <delete file="${env.JAR}"/>
   </target>
 

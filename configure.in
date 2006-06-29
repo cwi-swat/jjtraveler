@@ -31,6 +31,5 @@ AC_CONFIG_FILES([
   Makefile 
   VERSION 
   scripts/Makefile
-  doc/Makefile
 ])
 AC_OUTPUT
