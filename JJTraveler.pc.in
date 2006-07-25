@@ -1,0 +1,9 @@
+prefix=@prefix@
+
+Name: JJTraveler
+Description: A visitor combinator framework for Java
+Version: 0.5
+JarFile=jjtraveler-0.5.jar
+Packages=jjtraveler,jjtraveler.graph,jjtraveler.reflective,jjtraveler.test
+LocalJars=jars/junit.jar
+TestClass=TestAll

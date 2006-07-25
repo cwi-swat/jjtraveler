@@ -1,0 +1,13 @@
+AC_REVISION($Id$)
+
+AC_INIT
+META_SETUP
+META_JAVA_SETUP
+
+AC_PATH_PROGS(SH, sh)
+
+AC_CONFIG_FILES([
+  Makefile 
+  scripts/Makefile
+])
+AC_OUTPUT
