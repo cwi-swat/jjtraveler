@@ -1,5 +1,5 @@
 prefix=@prefix@
-
+Maintainers=A.vanDeursen@ewi.tudelft.nl,jurgenv@cwi.nl,Joost.Visser@di.uminho.pt
 Name: JJTraveler
 Description: A visitor combinator framework for Java
 Version: 0.5
