@@ -5,6 +5,7 @@ Description: A visitor combinator framework for Java
 Version: 0.5
 JarFile=jjtraveler.jar
 Jars=${prefix}/share/${JarFile}
+#uninstalled UninstalledJars=@abs_top_srcdir@/${JarFile}
 Packages=jjtraveler,jjtraveler.graph,jjtraveler.reflective,jjtraveler.test
 LocalJars=jars/junit.jar
 TestClass=TestAll
