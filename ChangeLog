@@ -1,6 +1,5 @@
 # $Id$
 
-
 Tue Jul 25 09:16:05 CEST 2006 <{kooiker,jurgenv}@cwi.nl,martin.bravenboer@gmail.com>
  * **: adapted package to use the standard meta-build-env.
  * *.jar: removed jar from version control
