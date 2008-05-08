@@ -1,0 +1,29 @@
+Version 0.3 released: 2002-01-08
+	* Improved documentation
+	* Added subpackages:
+		- reflective, with visitors that can themselves be visited
+		- graph, with visitors for graph operations
+	* Removed bug in One combinator.
+
+Version 0.2 released: 2001-11-20
+	* All visitors are now _returning_ visitors, i.e. the visit method
+	  now has a Visitable as return value.
+	* The original, non-returning visitor is now called VoidVisitor.
+	  VoidVisitor is a subtype of Visitor that adds the voidVisit
+	  method, an implements the visit method in terms of it.
+	* Documentation for JJTraveler is now automically generated
+	  with javadoc.
+	* Added many unit tests, using the JUnit testing tools.
+	* Many new combinators added.
+
+
+Version 0.1 released: 2001-06-28
+	* The JJTraveler package contains the visitor combinator framework
+          previously included in the JJForester distribution, with some
+          modifications:
+            - The names AnyVisitor, AnyVisitable, visit_Any, getKid,
+              and numberOfKids, have been changed into Visitor, Visitable,
+              visit, getChildAt, and getChildCount.
+            - The method setChildAt has been added to the Visitable
+              interface, and the method accept_Any has been removed.
+

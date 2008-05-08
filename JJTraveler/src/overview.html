@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+  <head>
+    <title>Documentation for JJTraveler</title>
+  </head>
+  <body bgcolor="white">
+
+    This document is the generated API specification for JJTraveler,
+     version __VERSION__.
+    JJTraveler is a combination of a framework and a library that
+    provide generic visitor combinators for Java.
+
+    <h3>What are visitor combinators?</h3>
+    The notion of visitor combinators was first introduced in
+    <em>Visitor Combination and Traversal Control</em> (Joost Visser,
+    OOPSLA 2001). Visitor combinators are small, reusable classes that
+    implement a <em>generic</em> visitor interface. Here, `generic' 
+    means: independent of any specific class hierarchy. Each combinator
+    captures a basic piece of functionality. They can be composed in 
+    different constellations to build more complex visitors.
+
+    <h3>What is JJTraveler?</h3>
+    JJTraveler provides an implementation of generic visitor combinators
+    for Java. JJTraveler consists of a framework and a library. The 
+    framework provides some interfaces that a user must instantiate in
+    order to take advantage of JJTraveler. The library contains a collection
+    of predefined visitor combinators for a range of tasks.
+
+    <h3>How do I use JJTraveler?</h3>
+    To use JJTraveler, you first have to instantiate JJTraveler's
+    framework for the class-hierarchy of your application. This means
+    that you have to supply implementations of JJTraveler's generic
+    interfaces <code>Visitable</code> and <code>Visitor</code>.
+    <p>
+    After instantiation of JJTraveler's framework, you can reuse the
+    combinators in its library. Such reuse can take several forms. Firsly,
+    you can reuse the generic combinators of the library <em>as-is</em>, 
+    and apply them direcly to the objects in your application. Secondly, 
+    you can <em>specialize</em> the generic combinators with behaviour 
+    that is specific for some classes in your application. For those classes
+    for which you do not implement specific behaviour, the generic behaviour
+    of the combinators you specialize is reused. Thirdly, you can compose
+    compound visitors by passing generic and specific visitors combinators
+    as arguments to each other.
+    
+
+</body>
+</html>

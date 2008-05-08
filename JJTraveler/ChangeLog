@@ -1,0 +1,218 @@
+# $Id$
+
+Tue Jul 25 09:16:05 CEST 2006 <{kooiker,jurgenv}@cwi.nl,martin.bravenboer@gmail.com>
+ * **: adapted package to use the standard meta-build-env.
+ * *.jar: removed jar from version control
+
+Thu Jun 29 16:33:09 CEST 2006 <{storm,jurgenv}@cwi.nl>
+ * Makefile.am,java_make_rules: attempt at making JJTraveler package
+   look more like the other packages (in terms of javadoc and java_make_rules)
+   So far, JJTraveler is the only package with JUNIT tests, so after this
+   the other packages should look more like JJTraveler.
+
+Wed Jun 28 17:19:28 CEST 2006 <jurgenv@cwi.nl>
+ * doc: changed generation of doxygen to generation of javadoc, because
+   the doxygen documentation is not as good.
+
+Tue Jun 27 15:43:16 CEST 2006 <jurgenv@cwi.nl>
+ * doc: added generation of doxygen site in MAINTAINER_MODE
+
+Thu Jun  8 13:23:59 CEST 2006 <gerco@cwi.nl>
+ * src/jjtraveler/VisitFailure.java:
+   - Add a UID required for serialization.
+ 
+Sun Mar 19 11:32:16 CET 2006 <kooiker@cwi.nl>
+ * scripts/Makefile.am: 
+   - Make (> 3.80) makes a distinction between " and '. See |make info| for 
+     more details. Therefore the |sed| command needs to be quoted with " to
+     prevent the line continuation character to be passed to the sed command.
+
+Mon Mar  6 10:14:35 CET 2006 <kooiker@cwi.nl>
+ * Makefile.am:
+   - Add pkgdata_DATA to install the .jar file into JJTraveler directory
+ * scripts/jjtraveler-config.sh.src:
+   - Adapt to use new install directory
+
+Wed Feb  8 11:33:50 CET 2006 <{jong,kooiker}@cwi.nl>
+ * Makefile.am:
+   - Added CLASSPATH to ANT_ENV which includes junit.jar
+
+Thu Feb  2 14:30:19 CET 2006 <jurgenv@cwi.nl>
+ * src/jjtraveler/{Fail.java,FailAtNodes.java,NodeVisitor.java,Not.java,One.java
+,Some.java,VisitFailure.java}: these classes now all keep a static reference
+   reference to a VisitFailure. Since each creation of a VisitFailure 
+   involves creating a Java stacktrace it is very expensive. Caching an
+   exception like this kills the usability of the trace, but it is faster!
+   VisitFailure was adapted to keep a message for itself, such that a
+   static object can be updated with a new message once in a while just
+   before throwing (prototype design).
+ * package: bumped version to 0.5
+
+Mon Aug 15 15:33:29 CEST 2005 <kooiker@cwi.nl>
+ * init-package.m4: fix underquoted GLT_INIT_PACKAGE macro
+
+Wed May 25 15:54:53 CEST 2005 <kooiker@cwi.nl>
+ * src/*.java:
+   - Solved Eclipse warnings about unnecessary else en throws
+
+Wed Apr 27 10:27:04 CEST 2005 <kooiker@cwi.nl>
+ * Create JDK 1.4 compatible jars
+
+Mon Apr 11 15:24:46 CEST 2005 <kooiker@cwi.nl>
+ * build.xml:
+   - add debug information to compiled java sources
+
+Fri Apr  8 14:24:26 CEST 2005 <kooiker@cwi.nl>
+ * use Ant
+ * To build the jar you have to use --enable-maintainer-mode
+
+2004-09-01  pem  <pem@polly.loria.fr>
+
+	* src/jjtraveler/All.java:  use the result of setChildAt in visit methods
+	* src/jjtraveler/Some.java: to deal with functional data-structures (like ATerms)
+
+Wed Apr 14 14:48:46 CEST 2004 <jurgenv@cwi,nl>
+	* Added junit.jar to distribution
+	* Moved all test java files back to the source packages 
+	* Removed one level of generation of configure.in scripts
+	  (old-style XT style, now in Meta-Environment style)
+
+Tue Feb 10, Arie.van.Deursen@cwi.nl
+	* Added Child and Descendant combinators and corresponding
+	  test cases.
+
+Tue Feb 10 15:27:49 CET 2004 <m336@cwi.nl>
+ * upgrade auto* to: autoconf 2.59, automake 1.7.9, libtool 1.5.2
+
+Mon Feb  2 14:42:35 CET 2004 <{jong,kooiker}@cwi.nl>
+	* Makefile.am: add generated package file to CLEANFILES
+	* .../util/test/Makefile.am: EXTRA_JAVA -> EXTRA_DIST or
+	  TestAll.java doesn't get added in the distribution
+	* After previous two fixes, several more came up:
+	  - had to add all java_JAVA contents to EXTRA_DIST or
+	    .java files won't end up in distribution.
+	  - suspended installation of html (javadoc) files: these
+	    were installed using a "manual" cp (rather than a proper
+	    automake installation) and were never *un*installed which
+	    1.6 automake doesn't like.
+
+
+2004-01-30 Jurgen.Vinju@cwi.nl
+	* Bumped to 0.4.3
+	* Made configure.in, reconf and Makefile.am's automake-1.6 compliant
+
+2003-09-26 Jurgen.Vinju@cwi.nl
+	* Release 0.4.2
+
+2003-08-05 Jurgen.Vinju@cwi.nl
+	* Separated out all JUnit tests into test directories.
+
+2003-08-01 Jurgen.Vinju@cwi.nl
+	* Reactivated JUnit tests. If JUnit is found by the configure script,
+	  then the tests are activated. If JUnit is not found, the tests
+	  are deactivated and a warning message is printed.
+	* Set version to 0.4.2
+
+2003-07-31 Jurgen.Vinju@cwi.nl
+	* Removed JUnit check to make one release of the Meta-Environment
+          build without the JUnit in the CLASSPATH
+	* JUnit tests are disabled for the moment
+
+2003-07-18 Jurgen.Vinju@cwi.nl
+	* Fixed some problems with the configure scripts on SunOs
+
+2003-07-17 Jurgen.Vinju@cwi.nl
+	* Checking for JUnit in configure.in strengtened. If JUnit is not
+	  found, the configure process fails with an error message. The
+	  user should then at least have a "." and the path to a junit.jar
+	* Set version to 0.4.1
+       
+2003-07-03 Jurgen.Vinju@cwi.nl
+	* Changed location of JJTraveler distribution to 
+          http://www.cwi.nl/projects/MetaEnv/jjtraveler
+
+2003-04-24 Jurgen.Vinju@cwi.nl
+	* Released version 0.4
+
+2003-03-20 Jurgen.Vinju@cwi.nl
+	* Added a script jjtraveler-config that prints the path to the jar file
+	  that this packages builds. This script can/will be used by other 
+	  packages for CLASSPATH construction.
+	* Added automatic construction and installation of a jar file:
+          jjtraveler-<VERSION>.jar
+      
+2002-02-11 Joost.Visser@cwi.nl
+	* Added support to Logger for computing elapsed time.
+
+2001-12-10 Joost.Visser@cwi.nl
+	* Moved several graph-related classes from subpackage util to
+	  subpackage graph.
+	
+2001-11-28 Joost.Visser@cwi.nl
+	* Started subpackage "graph" which contains combinators for
+	  operating on (non-tree) shaped graph structures.
+	
+2001-11-28 Joost.Visser@cwi.nl
+	* Improved documentation by (i) adding package overview files, and
+ 	  (ii) adding method and class comments.
+	* Created a reflective visitor combinator WrapLog that visits a 
+	  visitor and wraps it into a LogVisitor.
+	
+2001-11-28 Joost.Visser@cwi.nl
+	* Started subpackage "reflective" which contains classes and
+	  interfaces for visiting visitors themselves.
+
+2001-11-20 Joost.Visser@cwi.nl
+	* Released version 0.2 and bumped to 0.3a.
+	
+2001-11-12 Joost.Visser@cwi.nl
+	* Started a new subpackage "util", and added some combinators
+	  for constructing graphs.
+	
+2001-10-24 Joost.Visser@cwi.nl 
+	* Added visitor combinator Backtrack(StateVisitor), which saves
+   	  the state of its argument visitor before executing it, and
+ 	  restores this state afterwards. Note that the argument visitor
+ 	  should clone its state before modifying it, otherwise state
+ 	  restoration will not work properly.
+
+2001-10-24 Joost.Visser@cwi.nl, Arie.van.Deursen@cwi.nl
+	* Added subpackage "test", containing unit tests for the library
+	  combinators. These tests make use of a class Node of mock objects
+	  that log invocations of their methods.
+	* "data" subdirectories are no longer required.
+
+2001-07-02 Joost Visser <Joost.Visser@cwi.nl>
+	 * "Not" combinator added.
+         * Visitor fields in visitor combinators are now public, to make
+	   extending them possible.
+
+2001-06-29 Joost Visser <Joost.Visser@cwi.nl>
+         * Changed visitors into _returning_ visitors, i.e. the
+ 	   visit method now has a Visitable return value. 
+	   The original, non-returning visitor is now called VoidVisitor.
+ 	   VoidVisitor is a subtype of Visitor that adds the voidVisit
+ 	   method, and implements the visit method in terms of it.
+	 * Documentation for JJTraveler is now automically generated
+	   with javadoc.
+
+2001-06-28 Joost Visser <Joost.Visser@cwi.nl>
+         * Released version 0.1 and bumped to 0.2a.
+	
+2001-06-27 Joost Visser <Joost.Visser@cwi.nl>
+         * Added explicit constructor definitions to the class
+ 	   VisitFailure.
+	
+2001-06-06 Joost Visser <Joost.Visser@cwi.nl>
+         * Created a separate package for JJTraveler, the visitor
+	   combinator framework previously included in the JJForester
+	   distribution.
+	 * AnyVisitor and AnyVisitable are now called Visitor and
+	   Visitable.
+ 	 * The accept_Any methods has been removed from Visitable since
+ 	   one can always call Visitor.visit_Any directly, iso via
+	   accept_Any.
+	 * The methods visit_Any, getKid, and numberOfKids have been
+	   renamed to visit, getChildAt, and getChildCount. These names
+	   are inspired by javax.swing.tree.TreeNode.
+
