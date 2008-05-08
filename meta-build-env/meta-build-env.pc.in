@@ -1,0 +1,8 @@
+prefix=@prefix@
+Maintainers=martin.bravenboer@gmail.com,jurgenv@cwi.nl,kooiker@cwi.nl,storm@cwi.nl
+Name: meta-build-env
+Description: Standard build environment for Meta-Environment packages
+Version: 0.1
+Libs: 
+Cflags: 
+Owner: jurgenv@cwi.nl
